@@ -1,0 +1,6 @@
+module Pods_Quessly_QuesslyUITests {
+  umbrella header "Pods-Quessly-QuesslyUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

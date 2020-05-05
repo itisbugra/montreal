@@ -1,0 +1,29 @@
+PODS:
+  - Down (0.9.2)
+  - GRMustache.swift (4.0.1)
+  - NSLogger (1.9.7):
+    - NSLogger/ObjC (= 1.9.7)
+  - NSLogger/ObjC (1.9.7)
+  - NSLogger/Swift (1.9.7):
+    - NSLogger/ObjC
+
+DEPENDENCIES:
+  - Down
+  - GRMustache.swift
+  - NSLogger
+  - NSLogger/Swift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Down
+    - GRMustache.swift
+    - NSLogger
+
+SPEC CHECKSUMS:
+  Down: 1f6a14846dff45ae8e7e4334b4e386a5fd3b2412
+  GRMustache.swift: a6436504284b22b4b05daf5f46f77bd3fe00a9a2
+  NSLogger: cf3013a4fba189f631f07e6c3d5b8ce2b209654b
+
+PODFILE CHECKSUM: a30cd9719bc71b89aadf2d7088076a4e0f6f6551
+
+COCOAPODS: 1.5.2
