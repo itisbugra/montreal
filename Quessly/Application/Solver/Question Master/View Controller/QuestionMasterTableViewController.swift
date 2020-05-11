@@ -21,7 +21,7 @@ class QuestionMasterTableViewController: UITableViewController {
     tableView.rowHeight = UITableView.automaticDimension
     tableView.estimatedRowHeight = 200
     
-    let titleView = QuestionMasterNavigationBarTitleView(frame: CGRect.zero)
+    let titleView = QuestionMasterNavigationBarTitleView(frame: .zero)
     titleView.contextLabel.text = "Lorem ipsum"
     titleView.identifierLabel.text = "#712374"
     
@@ -46,7 +46,7 @@ class QuestionMasterTableViewController: UITableViewController {
     RenderSizeCache.shared.flush()
   }
   
-  // MARK: - Table view data source
+  // MARK: - UITableViewDataSource
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 2
@@ -96,5 +96,19 @@ class QuestionMasterTableViewController: UITableViewController {
     default:
       return nil
     }
+  }
+  
+  //  MARK: - UITableViewDelegate
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if indexPath.section != 1 {
+      return
+    }
+  }
+  
+  //  MARK: - Unwind segues
+  
+  @IBAction func unwindToQuestionMasterTableViewController(segue: UIStoryboardSegue) {
+    //  Empty implementation
   }
 }

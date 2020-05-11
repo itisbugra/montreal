@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SessionQuestionsOverviewNavigationBarTitleView" customModule="Quessly" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="49s-2Y-Hdk"/>
+                <outlet property="linkLabel" destination="smX-ZK-QDx" id="plY-J3-oCr"/>
+                <outlet property="progressView" destination="iCx-6b-8wD" id="V2U-fc-RgQ"/>
+                <outlet property="timeRemainingLabel" destination="QN9-cx-fNM" id="hAT-fc-evR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QgP-0S-gjs">
+                    <rect key="frame" x="8" y="17.5" width="234" height="25"/>
+                    <subviews>
+                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iCx-6b-8wD">
+                            <rect key="frame" x="54.5" y="0.0" width="125" height="2"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="pk5-8e-BVA"/>
+                            </constraints>
+                        </progressView>
+                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 hour and 22 minutes remaining" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QN9-cx-fNM">
+                            <rect key="frame" x="31.5" y="9" width="171" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="16" id="jHX-iR-FbE"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to see session options" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smX-ZK-QDx">
+                    <rect key="frame" x="8" y="25.5" width="234" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="n8K-Wm-jiQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                    <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="smX-ZK-QDx" secondAttribute="trailing" constant="8" id="6o3-gn-aaY"/>
+                <constraint firstItem="iCx-6b-8wD" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="FR4-G6-cb3"/>
+                <constraint firstItem="QgP-0S-gjs" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Ptz-0K-LIE"/>
+                <constraint firstItem="QgP-0S-gjs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Vxx-YW-6qe"/>
+                <constraint firstItem="smX-ZK-QDx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="cUQ-dW-GlN"/>
+                <constraint firstAttribute="trailing" secondItem="QgP-0S-gjs" secondAttribute="trailing" constant="8" id="edd-p1-f21"/>
+                <constraint firstItem="smX-ZK-QDx" firstAttribute="firstBaseline" secondItem="QN9-cx-fNM" secondAttribute="firstBaseline" id="nW1-Gg-A06"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="131.8840579710145" y="417.85714285714283"/>
+        </view>
+    </objects>
+</document>

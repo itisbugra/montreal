@@ -9,6 +9,8 @@ class OptionContentTableViewCell: UITableViewCell {
   @IBOutlet weak var webView: WKWebView!
   @IBOutlet weak var activityIndicatorEnclosureView: UIView!
   @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+  @IBOutlet weak var selectionOverlayView: UIView!
+  @IBOutlet weak var checkmarkImageView: UIImageView!
   
   var delegate: OptionCustomContentTableViewCellDelegate? = nil
   var option: Question.Option! {
@@ -74,6 +76,16 @@ class OptionContentTableViewCell: UITableViewCell {
     
     contentHeight = nil
     loading = true
+  }
+  
+  //  MARK: - UITableView cell state
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+    
+    UIView.animate(withDuration: animated ? 0.5 : 0.001) {
+      self.selectionOverlayView.alpha = selected ? 1 : 0
+    }
   }
   
   //  MARK: - WKWebView render size caching

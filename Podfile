@@ -10,6 +10,8 @@ target 'Quessly' do
   pod 'GRMustache.swift'
   pod 'NSLogger'
   pod 'NSLogger/Swift'
+  pod 'Fakery'
+  pod 'PromiseKit'
   
   target 'QuesslyTests' do
     inherit! :search_paths

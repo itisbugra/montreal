@@ -81,9 +81,9 @@ class QuestionContentTableViewCell: UITableViewCell {
   
   private var loading = true {
     didSet {
-      self.activityIndicatorEnclosureView.isHidden = !loading
-      self.activityIndicatorEnclosureView.constraints.forEach { $0.isActive = loading }
-      self.webView.isHidden = loading
+      activityIndicatorEnclosureView.isHidden = !loading
+      activityIndicatorEnclosureView.constraints.forEach { $0.isActive = loading }
+      webView.isHidden = loading
       
       if loading, let constraint = self.webViewHeightConstraint {
         constraint.isActive = false

@@ -1,6 +1,8 @@
 import UIKit
 
 class QuestionMasterNavigationBarTitleView: UIView {
+  static let nibName = "QuestionMasterNavigationBarTitleView"
+  
   @IBOutlet var contentView: UIView!
   @IBOutlet weak var contextLabel: UILabel!
   @IBOutlet weak var identifierLabel: UILabel!
@@ -8,7 +10,7 @@ class QuestionMasterNavigationBarTitleView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    Bundle.main.loadNibNamed("QuestionMasterNavigationBarTitleView",
+    Bundle.main.loadNibNamed(QuestionMasterNavigationBarTitleView.nibName,
                              owner: self,
                              options: nil)
     
@@ -21,7 +23,7 @@ class QuestionMasterNavigationBarTitleView: UIView {
   required init?(coder: NSCoder) {
     super.init(coder: coder)
     
-    Bundle.main.loadNibNamed("QuestionMasterNavigationBarTitleView",
+    Bundle.main.loadNibNamed(QuestionMasterNavigationBarTitleView.nibName,
                              owner: self,
                              options: nil)
     

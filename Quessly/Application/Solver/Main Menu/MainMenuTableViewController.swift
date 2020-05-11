@@ -1,4 +1,5 @@
 import UIKit
+import UserNotifications
 
 /**
  Main menu of the application.
@@ -14,6 +15,298 @@ class MainMenuTableViewController: UITableViewController {
                     participantCount: 427,
                     timestamp: Date())
   ]
+  
+  let session = Session(questionSets: [
+    QuestionSet(name: "Mathematics", questions: [
+      Question(id: 1,
+               content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Question", withExtension: "html")!),
+                                         mimeType: .HTML(withMathJax: true)),
+               options: [
+                Question.Option(id: 1,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option1", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 2,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option2", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 3,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option3", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 4,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option4", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 5,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option5", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true)))]),
+      Question(id: 1,
+               content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Question", withExtension: "html")!),
+                                         mimeType: .HTML(withMathJax: true)),
+               options: [
+                Question.Option(id: 1,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option1", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 2,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option2", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 3,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option3", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 4,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option4", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 5,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option5", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true)))]),
+      Question(id: 1,
+               content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Question", withExtension: "html")!),
+                                         mimeType: .HTML(withMathJax: true)),
+               options: [
+                Question.Option(id: 1,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option1", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 2,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option2", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 3,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option3", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 4,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option4", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 5,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option5", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true)))]),
+      Question(id: 1,
+               content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Question", withExtension: "html")!),
+                                         mimeType: .HTML(withMathJax: true)),
+               options: [
+                Question.Option(id: 1,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option1", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 2,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option2", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 3,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option3", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 4,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option4", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 5,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option5", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true)))]),
+      Question(id: 1,
+               content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Question", withExtension: "html")!),
+                                         mimeType: .HTML(withMathJax: true)),
+               options: [
+                Question.Option(id: 1,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option1", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 2,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option2", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 3,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option3", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 4,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option4", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 5,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option5", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true)))]),
+      Question(id: 1,
+               content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Question", withExtension: "html")!),
+                                         mimeType: .HTML(withMathJax: true)),
+               options: [
+                Question.Option(id: 1,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option1", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 2,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option2", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 3,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option3", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 4,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option4", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 5,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option5", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true)))]),
+      Question(id: 1,
+               content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Question", withExtension: "html")!),
+                                         mimeType: .HTML(withMathJax: true)),
+               options: [
+                Question.Option(id: 1,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option1", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 2,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option2", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 3,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option3", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 4,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option4", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 5,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option5", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true)))]),
+      Question(id: 1,
+               content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Question", withExtension: "html")!),
+                                         mimeType: .HTML(withMathJax: true)),
+               options: [
+                Question.Option(id: 1,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option1", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 2,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option2", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 3,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option3", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 4,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option4", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 5,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option5", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true)))]),
+      Question(id: 1,
+               content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Question", withExtension: "html")!),
+                                         mimeType: .HTML(withMathJax: true)),
+               options: [
+                Question.Option(id: 1,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option1", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 2,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option2", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 3,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option3", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 4,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option4", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 5,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option5", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true)))]),
+      Question(id: 1,
+               content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Question", withExtension: "html")!),
+                                         mimeType: .HTML(withMathJax: true)),
+               options: [
+                Question.Option(id: 1,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option1", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 2,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option2", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 3,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option3", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 4,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option4", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 5,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option5", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true)))]),
+      Question(id: 1,
+               content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Question", withExtension: "html")!),
+                                         mimeType: .HTML(withMathJax: true)),
+               options: [
+                Question.Option(id: 1,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option1", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 2,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option2", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 3,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option3", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 4,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option4", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 5,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option5", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true)))]),
+      Question(id: 1,
+               content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Question", withExtension: "html")!),
+                                         mimeType: .HTML(withMathJax: true)),
+               options: [
+                Question.Option(id: 1,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option1", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 2,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option2", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 3,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option3", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 4,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option4", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 5,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option5", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true)))])
+    ]),
+    QuestionSet(name: "History", questions: [
+      Question(id: 1,
+               content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Question", withExtension: "html")!),
+                                         mimeType: .HTML(withMathJax: true)),
+               options: [
+                Question.Option(id: 1,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option1", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 2,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option2", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 3,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option3", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 4,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option4", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 5,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option5", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true)))]),
+      Question(id: 1,
+               content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Question", withExtension: "html")!),
+                                         mimeType: .HTML(withMathJax: true)),
+               options: [
+                Question.Option(id: 1,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option1", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 2,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option2", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 3,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option3", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 4,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option4", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 5,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option5", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true)))]),
+      Question(id: 1,
+               content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Question", withExtension: "html")!),
+                                         mimeType: .HTML(withMathJax: true)),
+               options: [
+                Question.Option(id: 1,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option1", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 2,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option2", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 3,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option3", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 4,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option4", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true))),
+                Question.Option(id: 5,
+                                content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Option5", withExtension: "html")!),
+                                                          mimeType: .HTML(withMathJax: true)))])
+    ])
+  ])
   
   let question = Question(id: 1,
                           content: FormattedContent(data: try! String(contentsOf: Bundle.main.url(forResource: "Question", withExtension: "html")!),
@@ -58,7 +351,7 @@ class MainMenuTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.navigationItem.hidesBackButton = true
+    navigationItem.hidesBackButton = true
   }
   
   // MARK: - Table view data source
@@ -72,7 +365,7 @@ class MainMenuTableViewController: UITableViewController {
     case 0:
       return upcomingSessions.count
     case 1:
-      return 2
+      return 4
     default:
       return 0
     }
@@ -101,6 +394,22 @@ class MainMenuTableViewController: UITableViewController {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         
         cell.textLabel?.text = "MathJax"
+        
+        return cell
+      }
+      
+      if indexPath.row == 2 {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        
+        cell.textLabel?.text = "Category Explorer"
+        
+        return cell
+      }
+      
+      if indexPath.row == 3 {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        
+        cell.textLabel?.text = "Session Overview"
         
         return cell
       }
@@ -139,6 +448,10 @@ class MainMenuTableViewController: UITableViewController {
         performSegue(withIdentifier: "showQuestion", sender: self)
       case 1:
         performSegue(withIdentifier: "showMathJaxTest", sender: self)
+      case 2:
+        performSegue(withIdentifier: "showCategoryExplorer", sender: self)
+      case 3:
+        performSegue(withIdentifier: "showSessionQuestionsOverview", sender: self)
       default:
         break
       }
@@ -151,30 +464,37 @@ class MainMenuTableViewController: UITableViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.identifier {
-    case "showUpcomingSessionDetail":
-      let viewController = segue.destination as! UpcomingSessionTableViewController
-      
-      viewController.delegate = self
     case "showQuestion":
       let viewController = segue.destination as! QuestionMasterTableViewController
       
       viewController.question = question
+    case "showSessionQuestionsOverview":
+      let viewController = segue.destination as! SessionQuestionsOverviewCollectionViewController
+      
+      viewController.session = session
     default:
       break
     }
   }
   
   @IBAction func unwindToMainMenuTableViewController(segue: UIStoryboardSegue) {
-    //  Empty implementation
-  }
-}
-
-extension MainMenuTableViewController : UpcomingSessionDetailTableViewControllerDelegate {
-  func willDismiss(_ upcomingSessionTableViewController: UpcomingSessionTableViewController) {
-    for cell in tableView.visibleCells {
-      cell.setSelected(false, animated: true)
+    if let customSegue = segue as? MainMenuUnwindSegue {
+      if customSegue.triggersUserNotificationConsent {
+        performPushNotificationConsentSegueIfNeeded(animated: true)
+      }
     }
+  }
+  
+  //  MARK: - Consent handling
+  
+  func performPushNotificationConsentSegueIfNeeded(animated: Bool) {
+    let userNotificationCenterManager = UserNotificationCenterManager.shared
     
-    tableView.reloadData()
+    userNotificationCenterManager.getAuthorizationStatus { status in
+      if status != .authorized {
+        self.performSegue(withIdentifier: "showPushNotificationConsent",
+                          sender: self)
+      }
+    }
   }
 }
