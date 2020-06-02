@@ -15,7 +15,7 @@ class UserNotificationCenterManager {
   
   func requestAuthorization(completion: ((Bool) -> Void)? = nil) {
     notificationCenter.getNotificationSettings { settings in
-      if settings.authorizationStatus != .authorized {
+      if settings.authorizationStatus == .notDetermined {
         self.notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
           guard error == nil else {
             fatalError("Error while requesting user notification authorization.")

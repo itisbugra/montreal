@@ -4,6 +4,31 @@ class SessionQuestionsOverviewCollectionViewController: UICollectionViewControll
   var session: Session!
   private var listingFilter: ListingFilter?
   
+  private var hiddenQuestionSets = [QuestionSet]() {
+    didSet {
+      //  Check whether set is changed
+      if oldValue == hiddenQuestionSets {
+        return
+      }
+      
+      defer {
+        //  Reload toolbar items after reloading collection view
+        reloadToolbarItems()
+      }
+      
+      //  Check whether it is a single element insert or removal
+      if abs(oldValue.count - hiddenQuestionSets.count) > 1 {
+        collectionView.reloadData()
+      } else {
+        //  Retrieve the added or removed question set
+        let questionSet = oldValue.count < hiddenQuestionSets.count ? hiddenQuestionSets.last! : oldValue.last!
+        
+        //  Reload the corresponding section with animation
+        collectionView.reloadSections(IndexSet(integer: session.questionSets.firstIndex(of: questionSet)!))
+      }
+    }
+  }
+  
   var titleView: SessionQuestionsOverviewNavigationBarTitleView!
   
   //  MARK: - Domain data structures
@@ -34,7 +59,7 @@ class SessionQuestionsOverviewCollectionViewController: UICollectionViewControll
     super.viewWillAppear(animated)
     
     navigationController!.setToolbarHidden(false, animated: true)
-    toolbarItems = [UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterButtonTapped(_:)))]
+    reloadToolbarItems()
     
     titleView.startAnimating()
   }
@@ -53,7 +78,10 @@ class SessionQuestionsOverviewCollectionViewController: UICollectionViewControll
   
   override func collectionView(_ collectionView: UICollectionView,
                                numberOfItemsInSection section: Int) -> Int {
-    return session.questionSets[section].questions.count
+    let questionSet = session.questionSets[section]
+    let isHidden = hiddenQuestionSets.contains(questionSet)
+    
+    return isHidden ? .zero : questionSet.questions.count
   }
   
   override func collectionView(_ collectionView: UICollectionView,
@@ -73,8 +101,12 @@ class SessionQuestionsOverviewCollectionViewController: UICollectionViewControll
       let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                        withReuseIdentifier: SetOverviewHeaderCollectionReusableView.identifier,
                                                                        for: indexPath) as! SetOverviewHeaderCollectionReusableView
+      let questionSet = session.questionSets[indexPath.section]
       
-      headerView.questionSet = session.questionSets[indexPath.section]
+      headerView.questionSet = questionSet
+      headerView.setExpansionState(expansionState: hiddenQuestionSets.contains(questionSet) ? .narrowed : .expanded,
+                                   animated: true)
+      headerView.delegate = self
       
       return headerView
     case UICollectionView.elementKindSectionFooter:
@@ -112,6 +144,20 @@ class SessionQuestionsOverviewCollectionViewController: UICollectionViewControll
     }
   }
   
+  //  MARK: - Toolbar handling
+  
+  func reloadToolbarItems() {
+    let expansionToolbarItem = hiddenQuestionSets.isEmpty ?
+      UIBarButtonItem(title: "Shrink All", style: .plain, target: self, action: #selector(shrinkAllButtonTapped(_:))) :
+      UIBarButtonItem(title: "Expand All", style: .plain, target: self, action: #selector(expandAllButtonTapped(_:)))
+    
+    toolbarItems = [
+      UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterButtonTapped(_:))),
+      UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+      expansionToolbarItem
+    ]
+  }
+  
   //  MARK: - Toolbar actions
   
   @objc func filterButtonTapped(_ toolbarItem: UIBarButtonItem) {
@@ -119,6 +165,14 @@ class SessionQuestionsOverviewCollectionViewController: UICollectionViewControll
                        animated: true) { filter in
       self.listingFilter = filter
     }
+  }
+  
+  @objc func expandAllButtonTapped(_ toolbarItem: UIBarButtonItem) {
+    hiddenQuestionSets = []
+  }
+  
+  @objc func shrinkAllButtonTapped(_ toolbarItem: UIBarButtonItem) {
+    hiddenQuestionSets = session.questionSets
   }
 }
 
@@ -133,7 +187,9 @@ extension SessionQuestionsOverviewCollectionViewController: UICollectionViewDele
     return CGSize(width: width / 3.00, height: width / 3.00)
   }
   
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      referenceSizeForFooterInSection section: Int) -> CGSize {
     return section != (numberOfSections(in: collectionView) - 1) ? CGSize.zero : CGSize(width: 50, height: 150)
   }
 }
@@ -143,5 +199,19 @@ extension SessionQuestionsOverviewCollectionViewController: SessionQuestionsOver
   
   func titleViewSelected(_ titleView: SessionQuestionsOverviewNavigationBarTitleView) {
     performSegue(withIdentifier: "showSessionInformation", sender: titleView)
+  }
+}
+
+extension SessionQuestionsOverviewCollectionViewController: SetOverviewHeaderCollectionReusableViewDelegate {
+  func sectionShouldChangeExpensionState(_ setOverviewHeaderCollectionReusableView: SetOverviewHeaderCollectionReusableView,
+                                         currentState state: SetOverviewHeaderCollectionReusableView.ExpansionState) {
+    let questionSet = setOverviewHeaderCollectionReusableView.questionSet!
+    
+    switch state {
+    case .expanded:
+      hiddenQuestionSets.append(questionSet)
+    case .narrowed:
+      hiddenQuestionSets.removeAll { $0 == questionSet }
+    }
   }
 }

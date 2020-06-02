@@ -2,9 +2,8 @@ import UIKit
 
 class QuestionMasterTableViewController: UITableViewController {
   var clientConfiguration = ClientConfiguration.shared
-  var question: Question!
   
-  var eliminatedOptions = [Question.Option]()
+  var question: Question!
   
   var visibleOptions: [(Int, Question.Option)] {
     return question
@@ -14,6 +13,45 @@ class QuestionMasterTableViewController: UITableViewController {
         return (question.options.firstIndex(of: option)!, option)
     }
   }
+  
+  var eliminatedOptions = [Question.Option]() {
+    didSet {
+      do {
+        reloadOptionsSection()
+      }
+    }
+  }
+  
+  var markedOption: Question.Option? = nil {
+    didSet {
+      guard markedOption != nil else {
+        return
+      }
+      
+      tableView.selectRow(at: nil,
+                          animated: false,
+                          scrollPosition: .none)
+    }
+  }
+  
+  var selectedOption: Question.Option? {
+    guard let indexPathForSelectedRow = tableView.indexPathForSelectedRow else {
+      return nil
+    }
+    
+    return visibleOptions[indexPathForSelectedRow.row].1;
+  }
+  
+  var submitBarButtonItem: UIBarButtonItem! = {
+    let barButtonItem = UIBarButtonItem(title: "Submit",
+                                        style: .done,
+                                        target: nil,
+                                        action: nil)
+    
+    barButtonItem.isEnabled = false
+    
+    return barButtonItem
+  }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -29,8 +67,9 @@ class QuestionMasterTableViewController: UITableViewController {
     
     navigationController!.setToolbarHidden(false, animated: true)
     toolbarItems = [
+      UIBarButtonItem(title: "Skip", style: .plain, target: nil, action: nil),
       UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-      UIBarButtonItem(title: "Skip", style: .plain, target: nil, action: nil)
+      submitBarButtonItem
     ]
   }
   
@@ -66,6 +105,7 @@ class QuestionMasterTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if (indexPath.section == 0) {
       let cell = tableView.dequeueReusableCell(withIdentifier: QuestionContentTableViewCell.identifier, for: indexPath) as! QuestionContentTableViewCell
+      
       cell.question = question
       cell.delegate = self
       
@@ -74,12 +114,12 @@ class QuestionMasterTableViewController: UITableViewController {
     
     if (indexPath.section == 1) {
       let cell = tableView.dequeueReusableCell(withIdentifier: OptionContentTableViewCell.identifier, for: indexPath) as! OptionContentTableViewCell
-      let enumerationProvider = enumeration(for: clientConfiguration.optionEnumerationSet)
-      let (order, option) = visibleOptions[indexPath.row]
+      let (_, option) = visibleOptions[indexPath.row]
       
       cell.option = option
-      cell.enumeratorLabel.text = try! enumerationProvider.symbol(for: order)
       cell.delegate = self
+      cell.setSelected(option == selectedOption, animated: false)
+      cell.setMarked(option == markedOption, animated: false)
       
       return cell
     }
@@ -100,9 +140,30 @@ class QuestionMasterTableViewController: UITableViewController {
   
   //  MARK: - UITableViewDelegate
   
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if indexPath.section != 1 {
-      return
+  override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    if indexPath.section == 1 {
+      let cell = tableView.cellForRow(at: indexPath)!
+      
+      if cell.isSelected {
+        cell.setSelected(false, animated: false)
+        
+        return nil
+      }
+    }
+    
+    return indexPath
+  }
+  
+  //  MARK: - Convenience methods
+  
+  func reloadOptionsSection() {
+    tableView.reloadSections(IndexSet(integer: 1),
+                             with: .none)
+    
+    if let selectedRowIndex = visibleOptions.map({ $0.1 }).firstIndex(of: selectedOption) {
+      tableView.selectRow(at: IndexPath(row: selectedRowIndex, section: 1),
+                          animated: false,
+                          scrollPosition: .none)
     }
   }
   

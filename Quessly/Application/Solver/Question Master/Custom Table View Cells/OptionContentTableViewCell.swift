@@ -4,13 +4,14 @@ import NSLogger
 
 class OptionContentTableViewCell: UITableViewCell {
   static let identifier = "OptionCustomContent"
+  static let messageHandler = "contentResizingMessageHandler"
   
-  @IBOutlet weak var enumeratorLabel: UILabel!
   @IBOutlet weak var webView: WKWebView!
   @IBOutlet weak var activityIndicatorEnclosureView: UIView!
   @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
-  @IBOutlet weak var selectionOverlayView: UIView!
+  @IBOutlet weak var circleImageView: UIImageView!
   @IBOutlet weak var checkmarkImageView: UIImageView!
+  @IBOutlet weak var questionMarkImageView: UIImageView!
   
   var delegate: OptionCustomContentTableViewCellDelegate? = nil
   var option: Question.Option! {
@@ -47,8 +48,13 @@ class OptionContentTableViewCell: UITableViewCell {
       
       //  Set hidden properties of the subviews appropriately
       activityIndicatorEnclosureView.isHidden = !loading
-      enumeratorLabel.isHidden = loading
+      checkmarkImageView.isHidden = loading
+      circleImageView.isHidden = loading
+      questionMarkImageView.isHidden = loading
       webView.isHidden = loading
+      
+      webView.layoutIfNeeded()
+      activityIndicatorEnclosureView.layoutIfNeeded()
     }
   }
   
@@ -63,8 +69,9 @@ class OptionContentTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     
+    webView.configuration.userContentController.add(self,
+                                                    name: OptionContentTableViewCell.messageHandler)
     webView.scrollView.backgroundColor = .clear
-    webView.navigationDelegate = self
     webView.scrollView.isScrollEnabled = false
     webView.scrollView.bounces = false
     
@@ -74,6 +81,7 @@ class OptionContentTableViewCell: UITableViewCell {
   override func prepareForReuse() {
     super.prepareForReuse()
     
+    webView.configuration.userContentController.removeScriptMessageHandler(forName: OptionContentTableViewCell.messageHandler)
     contentHeight = nil
     loading = true
   }
@@ -83,8 +91,26 @@ class OptionContentTableViewCell: UITableViewCell {
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
     
+    if selected {
+      setMarked(false, animated: false)
+    }
+    
     UIView.animate(withDuration: animated ? 0.5 : 0.001) {
-      self.selectionOverlayView.alpha = selected ? 1 : 0
+      self.circleImageView.alpha = selected ? 0 : 1
+      self.questionMarkImageView.alpha = 0
+      self.checkmarkImageView.alpha = selected ? 1 : 0
+    }
+  }
+  
+  func setMarked(_ marked: Bool, animated: Bool) {
+    if marked {
+      setSelected(false, animated: false)
+    }
+    
+    UIView.animate(withDuration: animated ? 0.5 : 0.001) {
+      self.circleImageView.alpha = marked ? 0 : 1
+      self.questionMarkImageView.alpha = marked ? 1 : 0
+      self.checkmarkImageView.alpha = 0
     }
   }
   
@@ -99,6 +125,7 @@ class OptionContentTableViewCell: UITableViewCell {
         webViewHeightConstraint = webView.heightAnchor.constraint(equalToConstant: height)
         webViewHeightConstraint!.priority = .required
         webViewHeightConstraint!.isActive = true
+        webView.layoutIfNeeded()
         
         delegate?.didFinishRenderingContent(self, height: height)
       }
@@ -128,20 +155,21 @@ class OptionContentTableViewCell: UITableViewCell {
   }
 }
 
-extension OptionContentTableViewCell: WKNavigationDelegate {
-  func webView(_ webView: WKWebView,
-               didFinish navigation: WKNavigation!) {
-    webView.evaluateJavaScript("document.readyState") { (ready, error) in
-      if self.contentHeight == nil {
-        webView.evaluateJavaScript("document.body.scrollHeight") { (height, error) in
-          self.contentHeight = (height as! CGFloat) + 36.00
-          
-          Logger.shared.log(.view, .debug, "Option content for WKWebView has finished navigation with content length \(self.option.content.data.count) and calculated height \(self.contentHeight!).")
-        }
-      }
-      
-      self.loading = false
+extension OptionContentTableViewCell: WKScriptMessageHandler {
+  func userContentController(_ userContentController: WKUserContentController,
+                             didReceive message: WKScriptMessage) {
+    guard
+      message.name == OptionContentTableViewCell.messageHandler,
+      contentHeight == nil else {
+      return
     }
+    
+    let body = message.body as! [String : AnyObject]
+    
+    contentHeight = body["scrollHeight"] as! CGFloat + 30.00
+    loading = false
+    
+    Logger.shared.log(.view, .debug, "Option content for WKWebView has finished navigation with content length \(option.content.data.count) and calculated height \(contentHeight!).")
   }
 }
 

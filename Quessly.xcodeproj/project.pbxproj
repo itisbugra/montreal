@@ -11,21 +11,14 @@
 		D507C4DB245EA4C5008D1C49 /* MathJaxSmokeTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D507C4DA245EA4C5008D1C49 /* MathJaxSmokeTestViewController.swift */; };
 		D51CD55D2460930A0008DD5A /* RenderSizeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51CD55C2460930A0008DD5A /* RenderSizeCache.swift */; };
 		D51FEBA0245C68120014E386 /* QuestionContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51FEB9F245C68120014E386 /* QuestionContentTableViewCell.swift */; };
-		D539512A245E85EB003A2697 /* tex-mml-chtml.js in Resources */ = {isa = PBXBuildFile; fileRef = D5395129245E85EB003A2697 /* tex-mml-chtml.js */; };
-		D539512D245E8811003A2697 /* smoke-test.html in Resources */ = {isa = PBXBuildFile; fileRef = D539512C245E8811003A2697 /* smoke-test.html */; };
 		D543EED12462F2D300034240 /* UIAlertAction+isChecked.swift in Sources */ = {isa = PBXBuildFile; fileRef = D543EED02462F2D300034240 /* UIAlertAction+isChecked.swift */; };
-		D54AD0D7245EB06B005BB278 /* Question.html in Resources */ = {isa = PBXBuildFile; fileRef = D54AD0D6245EB06B005BB278 /* Question.html */; };
 		D54AD0DA245EBE4F005BB278 /* FormattedContentRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54AD0D9245EBE4F005BB278 /* FormattedContentRenderer.swift */; };
-		D54AD0E1245ECD3B005BB278 /* Option1.html in Resources */ = {isa = PBXBuildFile; fileRef = D54AD0DC245ECB47005BB278 /* Option1.html */; };
-		D54AD0E2245ECD3E005BB278 /* Option2.html in Resources */ = {isa = PBXBuildFile; fileRef = D54AD0DD245ECB6D005BB278 /* Option2.html */; };
-		D54AD0E3245ECD3E005BB278 /* Option3.html in Resources */ = {isa = PBXBuildFile; fileRef = D54AD0DE245ECC51005BB278 /* Option3.html */; };
-		D54AD0E4245ECD3E005BB278 /* Option4.html in Resources */ = {isa = PBXBuildFile; fileRef = D54AD0DF245ECC94005BB278 /* Option4.html */; };
-		D54AD0E5245ECD3E005BB278 /* Option5.html in Resources */ = {isa = PBXBuildFile; fileRef = D54AD0E0245ECCC4005BB278 /* Option5.html */; };
 		D54AD0E9245EF693005BB278 /* UITableViewController+SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54AD0E8245EF693005BB278 /* UITableViewController+SwipeAction.swift */; };
 		D54AD0EB245EF74B005BB278 /* UITableViewController+CellRelayouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54AD0EA245EF74B005BB278 /* UITableViewController+CellRelayouting.swift */; };
 		D5765D1D2462EDAC00F5131D /* SessionQuestionsOverviewCollectionViewController+AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5765D1C2462EDAC00F5131D /* SessionQuestionsOverviewCollectionViewController+AlertControllers.swift */; };
 		D58B86BA245BFEE700514018 /* ClientConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58B86B9245BFEE700514018 /* ClientConfiguration.swift */; };
 		D58B86BC245C189000514018 /* OptionEnumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58B86BB245C189000514018 /* OptionEnumeration.swift */; };
+		D58EE0A72469C7F100C1DDEA /* ContentStudioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58EE0A62469C7F100C1DDEA /* ContentStudioTableViewController.swift */; };
 		D5904C3D2463E2100057B9C6 /* UserNotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5904C3C2463E2100057B9C6 /* UserNotificationCenterManager.swift */; };
 		D5904C412463F9A80057B9C6 /* PushNotificationConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5904C402463F9A80057B9C6 /* PushNotificationConsentViewController.swift */; };
 		D5904C442463FA770057B9C6 /* SmoothButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5904C432463FA770057B9C6 /* SmoothButton.swift */; };
@@ -60,7 +53,21 @@
 		D5BD3BAA245AF40D002D9DB2 /* FormattedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BD3BA9245AF40D002D9DB2 /* FormattedContent.swift */; };
 		D5BD3BAE245AFD08002D9DB2 /* QuestionMasterNavigationBarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BD3BAD245AFD08002D9DB2 /* QuestionMasterNavigationBarTitleView.swift */; };
 		D5BD3BB0245AFD19002D9DB2 /* QuestionMasterNavigationBarTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5BD3BAF245AFD19002D9DB2 /* QuestionMasterNavigationBarTitleView.xib */; };
+		D5D0FAE3246B1855008169FD /* ContentEditorTableViewController+UIImagePickerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D0FAE2246B1855008169FD /* ContentEditorTableViewController+UIImagePickerControllerDelegate.swift */; };
+		D5D0FAE5246B1873008169FD /* ContentEditorTableViewController+UINavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D0FAE4246B1873008169FD /* ContentEditorTableViewController+UINavigationControllerDelegate.swift */; };
+		D5D0FAE7246B1890008169FD /* ContentEditorTableViewController+CropViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D0FAE6246B1890008169FD /* ContentEditorTableViewController+CropViewControllerDelegate.swift */; };
+		D5D0FAE9246B18BF008169FD /* ContentEditorTableViewController+PresentedViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D0FAE8246B18BF008169FD /* ContentEditorTableViewController+PresentedViewControllers.swift */; };
+		D5D0FAEC246B1AD0008169FD /* ContentEditorNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D0FAEB246B1AD0008169FD /* ContentEditorNavigationController.swift */; };
+		D5D0FAEE246B1B99008169FD /* ContentEditorTableViewController+AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D0FAED246B1B99008169FD /* ContentEditorTableViewController+AlertControllers.swift */; };
+		D5D0FAF0246B1FA2008169FD /* ContentEditorTableViewController+Toolbars.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D0FAEF246B1FA2008169FD /* ContentEditorTableViewController+Toolbars.swift */; };
+		D5D0FAFB2485BEDE008169FD /* Question Resources in Resources */ = {isa = PBXBuildFile; fileRef = D5D0FAFA2485BEDE008169FD /* Question Resources */; };
+		D5D0FAFD2485C174008169FD /* SessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D0FAFC2485C174008169FD /* SessionRepository.swift */; };
+		D5D0FAFF2485D085008169FD /* MathJax in Resources */ = {isa = PBXBuildFile; fileRef = D5D0FAFE2485D085008169FD /* MathJax */; };
+		D5D0FB012485D0B7008169FD /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D0FB002485D0B7008169FD /* Renderer.swift */; };
 		D5E638772462DCA20073FB99 /* SessionInformationTableViewController+AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E638762462DCA20073FB99 /* SessionInformationTableViewController+AlertControllers.swift */; };
+		D5EDAED1246AE46500A971FC /* QuestionEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EDAED0246AE46500A971FC /* QuestionEditorViewController.swift */; };
+		D5EDAED3246AF0A500A971FC /* QuestionEditorViewController+AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EDAED2246AF0A500A971FC /* QuestionEditorViewController+AlertControllers.swift */; };
+		D5EDAED5246B05BF00A971FC /* ContentEditorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EDAED4246B05BF00A971FC /* ContentEditorTableViewController.swift */; };
 		D5FCEBD924628623006E1124 /* SessionQuestionsOverviewCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FCEBD824628623006E1124 /* SessionQuestionsOverviewCollectionViewController.swift */; };
 		D5FCEBDC24628675006E1124 /* SetOverviewHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FCEBDB24628675006E1124 /* SetOverviewHeaderCollectionReusableView.swift */; };
 		D5FCEBDE2462868F006E1124 /* QuestionContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FCEBDD2462868F006E1124 /* QuestionContentCollectionViewCell.swift */; };
@@ -103,21 +110,14 @@
 		D507C4DA245EA4C5008D1C49 /* MathJaxSmokeTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathJaxSmokeTestViewController.swift; sourceTree = "<group>"; };
 		D51CD55C2460930A0008DD5A /* RenderSizeCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderSizeCache.swift; sourceTree = "<group>"; };
 		D51FEB9F245C68120014E386 /* QuestionContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionContentTableViewCell.swift; sourceTree = "<group>"; };
-		D5395129245E85EB003A2697 /* tex-mml-chtml.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "tex-mml-chtml.js"; sourceTree = "<group>"; };
-		D539512C245E8811003A2697 /* smoke-test.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "smoke-test.html"; sourceTree = "<group>"; };
 		D543EED02462F2D300034240 /* UIAlertAction+isChecked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+isChecked.swift"; sourceTree = "<group>"; };
-		D54AD0D6245EB06B005BB278 /* Question.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Question.html; sourceTree = "<group>"; };
 		D54AD0D9245EBE4F005BB278 /* FormattedContentRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedContentRenderer.swift; sourceTree = "<group>"; };
-		D54AD0DC245ECB47005BB278 /* Option1.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Option1.html; sourceTree = "<group>"; };
-		D54AD0DD245ECB6D005BB278 /* Option2.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Option2.html; sourceTree = "<group>"; };
-		D54AD0DE245ECC51005BB278 /* Option3.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Option3.html; sourceTree = "<group>"; };
-		D54AD0DF245ECC94005BB278 /* Option4.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Option4.html; sourceTree = "<group>"; };
-		D54AD0E0245ECCC4005BB278 /* Option5.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Option5.html; sourceTree = "<group>"; };
 		D54AD0E8245EF693005BB278 /* UITableViewController+SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+SwipeAction.swift"; sourceTree = "<group>"; };
 		D54AD0EA245EF74B005BB278 /* UITableViewController+CellRelayouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewController+CellRelayouting.swift"; sourceTree = "<group>"; };
 		D5765D1C2462EDAC00F5131D /* SessionQuestionsOverviewCollectionViewController+AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionQuestionsOverviewCollectionViewController+AlertControllers.swift"; sourceTree = "<group>"; };
 		D58B86B9245BFEE700514018 /* ClientConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientConfiguration.swift; sourceTree = "<group>"; };
 		D58B86BB245C189000514018 /* OptionEnumeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionEnumeration.swift; sourceTree = "<group>"; };
+		D58EE0A62469C7F100C1DDEA /* ContentStudioTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentStudioTableViewController.swift; sourceTree = "<group>"; };
 		D5904C3C2463E2100057B9C6 /* UserNotificationCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationCenterManager.swift; sourceTree = "<group>"; };
 		D5904C402463F9A80057B9C6 /* PushNotificationConsentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationConsentViewController.swift; sourceTree = "<group>"; };
 		D5904C432463FA770057B9C6 /* SmoothButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothButton.swift; sourceTree = "<group>"; };
@@ -158,7 +158,21 @@
 		D5BD3BA9245AF40D002D9DB2 /* FormattedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedContent.swift; sourceTree = "<group>"; };
 		D5BD3BAD245AFD08002D9DB2 /* QuestionMasterNavigationBarTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionMasterNavigationBarTitleView.swift; sourceTree = "<group>"; };
 		D5BD3BAF245AFD19002D9DB2 /* QuestionMasterNavigationBarTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionMasterNavigationBarTitleView.xib; sourceTree = "<group>"; };
+		D5D0FAE2246B1855008169FD /* ContentEditorTableViewController+UIImagePickerControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentEditorTableViewController+UIImagePickerControllerDelegate.swift"; sourceTree = "<group>"; };
+		D5D0FAE4246B1873008169FD /* ContentEditorTableViewController+UINavigationControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentEditorTableViewController+UINavigationControllerDelegate.swift"; sourceTree = "<group>"; };
+		D5D0FAE6246B1890008169FD /* ContentEditorTableViewController+CropViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentEditorTableViewController+CropViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		D5D0FAE8246B18BF008169FD /* ContentEditorTableViewController+PresentedViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentEditorTableViewController+PresentedViewControllers.swift"; sourceTree = "<group>"; };
+		D5D0FAEB246B1AD0008169FD /* ContentEditorNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentEditorNavigationController.swift; sourceTree = "<group>"; };
+		D5D0FAED246B1B99008169FD /* ContentEditorTableViewController+AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentEditorTableViewController+AlertControllers.swift"; sourceTree = "<group>"; };
+		D5D0FAEF246B1FA2008169FD /* ContentEditorTableViewController+Toolbars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentEditorTableViewController+Toolbars.swift"; sourceTree = "<group>"; };
+		D5D0FAFA2485BEDE008169FD /* Question Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Question Resources"; sourceTree = "<group>"; };
+		D5D0FAFC2485C174008169FD /* SessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRepository.swift; sourceTree = "<group>"; };
+		D5D0FAFE2485D085008169FD /* MathJax */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MathJax; sourceTree = "<group>"; };
+		D5D0FB002485D0B7008169FD /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		D5E638762462DCA20073FB99 /* SessionInformationTableViewController+AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionInformationTableViewController+AlertControllers.swift"; sourceTree = "<group>"; };
+		D5EDAED0246AE46500A971FC /* QuestionEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionEditorViewController.swift; sourceTree = "<group>"; };
+		D5EDAED2246AF0A500A971FC /* QuestionEditorViewController+AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuestionEditorViewController+AlertControllers.swift"; sourceTree = "<group>"; };
+		D5EDAED4246B05BF00A971FC /* ContentEditorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentEditorTableViewController.swift; sourceTree = "<group>"; };
 		D5FCEBD824628623006E1124 /* SessionQuestionsOverviewCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionQuestionsOverviewCollectionViewController.swift; sourceTree = "<group>"; };
 		D5FCEBDB24628675006E1124 /* SetOverviewHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetOverviewHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		D5FCEBDD2462868F006E1124 /* QuestionContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionContentCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -232,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				D5395128245E856A003A2697 /* Resources */,
+				D5D0FB002485D0B7008169FD /* Renderer.swift */,
 			);
 			path = "Math Rendering";
 			sourceTree = "<group>";
@@ -239,18 +254,9 @@
 		D5395128245E856A003A2697 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D539512B245E85ED003A2697 /* MathJax */,
+				D5D0FAFE2485D085008169FD /* MathJax */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		D539512B245E85ED003A2697 /* MathJax */ = {
-			isa = PBXGroup;
-			children = (
-				D5395129245E85EB003A2697 /* tex-mml-chtml.js */,
-				D539512C245E8811003A2697 /* smoke-test.html */,
-			);
-			path = MathJax;
 			sourceTree = "<group>";
 		};
 		D543EECE2462F2B400034240 /* UIKit */ = {
@@ -288,19 +294,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		D54AD0E6245EF5F5005BB278 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				D54AD0D6245EB06B005BB278 /* Question.html */,
-				D54AD0DC245ECB47005BB278 /* Option1.html */,
-				D54AD0DD245ECB6D005BB278 /* Option2.html */,
-				D54AD0DE245ECC51005BB278 /* Option3.html */,
-				D54AD0DF245ECC94005BB278 /* Option4.html */,
-				D54AD0E0245ECCC4005BB278 /* Option5.html */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		D54AD0E7245EF66D005BB278 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +324,23 @@
 				541C33295BAB1F681AE8C119 /* libPods-QuesslyTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D58EE0A42469C7C200C1DDEA /* Studio */ = {
+			isa = PBXGroup;
+			children = (
+				D58EE0A52469C7D700C1DDEA /* Content Studio */,
+			);
+			path = Studio;
+			sourceTree = "<group>";
+		};
+		D58EE0A52469C7D700C1DDEA /* Content Studio */ = {
+			isa = PBXGroup;
+			children = (
+				D58EE0A62469C7F100C1DDEA /* ContentStudioTableViewController.swift */,
+				D5EDAECF246AE29100A971FC /* Question Editor */,
+			);
+			path = "Content Studio";
 			sourceTree = "<group>";
 		};
 		D5904C3B2463E1E70057B9C6 /* Push Notifications */ = {
@@ -469,6 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				D5A7429124569588001D83A5 /* Main Menu */,
+				D58EE0A42469C7C200C1DDEA /* Studio */,
 				D5904C3E2463F9850057B9C6 /* Customer Consent */,
 				D59B021E2461822500DC2659 /* Category Explorer */,
 				D5BD3BA0245AEFE5002D9DB2 /* Question Master */,
@@ -483,10 +494,9 @@
 			isa = PBXGroup;
 			children = (
 				D5A74292245695AD001D83A5 /* MainMenuTableViewController.swift */,
-				D5A742972456ABD6001D83A5 /* UpcomingSessionTableViewCell.swift */,
 				D5904C47246448E30057B9C6 /* MainMenuUnwindSegue.swift */,
+				D5F887DC246AAAA7008FD41B /* Custom Table View Cells */,
 				D5A742A32456C65F001D83A5 /* Upcoming Session Detail */,
-				D54AD0E6245EF5F5005BB278 /* Resources */,
 			);
 			path = "Main Menu";
 			sourceTree = "<group>";
@@ -513,6 +523,8 @@
 				D59E753D246188A9001D0192 /* CategoryRepository.swift */,
 				D5FCEBE124628B82006E1124 /* Session.swift */,
 				D5FCEBE32462921C006E1124 /* QuestionSet.swift */,
+				D5D0FAFC2485C174008169FD /* SessionRepository.swift */,
+				D5D0FAFA2485BEDE008169FD /* Question Resources */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -559,6 +571,47 @@
 				D54AD0EC245EF7A9005BB278 /* Custom Table View Cells */,
 			);
 			path = "Question Master";
+			sourceTree = "<group>";
+		};
+		D5D0FAEA246B1AB6008169FD /* Navigation Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D5D0FAEB246B1AD0008169FD /* ContentEditorNavigationController.swift */,
+			);
+			path = "Navigation Controller";
+			sourceTree = "<group>";
+		};
+		D5EDAECF246AE29100A971FC /* Question Editor */ = {
+			isa = PBXGroup;
+			children = (
+				D5EDAED0246AE46500A971FC /* QuestionEditorViewController.swift */,
+				D5EDAED2246AF0A500A971FC /* QuestionEditorViewController+AlertControllers.swift */,
+				D5EDAED6246B05CA00A971FC /* Content Editor */,
+			);
+			path = "Question Editor";
+			sourceTree = "<group>";
+		};
+		D5EDAED6246B05CA00A971FC /* Content Editor */ = {
+			isa = PBXGroup;
+			children = (
+				D5EDAED4246B05BF00A971FC /* ContentEditorTableViewController.swift */,
+				D5D0FAE2246B1855008169FD /* ContentEditorTableViewController+UIImagePickerControllerDelegate.swift */,
+				D5D0FAE4246B1873008169FD /* ContentEditorTableViewController+UINavigationControllerDelegate.swift */,
+				D5D0FAE6246B1890008169FD /* ContentEditorTableViewController+CropViewControllerDelegate.swift */,
+				D5D0FAED246B1B99008169FD /* ContentEditorTableViewController+AlertControllers.swift */,
+				D5D0FAE8246B18BF008169FD /* ContentEditorTableViewController+PresentedViewControllers.swift */,
+				D5D0FAEF246B1FA2008169FD /* ContentEditorTableViewController+Toolbars.swift */,
+				D5D0FAEA246B1AB6008169FD /* Navigation Controller */,
+			);
+			path = "Content Editor";
+			sourceTree = "<group>";
+		};
+		D5F887DC246AAAA7008FD41B /* Custom Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D5A742972456ABD6001D83A5 /* UpcomingSessionTableViewCell.swift */,
+			);
+			path = "Custom Table View Cells";
 			sourceTree = "<group>";
 		};
 		D5FCEBD6246285E2006E1124 /* Sessions */ = {
@@ -731,17 +784,11 @@
 				D5BD3B9F2456F363002D9DB2 /* SessionContentSectionHeaderView.xib in Resources */,
 				D5FCEBED2462AB18006E1124 /* SessionQuestionsOverviewNavigationBarTitleView.xib in Resources */,
 				D5A7426A2456906B001D83A5 /* LaunchScreen.storyboard in Resources */,
-				D54AD0E3245ECD3E005BB278 /* Option3.html in Resources */,
-				D54AD0E1245ECD3B005BB278 /* Option1.html in Resources */,
 				D5A742672456906B001D83A5 /* Assets.xcassets in Resources */,
-				D54AD0D7245EB06B005BB278 /* Question.html in Resources */,
-				D539512A245E85EB003A2697 /* tex-mml-chtml.js in Resources */,
-				D54AD0E4245ECD3E005BB278 /* Option4.html in Resources */,
-				D54AD0E5245ECD3E005BB278 /* Option5.html in Resources */,
+				D5D0FAFB2485BEDE008169FD /* Question Resources in Resources */,
+				D5D0FAFF2485D085008169FD /* MathJax in Resources */,
 				D5B5E1BF245D4FC2001E650F /* WKWrapper.html in Resources */,
-				D54AD0E2245ECD3E005BB278 /* Option2.html in Resources */,
 				D5A7426524569069001D83A5 /* Main.storyboard in Resources */,
-				D539512D245E8811003A2697 /* smoke-test.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,11 +854,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Quessly-QuesslyUITests/Pods-Quessly-QuesslyUITests-resources.sh",
 				"${PODS_ROOT}/Down/Resources/DownView.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/Fakery/Faker.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Mantis/Resource.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DownView.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Faker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Resource.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -827,11 +876,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Quessly/Pods-Quessly-resources.sh",
 				"${PODS_ROOT}/Down/Resources/DownView.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/Fakery/Faker.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Mantis/Resource.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DownView.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Faker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Resource.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -866,17 +917,22 @@
 				D5A742962456AB4D001D83A5 /* MasterNavigationController.swift in Sources */,
 				D5FCEBE0246286B3006E1124 /* SessionOverviewFooterCollectionReusableView.swift in Sources */,
 				D5E638772462DCA20073FB99 /* SessionInformationTableViewController+AlertControllers.swift in Sources */,
+				D5D0FB012485D0B7008169FD /* Renderer.swift in Sources */,
 				D5904C46246442DA0057B9C6 /* UpcomingSessionTableViewController+AlertControllers.swift in Sources */,
 				D5904C48246448E30057B9C6 /* MainMenuUnwindSegue.swift in Sources */,
 				D5FCEBF02462BCE9006E1124 /* SessionInformationTableViewController.swift in Sources */,
 				D54AD0DA245EBE4F005BB278 /* FormattedContentRenderer.swift in Sources */,
 				D5FCEBEA2462AAD6006E1124 /* SessionQuestionsOverviewNavigationBarTitleView.swift in Sources */,
+				D5EDAED1246AE46500A971FC /* QuestionEditorViewController.swift in Sources */,
 				D59B02202461824000DC2659 /* CategoryExplorerTableViewController.swift in Sources */,
+				D5D0FAFD2485C174008169FD /* SessionRepository.swift in Sources */,
 				D5A7426224569069001D83A5 /* SignInViewController.swift in Sources */,
+				D5D0FAE9246B18BF008169FD /* ContentEditorTableViewController+PresentedViewControllers.swift in Sources */,
 				D5A7425E24569069001D83A5 /* AppDelegate.swift in Sources */,
 				D5A7426024569069001D83A5 /* SceneDelegate.swift in Sources */,
 				D5BD3BAA245AF40D002D9DB2 /* FormattedContent.swift in Sources */,
 				D5BD3BA2245AF0E5002D9DB2 /* QuestionMasterTableViewController.swift in Sources */,
+				D5D0FAE5246B1873008169FD /* ContentEditorTableViewController+UINavigationControllerDelegate.swift in Sources */,
 				D543EED12462F2D300034240 /* UIAlertAction+isChecked.swift in Sources */,
 				D5904C442463FA770057B9C6 /* SmoothButton.swift in Sources */,
 				D5FCEBD924628623006E1124 /* SessionQuestionsOverviewCollectionViewController.swift in Sources */,
@@ -886,13 +942,17 @@
 				D5A742982456ABD6001D83A5 /* UpcomingSessionTableViewCell.swift in Sources */,
 				D59B021B24617A3D00DC2659 /* UIViewController+SegueHandling.swift in Sources */,
 				D5FCEBE42462921C006E1124 /* QuestionSet.swift in Sources */,
+				D5D0FAEC246B1AD0008169FD /* ContentEditorNavigationController.swift in Sources */,
 				D59B021D24617AB800DC2659 /* +QuestionDetailTableViewControllerDelegate.swift in Sources */,
+				D5D0FAE3246B1855008169FD /* ContentEditorTableViewController+UIImagePickerControllerDelegate.swift in Sources */,
 				D5A7429B2456AD67001D83A5 /* UpcomingSession.swift in Sources */,
 				D59B02192461787B00DC2659 /* QuestionDetailTableViewController.swift in Sources */,
 				D5904C3D2463E2100057B9C6 /* UserNotificationCenterManager.swift in Sources */,
 				D5FCEBE224628B82006E1124 /* Session.swift in Sources */,
 				D5BD3BAE245AFD08002D9DB2 /* QuestionMasterNavigationBarTitleView.swift in Sources */,
 				D5A74293245695AD001D83A5 /* MainMenuTableViewController.swift in Sources */,
+				D5EDAED5246B05BF00A971FC /* ContentEditorTableViewController.swift in Sources */,
+				D5D0FAF0246B1FA2008169FD /* ContentEditorTableViewController+Toolbars.swift in Sources */,
 				D54AD0EB245EF74B005BB278 /* UITableViewController+CellRelayouting.swift in Sources */,
 				D5A7429E2456BC60001D83A5 /* UserProfileDetailTableViewController.swift in Sources */,
 				D5FCEBDC24628675006E1124 /* SetOverviewHeaderCollectionReusableView.swift in Sources */,
@@ -905,9 +965,13 @@
 				D5765D1D2462EDAC00F5131D /* SessionQuestionsOverviewCollectionViewController+AlertControllers.swift in Sources */,
 				D59E753E246188A9001D0192 /* CategoryRepository.swift in Sources */,
 				D5FCEBDE2462868F006E1124 /* QuestionContentCollectionViewCell.swift in Sources */,
+				D5D0FAEE246B1B99008169FD /* ContentEditorTableViewController+AlertControllers.swift in Sources */,
+				D5D0FAE7246B1890008169FD /* ContentEditorTableViewController+CropViewControllerDelegate.swift in Sources */,
 				D58B86BC245C189000514018 /* OptionEnumeration.swift in Sources */,
 				D54AD0E9245EF693005BB278 /* UITableViewController+SwipeAction.swift in Sources */,
 				D59B02232461861A00DC2659 /* Category.swift in Sources */,
+				D5EDAED3246AF0A500A971FC /* QuestionEditorViewController+AlertControllers.swift in Sources */,
+				D58EE0A72469C7F100C1DDEA /* ContentStudioTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

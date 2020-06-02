@@ -4,6 +4,7 @@ import NSLogger
 
 class QuestionContentTableViewCell: UITableViewCell {
   static let identifier = "QuestionCustomContent"
+  static let messageHandler = "contentResizingMessageHandler"
   
   @IBOutlet weak var webView: WKWebView!
   @IBOutlet weak var activityIndicatorEnclosureView: UIView!
@@ -28,8 +29,8 @@ class QuestionContentTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     
+    webView.configuration.userContentController.add(self, name: QuestionContentTableViewCell.messageHandler)
     webView.scrollView.backgroundColor = .clear
-    webView.navigationDelegate = self
     webView.scrollView.isScrollEnabled = false
     webView.scrollView.bounces = false
   }
@@ -37,6 +38,7 @@ class QuestionContentTableViewCell: UITableViewCell {
   override func prepareForReuse() {
     super.prepareForReuse()
     
+    webView.configuration.userContentController.removeScriptMessageHandler(forName: QuestionContentTableViewCell.messageHandler)
     contentHeight = nil
     loading = true
   }
@@ -92,20 +94,21 @@ class QuestionContentTableViewCell: UITableViewCell {
   }
 }
 
-extension QuestionContentTableViewCell: WKNavigationDelegate {
-  func webView(_ webView: WKWebView,
-               didFinish navigation: WKNavigation!) {
-    webView.evaluateJavaScript("document.readyState") { (ready, error) in
-      if self.contentHeight == nil {
-        webView.evaluateJavaScript("document.body.scrollHeight") { (height, error) in
-          self.contentHeight = (height as! CGFloat) + 20.00
-          
-          Logger.shared.log(.view, .debug, "Question content for WKWebView has finished navigation with content length \(self.question.content.data.count) and calculated height \(self.contentHeight!).")
-        }
-      }
-      
-      self.loading = false
+extension QuestionContentTableViewCell: WKScriptMessageHandler {
+  func userContentController(_ userContentController: WKUserContentController,
+                             didReceive message: WKScriptMessage) {
+    guard
+      message.name == QuestionContentTableViewCell.messageHandler,
+      contentHeight == nil else {
+      return
     }
+    
+    let body = message.body as! [String : CGFloat]
+    
+    contentHeight = body["scrollHeight"]
+    loading = false
+    
+    Logger.shared.log(.view, .debug, "Question content for WKWebView has finished navigation with content length \(question.content.data.count) and calculated height \(contentHeight!).")
   }
 }
 

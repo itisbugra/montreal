@@ -1,11 +1,30 @@
 import UIKit
 
 class SetOverviewHeaderCollectionReusableView: UICollectionReusableView {
+  enum ExpansionState {
+    case expanded
+    case narrowed
+    
+    var negated: ExpansionState {
+      switch self {
+      case .expanded:
+        return .narrowed
+      case .narrowed:
+        return .expanded
+      }
+    }
+  }
+  
   static let identifier = "SetOverviewHeader"
   
   @IBOutlet weak var setNameLabel: UILabel!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var subtitleLabel: UILabel!
+  @IBOutlet weak var chevronButton: UIButton!
+  
+  var delegate: SetOverviewHeaderCollectionReusableViewDelegate? = nil
+  
+  private(set) var expansionState: ExpansionState = .expanded
   
   var questionSet: QuestionSet! {
     didSet {
@@ -46,4 +65,39 @@ class SetOverviewHeaderCollectionReusableView: UICollectionReusableView {
     //  TODO: Needs localization
     return "\(notSeen) questions have not been seen."
   }
+  
+  func setExpansionState(expansionState: ExpansionState, animated: Bool) {
+    if expansionState == self.expansionState {
+      return
+    }
+    
+    self.expansionState = expansionState
+    
+    UIView.animate(withDuration: animated ? 0.5 : 0.001) {
+      switch expansionState {
+      case .expanded:
+        self.chevronButton.transform = .init(rotationAngle: 0)
+      case .narrowed:
+        self.chevronButton.transform = .init(rotationAngle: .pi)
+      }
+    }
+  }
+  
+  //  MARK: - UICollectionViewReusableView lifecycle
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    
+    setExpansionState(expansionState: .expanded, animated: false)
+  }
+  
+  @IBAction func didPressExpandOrNarrow(_ sender: UIButton) {
+    delegate?.sectionShouldChangeExpensionState(self,
+                                                currentState: expansionState)
+  }
+}
+
+protocol SetOverviewHeaderCollectionReusableViewDelegate : class {
+  func sectionShouldChangeExpensionState(_ setOverviewHeaderCollectionReusableView: SetOverviewHeaderCollectionReusableView,
+                                         currentState state: SetOverviewHeaderCollectionReusableView.ExpansionState)
 }

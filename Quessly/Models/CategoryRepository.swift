@@ -2,7 +2,7 @@ import UIKit
 import Fakery
 import PromiseKit
 
-protocol CategoryAccessible {
+protocol CategoryAccessible: class {
   func all(favorite: Bool?) -> Promise<[Category]>
 }
 

@@ -3,15 +3,20 @@ import WebKit
 
 class QuestionContentCollectionViewCell: UICollectionViewCell {
   static let identifier = "QuestionContent"
+  static let messageHandler = "contentResizingMessageHandler"
   
   @IBOutlet weak var webView: WKWebView!
   @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+  
+  //  MARK: - Internal cell state
+  
+  private var preparedForReuse = false
   
   //  MARK: - Data handling
   
   var question: Question! {
     didSet {
-      webView.loadHTMLString(HTML, baseURL: nil)
+      webView.loadHTMLString(HTML, baseURL: Renderer.additionalResourcesURL)
     }
   }
   
@@ -27,6 +32,8 @@ class QuestionContentCollectionViewCell: UICollectionViewCell {
     super.awakeFromNib()
     
     webView.navigationDelegate = self
+    webView.configuration.userContentController.add(self,
+                                                    name: QuestionContentCollectionViewCell.messageHandler)
     webView.scrollView.backgroundColor = .clear
     webView.scrollView.isScrollEnabled = false
     webView.scrollView.bounces = false
@@ -35,7 +42,9 @@ class QuestionContentCollectionViewCell: UICollectionViewCell {
   override func prepareForReuse() {
     super.prepareForReuse()
     
+    webView.configuration.userContentController.removeScriptMessageHandler(forName: QuestionContentCollectionViewCell.messageHandler)
     loading = true
+    preparedForReuse = true
   }
   
   //  MARK: - Cell state management
@@ -62,8 +71,19 @@ class QuestionContentCollectionViewCell: UICollectionViewCell {
 extension QuestionContentCollectionViewCell: WKNavigationDelegate {
   func webView(_ webView: WKWebView,
                didFinish navigation: WKNavigation!) {
-    webView.evaluateJavaScript("document.readyState") { (ready, error) in
+    if preparedForReuse {
       self.loading = false
     }
+  }
+}
+
+extension QuestionContentCollectionViewCell: WKScriptMessageHandler {
+  func userContentController(_ userContentController: WKUserContentController,
+                             didReceive message: WKScriptMessage) {
+    guard message.name == QuestionContentCollectionViewCell.messageHandler else {
+      return
+    }
+    
+    loading = false
   }
 }
