@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2818E91312C8F41A40FB849B /* libPods-QuesslyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 541C33295BAB1F681AE8C119 /* libPods-QuesslyTests.a */; };
+		5276F21924B0E99A003D23B7 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21824B0E99A003D23B7 /* SignUpTableViewController.swift */; };
+		5276F21B24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21A24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift */; };
+		5276F21D24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21C24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift */; };
 		D507C4DB245EA4C5008D1C49 /* MathJaxSmokeTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D507C4DA245EA4C5008D1C49 /* MathJaxSmokeTestViewController.swift */; };
 		D51CD55D2460930A0008DD5A /* RenderSizeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51CD55C2460930A0008DD5A /* RenderSizeCache.swift */; };
 		D51FEBA0245C68120014E386 /* QuestionContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51FEB9F245C68120014E386 /* QuestionContentTableViewCell.swift */; };
@@ -94,6 +97,9 @@
 /* Begin PBXFileReference section */
 		00286CA73673DA31241A7BF0 /* Pods-Quessly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quessly.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quessly/Pods-Quessly.release.xcconfig"; sourceTree = "<group>"; };
 		0358EACCD47FF9886E0625D5 /* Pods-Quessly-QuesslyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quessly-QuesslyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quessly-QuesslyUITests/Pods-Quessly-QuesslyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5276F21824B0E99A003D23B7 /* SignUpTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
+		5276F21A24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpTableViewController+AlertControllers.swift"; sourceTree = "<group>"; };
+		5276F21C24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+addActivityIndicator.swift"; sourceTree = "<group>"; };
 		541C33295BAB1F681AE8C119 /* libPods-QuesslyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QuesslyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73D1E1F4411CD9F6E32A6F7E /* Pods-Quessly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quessly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quessly/Pods-Quessly.debug.xcconfig"; sourceTree = "<group>"; };
 		8AB8070956F0C655CFB1095F /* Pods-QuesslyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuesslyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuesslyTests/Pods-QuesslyTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +205,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5276F21724B0E974003D23B7 /* Sign up */ = {
+			isa = PBXGroup;
+			children = (
+				5276F21824B0E99A003D23B7 /* SignUpTableViewController.swift */,
+				5276F21A24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift */,
+			);
+			path = "Sign up";
+			sourceTree = "<group>";
+		};
 		AB6173B1B1C42C4BA1FE062E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				D543EED02462F2D300034240 /* UIAlertAction+isChecked.swift */,
+				5276F21C24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -452,6 +468,7 @@
 		D5A7428E24569567001D83A5 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				5276F21724B0E974003D23B7 /* Sign up */,
 				D5A7428F2456956F001D83A5 /* Sign In */,
 			);
 			path = Authentication;
@@ -872,6 +889,7 @@
 				D54AD0DA245EBE4F005BB278 /* FormattedContentRenderer.swift in Sources */,
 				D5FCEBEA2462AAD6006E1124 /* SessionQuestionsOverviewNavigationBarTitleView.swift in Sources */,
 				D59B02202461824000DC2659 /* CategoryExplorerTableViewController.swift in Sources */,
+				5276F21924B0E99A003D23B7 /* SignUpTableViewController.swift in Sources */,
 				D5A7426224569069001D83A5 /* SignInViewController.swift in Sources */,
 				D5A7425E24569069001D83A5 /* AppDelegate.swift in Sources */,
 				D5A7426024569069001D83A5 /* SceneDelegate.swift in Sources */,
@@ -889,6 +907,7 @@
 				D59B021D24617AB800DC2659 /* +QuestionDetailTableViewControllerDelegate.swift in Sources */,
 				D5A7429B2456AD67001D83A5 /* UpcomingSession.swift in Sources */,
 				D59B02192461787B00DC2659 /* QuestionDetailTableViewController.swift in Sources */,
+				5276F21B24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift in Sources */,
 				D5904C3D2463E2100057B9C6 /* UserNotificationCenterManager.swift in Sources */,
 				D5FCEBE224628B82006E1124 /* Session.swift in Sources */,
 				D5BD3BAE245AFD08002D9DB2 /* QuestionMasterNavigationBarTitleView.swift in Sources */,
@@ -908,6 +927,7 @@
 				D58B86BC245C189000514018 /* OptionEnumeration.swift in Sources */,
 				D54AD0E9245EF693005BB278 /* UITableViewController+SwipeAction.swift in Sources */,
 				D59B02232461861A00DC2659 /* Category.swift in Sources */,
+				5276F21D24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1082,7 +1102,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DHCR3H4M55;
+				DEVELOPMENT_TEAM = H5LA8B82MN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1092,7 +1112,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.quessly.Quessly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.respawm19;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1105,7 +1125,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6KHN9ZMPBM;
+				DEVELOPMENT_TEAM = H5LA8B82MN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1115,7 +1135,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = sa.com.stcpay.Quessly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.respawm19;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
