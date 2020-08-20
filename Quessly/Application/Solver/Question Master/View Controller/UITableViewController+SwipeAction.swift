@@ -13,7 +13,7 @@ extension QuestionMasterTableViewController {
         return nil
       }
       
-      let hideAction = UIContextualAction(style: .destructive, title: "Hide") { (action, view, completion) in
+      let hideAction = UIContextualAction(style: .destructive, title: NSLocalizedString("Hide", comment: "Hides the swiped option.")) { (action, view, completion) in
         let (_, option) = self.visibleOptions[indexPath.row]
         
         self.eliminatedOptions.append(option)
@@ -42,7 +42,7 @@ extension QuestionMasterTableViewController {
         return nil
       }
       
-      let hideAction = UIContextualAction(style: .normal, title: "Mark") { (action, view, completion) in
+      let hideAction = UIContextualAction(style: .normal, title: NSLocalizedString("Mark", comment: "Marks the swiped option as possible.")) { (action, view, completion) in
         let (_, option) = self.visibleOptions[indexPath.row]
         
         self.markedOption = option

@@ -21,43 +21,6 @@ class OptionContentTableViewCell: UITableViewCell {
     }
   }
   
-  private var activityIndicatorEnclosureViewHeightConstraint: NSLayoutConstraint? = nil
-  private var webViewHeightConstraint: NSLayoutConstraint? = nil
-  
-  private var loading = false {
-    didSet {
-      //  If value is not changed, return from the method
-      if oldValue == loading {
-        return
-      }
-      
-      if loading {
-        //  Activate the constraint for the activity indicator enclosure view
-        activityIndicatorEnclosureViewHeightConstraint =
-          activityIndicatorEnclosureView.heightAnchor.constraint(equalToConstant: 108)
-        activityIndicatorEnclosureViewHeightConstraint!.priority = .required
-        activityIndicatorEnclosureViewHeightConstraint!.isActive = true
-        
-        //  Remove the constraint for the web view if exists
-        if let constraint = webViewHeightConstraint {
-          webView.removeConstraint(constraint)
-        }
-      } else {
-        activityIndicatorEnclosureView.removeConstraint(activityIndicatorEnclosureViewHeightConstraint!)
-      }
-      
-      //  Set hidden properties of the subviews appropriately
-      activityIndicatorEnclosureView.isHidden = !loading
-      checkmarkImageView.isHidden = loading
-      circleImageView.isHidden = loading
-      questionMarkImageView.isHidden = loading
-      webView.isHidden = loading
-      
-      webView.layoutIfNeeded()
-      activityIndicatorEnclosureView.layoutIfNeeded()
-    }
-  }
-  
   private var HTML: String {
     let renderer = FormattedContentRenderer.shared
     
@@ -74,8 +37,6 @@ class OptionContentTableViewCell: UITableViewCell {
     webView.scrollView.backgroundColor = .clear
     webView.scrollView.isScrollEnabled = false
     webView.scrollView.bounces = false
-    
-    loading = true
   }
   
   override func prepareForReuse() {
@@ -121,12 +82,6 @@ class OptionContentTableViewCell: UITableViewCell {
       if let height = contentHeight {
         RenderSizeCache.shared.set(renderSize: height, forHTML: HTML)
         
-        //  Setup the constraint of the web view
-        webViewHeightConstraint = webView.heightAnchor.constraint(equalToConstant: height)
-        webViewHeightConstraint!.priority = .required
-        webViewHeightConstraint!.isActive = true
-        webView.layoutIfNeeded()
-        
         delegate?.didFinishRenderingContent(self, height: height)
       }
     }
@@ -144,14 +99,16 @@ class OptionContentTableViewCell: UITableViewCell {
     contentHeight = height
   }
   
-  override func systemLayoutSizeFitting(_ targetSize: CGSize,
-                                        withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority,
-                                        verticalFittingPriority: UILayoutPriority) -> CGSize {
-    guard let height = contentHeight else {
-      return CGSize(width: targetSize.width, height: 128)
+  //  MARK: - UI state
+  
+  private var loading = true {
+    didSet {
+      activityIndicatorEnclosureView.isHidden = !loading
+      checkmarkImageView.isHidden = loading
+      circleImageView.isHidden = loading
+      questionMarkImageView.isHidden = loading
+      webView.isHidden = loading
     }
-
-    return CGSize(width: targetSize.width, height: height + 20)
   }
 }
 
@@ -164,9 +121,9 @@ extension OptionContentTableViewCell: WKScriptMessageHandler {
       return
     }
     
-    let body = message.body as! [String : AnyObject]
+    let body = message.body as! [String : CGFloat]
     
-    contentHeight = body["scrollHeight"] as! CGFloat + 30.00
+    contentHeight = body["scrollHeight"]
     loading = false
     
     Logger.shared.log(.view, .debug, "Option content for WKWebView has finished navigation with content length \(option.content.data.count) and calculated height \(contentHeight!).")

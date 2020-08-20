@@ -45,22 +45,10 @@ class QuestionContentTableViewCell: UITableViewCell {
   
   //  MARK: - WKWebView render size caching
   
-  private var webViewHeightConstraint: NSLayoutConstraint? = nil
   private var contentHeight: CGFloat? = nil {
     didSet {
       if let height = contentHeight {
         RenderSizeCache.shared.set(renderSize: height, forHTML: HTML)
-        
-        if let constraint = self.webViewHeightConstraint {
-          constraint.constant = height
-        } else {
-          let constraint = self.webView.heightAnchor.constraint(equalToConstant: height)
-          constraint.priority = .required
-          
-          self.webViewHeightConstraint = constraint
-        }
-        
-        self.webViewHeightConstraint!.isActive = true
         
         delegate?.didFinishRenderingContent(self, height: height)
       }
@@ -84,12 +72,7 @@ class QuestionContentTableViewCell: UITableViewCell {
   private var loading = true {
     didSet {
       activityIndicatorEnclosureView.isHidden = !loading
-      activityIndicatorEnclosureView.constraints.forEach { $0.isActive = loading }
       webView.isHidden = loading
-      
-      if loading, let constraint = self.webViewHeightConstraint {
-        constraint.isActive = false
-      }
     }
   }
 }

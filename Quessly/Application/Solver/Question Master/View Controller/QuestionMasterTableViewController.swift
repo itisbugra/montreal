@@ -3,7 +3,11 @@ import UIKit
 class QuestionMasterTableViewController: UITableViewController {
   var clientConfiguration = ClientConfiguration.shared
   
+  //  MARK: - Data
+  
   var question: Question!
+  
+  //  MARK: - View state handling
   
   var visibleOptions: [(Int, Question.Option)] {
     return question
@@ -42,8 +46,13 @@ class QuestionMasterTableViewController: UITableViewController {
     return visibleOptions[indexPathForSelectedRow.row].1;
   }
   
+  var questionHeight: CGFloat? = nil
+  var optionHeights = [Question.Option : CGFloat]()
+  
+  //  MARK: - Bar button items
+  
   var submitBarButtonItem: UIBarButtonItem! = {
-    let barButtonItem = UIBarButtonItem(title: "Submit",
+    let barButtonItem = UIBarButtonItem(title: NSLocalizedString("Submit", comment: "Submits the answer of the question as selected option."),
                                         style: .done,
                                         target: nil,
                                         action: nil)
@@ -52,6 +61,8 @@ class QuestionMasterTableViewController: UITableViewController {
     
     return barButtonItem
   }()
+  
+  //  MARK: - View lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -67,7 +78,7 @@ class QuestionMasterTableViewController: UITableViewController {
     
     navigationController!.setToolbarHidden(false, animated: true)
     toolbarItems = [
-      UIBarButtonItem(title: "Skip", style: .plain, target: nil, action: nil),
+      UIBarButtonItem(title: NSLocalizedString("Skip", comment: "Skips the current question."), style: .plain, target: nil, action: nil),
       UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
       submitBarButtonItem
     ]
@@ -130,9 +141,9 @@ class QuestionMasterTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     switch section {
     case 0:
-      return "Question"
+      return NSLocalizedString("Question", comment: "Notes the content as the body of the question.")
     case 1:
-      return "Options"
+      return NSLocalizedString("Options", comment: "Notes the content as the body of the options.")
     default:
       return nil
     }
@@ -152,6 +163,28 @@ class QuestionMasterTableViewController: UITableViewController {
     }
     
     return indexPath
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    let precalculated = super.tableView(tableView, heightForRowAt: indexPath)
+    let offset: CGFloat = 48.00
+    
+    switch indexPath.section {
+    case 0:
+      if let height = questionHeight {
+        return height + offset
+      }
+      
+      return precalculated
+    case 1:
+      if let height = optionHeights[question.options[indexPath.row]] {
+        return height + offset
+      }
+      
+      return precalculated
+    default:
+      return precalculated
+    }
   }
   
   //  MARK: - Convenience methods

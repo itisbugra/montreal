@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, user-scalable=no" />
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1" />
       
       <title>FormattedContent WebKit Wrapper</title>
       <meta name="description" content="WebKit wrapper for formatted content.">
@@ -67,8 +67,18 @@
           padding: 0;
         }
       
+        svg {
+          margin: 0 auto;
+          display: block;
+        }
+      
         .MathJax_SVG_Display  {
           text-align: left !important;
+        }
+      
+        :not(.MathJax_SVG_Display) > .MathJax_SVG {
+          font-size: 100% !important;
+          vertical-align: bottom;
         }
       </style>
   </head>

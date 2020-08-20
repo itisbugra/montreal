@@ -13,6 +13,7 @@ target 'Quessly' do
   pod 'Fakery'
   pod 'PromiseKit'
   pod 'Mantis'
+  pod 'FontAwesome.swift'
   
   target 'QuesslyTests' do
     inherit! :search_paths

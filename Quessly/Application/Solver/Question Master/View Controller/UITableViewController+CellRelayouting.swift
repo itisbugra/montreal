@@ -11,6 +11,8 @@ extension QuestionMasterTableViewController {
 extension QuestionMasterTableViewController : QuestionCustomContentTableViewCellDelegate {
   func didFinishRenderingContent(_ cell: QuestionContentTableViewCell,
                                  height: CGFloat) {
+    questionHeight = height
+    
     squashUpdates()
   }
 }
@@ -18,6 +20,8 @@ extension QuestionMasterTableViewController : QuestionCustomContentTableViewCell
 extension QuestionMasterTableViewController : OptionCustomContentTableViewCellDelegate {
   func didFinishRenderingContent(_ cell: OptionContentTableViewCell,
                                  height: CGFloat) {
+    optionHeights[cell.option] = height
+    
     squashUpdates()
   }
 }

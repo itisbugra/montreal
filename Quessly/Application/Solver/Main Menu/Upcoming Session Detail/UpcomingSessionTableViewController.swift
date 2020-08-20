@@ -19,15 +19,4 @@ class UpcomingSessionTableViewController: UITableViewController {
       break
     }
   }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    switch segue.identifier {
-    case "exitToMainMenuAfterEnrollment":
-      let customSegue = segue as! MainMenuUnwindSegue
-      
-      customSegue.triggersUserNotificationConsent = true
-    default:
-      break
-    }
-  }
 }

@@ -1,0 +1,264 @@
+
+/* Class = "UITableViewSection"; headerTitle = "Author"; ObjectID = "10i-BA-qHa"; */
+"10i-BA-qHa.headerTitle" = "Yazar";
+
+/* Class = "UILabel"; text = "Multiple, mutual exclusive"; ObjectID = "1km-ET-DEF"; */
+"1km-ET-DEF.text" = "Çok seçenekli, tek seçimli";
+
+/* Class = "UITextField"; placeholder = "••••••"; ObjectID = "26U-vw-NYz"; */
+"26U-vw-NYz.placeholder" = "••••••";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "3Ob-Up-ozg"; */
+"3Ob-Up-ozg.normalTitle" = "İptal";
+
+/* Class = "UILabel"; text = "Dismiss"; ObjectID = "4Z8-DO-UMm"; */
+"4Z8-DO-UMm.text" = "Kapat";
+
+/* Class = "UINavigationItem"; title = "Content Studio"; ObjectID = "4bE-Da-Nhi"; */
+"4bE-Da-Nhi.title" = "İçerik Stüdyosu";
+
+/* Class = "UILabel"; text = "Thursday"; ObjectID = "55j-kc-ffv"; */
+"55j-kc-ffv.text" = "Perşembe";
+
+/* Class = "UILabel"; text = "32 have been marked, 8 need to be inspected."; ObjectID = "6MS-Gk-M3L"; */
+"6MS-Gk-M3L.text" = "32 işaretlendi, 8 gözden geçirilecek.";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "7Bt-6L-T7M"; */
+"7Bt-6L-T7M.title" = "Öğe";
+
+/* Class = "UILabel"; text = "Duration"; ObjectID = "7ez-gz-X9c"; */
+"7ez-gz-X9c.text" = "Süre";
+
+/* Class = "UITableViewSection"; headerTitle = "Session Content"; ObjectID = "8dI-Fq-ULD"; */
+"8dI-Fq-ULD.headerTitle" = "Oturum İçeriği";
+
+/* Class = "UILabel"; text = "4 questions have not been seen."; ObjectID = "B7w-YN-26o"; */
+"B7w-YN-26o.text" = "4 soru henüz görülmedi.";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "BnW-2h-Qpm"; */
+"BnW-2h-Qpm.title" = "Öğe";
+
+/* Class = "UILabel"; text = "Your schedule is available for the timetable of this session without any collisions."; ObjectID = "C17-JP-WMq"; */
+"C17-JP-WMq.text" = "Programınız bu oturuma herhangi bir çakışma olmadan girebilmeniz için uygun.";
+
+/* Class = "UITableViewSection"; headerTitle = "Information"; ObjectID = "CHI-lJ-HRQ"; */
+"CHI-lJ-HRQ.headerTitle" = "Bilgi";
+
+/* Class = "UILabel"; text = "Type"; ObjectID = "CHL-dl-ivJ"; */
+"CHL-dl-ivJ.text" = "Tür";
+
+/* Class = "UILabel"; text = "starts at 19:00"; ObjectID = "CgI-DJ-QBf"; */
+"CgI-DJ-QBf.text" = "19:00'da başlıyor";
+
+/* Class = "UILabel"; text = "Timetable"; ObjectID = "Cou-kt-whN"; */
+"Cou-kt-whN.text" = "Zaman Çizelgesi";
+
+/* Class = "UILabel"; text = "Enroll"; ObjectID = "EEz-Lg-KZd"; */
+"EEz-Lg-KZd.text" = "Kayıt Ol";
+
+/* Class = "UILabel"; text = "19:00"; ObjectID = "EUx-Vk-6dP"; */
+"EUx-Vk-6dP.text" = "19:00";
+
+/* Class = "UILabel"; text = "120 minutes"; ObjectID = "Flv-8Y-aMC"; */
+"Flv-8Y-aMC.text" = "120 dakika";
+
+/* Class = "UILabel"; text = "To receive notifications as they happen, turn on push notifications. You'll also receive them when you're not on Quessly. Turn them off anytime."; ObjectID = "GYp-m1-fAL"; */
+"GYp-m1-fAL.text" = "Çeşitli olaylarda sizi bilgilendirmek amacıyla bildirimler gönderiyoruz. Bildirimler, uygulamada bulunmadığınız zamanlarda da gelebilir. İstediğiniz zaman kapatabilirsiniz.";
+
+/* Class = "UILabel"; text = "3.772 users participating"; ObjectID = "HDF-dt-4hT"; */
+"HDF-dt-4hT.text" = "3.772 kullanıcı katılıyor";
+
+/* Class = "UILabel"; text = "Marathon"; ObjectID = "HWv-Uz-AAf"; */
+"HWv-Uz-AAf.text" = "Maraton";
+
+/* Class = "UILabel"; text = "7 questions have not been seen."; ObjectID = "Hy8-iF-eIq"; */
+"Hy8-iF-eIq.text" = "7 soru henüz görülmedi.";
+
+/* Class = "UITableViewSection"; headerTitle = "Content"; ObjectID = "I5O-qb-SzC"; */
+"I5O-qb-SzC.headerTitle" = "İçerik";
+
+/* Class = "UILabel"; text = "Content"; ObjectID = "I6P-LW-dd1"; */
+"I6P-LW-dd1.text" = "İçerik";
+
+/* Class = "UILabel"; text = "John Appleseed"; ObjectID = "IYJ-sL-CkP"; */
+"IYJ-sL-CkP.text" = "John Appleseed";
+
+/* Class = "UILabel"; text = "Multiple, mutual exclusive"; ObjectID = "Io7-0B-EWt"; */
+"Io7-0B-EWt.text" = "Çok seçenekli, tek seçimli";
+
+/* Class = "UILabel"; text = "ends at 21:00"; ObjectID = "MCB-cz-SYl"; */
+"MCB-cz-SYl.text" = "21:00'da bitiyor";
+
+/* Class = "UILabel"; text = "Desperate times call for desperate measures."; ObjectID = "N2G-5U-9aA"; */
+"N2G-5U-9aA.text" = "Desperate times call for desperate measures.";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "Ob9-Xi-BrQ"; */
+"Ob9-Xi-BrQ.title" = "Profil";
+
+/* Class = "UITableViewController"; title = "Profile"; ObjectID = "P0U-uG-VZQ"; */
+"P0U-uG-VZQ.title" = "Profil";
+
+/* Class = "UINavigationItem"; title = "Main menu"; ObjectID = "PYc-1l-Ohp"; */
+"PYc-1l-Ohp.title" = "Ana menü";
+
+/* Class = "UILabel"; text = "Marathon"; ObjectID = "Pdw-5w-L4G"; */
+"Pdw-5w-L4G.text" = "Maraton";
+
+/* Class = "UILabel"; text = "62 have been marked, 12 need to be inspected."; ObjectID = "RR5-KO-7Tu"; */
+"RR5-KO-7Tu.text" = "62 soru işaretlendi, 12 soru gözden geçirilecek.";
+
+/* Class = "UINavigationItem"; title = "Category Explorer"; ObjectID = "S3I-2H-8Xj"; */
+"S3I-2H-8Xj.title" = "Kategoriler";
+
+/* Class = "UILabel"; text = "Timetable"; ObjectID = "SV5-H0-H3y"; */
+"SV5-H0-H3y.text" = "Zaman Çizelgesi";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Ssh-cE-s67"; */
+"Ssh-cE-s67.text" = "Başlık";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Tt1-2j-0zz"; */
+"Tt1-2j-0zz.title" = "Öğe";
+
+/* Class = "UILabel"; text = "Type"; ObjectID = "UNr-rJ-s7k"; */
+"UNr-rJ-s7k.text" = "Tür";
+
+/* Class = "UILabel"; text = "Push Notifications"; ObjectID = "Vcl-xN-A43"; */
+"Vcl-xN-A43.text" = "Bildirimler";
+
+/* Class = "UITableViewSection"; headerTitle = "Your schedule"; ObjectID = "XFC-06-o2F"; */
+"XFC-06-o2F.headerTitle" = "Programınız";
+
+/* Class = "UILabel"; text = "Dismiss"; ObjectID = "XNY-kh-gRT"; */
+"XNY-kh-gRT.text" = "Kapat";
+
+/* Class = "UILabel"; text = "Flag This Content"; ObjectID = "XX6-6B-hUE"; */
+"XX6-6B-hUE.text" = "Şikayet Et";
+
+/* Class = "UILabel"; text = "Sign Out"; ObjectID = "XbI-Nw-sGV"; */
+"XbI-Nw-sGV.text" = "Çıkış Yap";
+
+/* Class = "UILabel"; text = "Duration"; ObjectID = "Y0E-ir-jX8"; */
+"Y0E-ir-jX8.text" = "Süre";
+
+/* Class = "UITableViewSection"; headerTitle = "Sign In"; ObjectID = "YQf-AU-Jsj"; */
+"YQf-AU-Jsj.headerTitle" = "Giriş Yap";
+
+/* Class = "UILabel"; text = "Link content"; ObjectID = "aTm-iW-2tb"; */
+"aTm-iW-2tb.text" = "İçerik bağla";
+
+/* Class = "UINavigationItem"; title = "MathJax Test"; ObjectID = "aoD-Py-reG"; */
+"aoD-Py-reG.title" = "MathJax Testi";
+
+/* Class = "UILabel"; text = "120 minutes"; ObjectID = "c4C-57-rXF"; */
+"c4C-57-rXF.text" = "120 dakika";
+
+/* Class = "UILabel"; text = "John Appleseed"; ObjectID = "d8u-37-eea"; */
+"d8u-37-eea.text" = "John Appleseed";
+
+/* Class = "UILabel"; text = "Sign Up"; ObjectID = "dSC-hp-A1q"; */
+"dSC-hp-A1q.text" = "Kayıt Ol";
+
+/* Class = "UILabel"; text = "Content"; ObjectID = "doJ-tV-Tdr"; */
+"doJ-tV-Tdr.text" = "İçerik";
+
+/* Class = "UILabel"; text = "120 single-selection questions"; ObjectID = "f33-nL-wZl"; */
+"f33-nL-wZl.text" = "120 tek seçimli soru";
+
+/* Class = "UILabel"; text = "May 5, 2020 @ 07:53 AM"; ObjectID = "fSA-P6-4b3"; */
+"fSA-P6-4b3.text" = "Mayıs 5, 2020 - 19:53";
+
+/* Class = "UILabel"; text = "Create New Question"; ObjectID = "gQL-sq-FAl"; */
+"gQL-sq-FAl.text" = "Yeni Soru Yarat";
+
+/* Class = "UILabel"; text = "Dismiss"; ObjectID = "gSz-4v-qxz"; */
+"gSz-4v-qxz.text" = "Kapat";
+
+/* Class = "UILabel"; text = "By signing in to the platform, you accept end user license agreement and terms and conditions."; ObjectID = "hg5-ti-3wu"; */
+"hg5-ti-3wu.text" = "Platforma giriş yaparak son kullanıcı sözleşmesini ve kullanım şartları ve koşullarını kabul etmektesiniz.";
+
+/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "iin-op-aYm"; */
+"iin-op-aYm.normalTitle" = "Tamam";
+
+/* Class = "UINavigationItem"; title = "New Question"; ObjectID = "ing-Yi-Aen"; */
+"ing-Yi-Aen.title" = "Yeni Soru";
+
+/* Class = "UILabel"; text = "Sign In"; ObjectID = "jWg-oS-a5F"; */
+"jWg-oS-a5F.text" = "Giriş Yap";
+
+/* Class = "UILabel"; text = "Type"; ObjectID = "jam-EX-f1c"; */
+"jam-EX-f1c.text" = "Tür";
+
+/* Class = "UILabel"; text = "Desperate times call for desperate measures."; ObjectID = "k8S-ld-RFe"; */
+"k8S-ld-RFe.text" = "Desperate times call for desperate measures.";
+
+/* Class = "UILabel"; text = "E-mail"; ObjectID = "kfm-ly-SFk"; */
+"kfm-ly-SFk.text" = "E-posta";
+
+/* Class = "UILabel"; text = "SET NAME"; ObjectID = "lBS-gK-t2D"; */
+"lBS-gK-t2D.text" = "SET NAME";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "mKY-vc-vsR"; */
+"mKY-vc-vsR.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "120 single-selection questions"; ObjectID = "mWL-ug-pfg"; */
+"mWL-ug-pfg.text" = "120 tek seçimli soru";
+
+/* Class = "UILabel"; text = "Change Password"; ObjectID = "mhv-ZN-l3a"; */
+"mhv-ZN-l3a.text" = "Şifreyi Değiştir";
+
+/* Class = "UITableViewSection"; headerTitle = "Publisher"; ObjectID = "nQ2-tR-gvq"; */
+"nQ2-tR-gvq.headerTitle" = "Yayımcı";
+
+/* Class = "UITableViewSection"; headerTitle = "Session information"; ObjectID = "o4V-bO-fef"; */
+"o4V-bO-fef.headerTitle" = "Oturum bilgisi";
+
+/* Class = "UITableViewSection"; headerTitle = "Session Content"; ObjectID = "pG2-zB-7f8"; */
+"pG2-zB-7f8.headerTitle" = "Oturum İçeriği";
+
+/* Class = "UIBarButtonItem"; title = "Select"; ObjectID = "qLc-2S-I5F"; */
+"qLc-2S-I5F.title" = "Seç";
+
+/* Class = "UITextField"; placeholder = "example@mail.com"; ObjectID = "r7C-xu-pn9"; */
+"r7C-xu-pn9.placeholder" = "example@mail.com";
+
+/* Class = "UILabel"; text = "Name of the session"; ObjectID = "rIh-sx-roj"; */
+"rIh-sx-roj.text" = "Oturum adı";
+
+/* Class = "UILabel"; text = "Type"; ObjectID = "rMx-nQ-vGY"; */
+"rMx-nQ-vGY.text" = "Tür";
+
+/* Class = "UITableViewController"; title = "Main menu"; ObjectID = "rcR-a0-dMH"; */
+"rcR-a0-dMH.title" = "Ana menü";
+
+/* Class = "UILabel"; text = "ends at 21:00"; ObjectID = "sqO-7u-rIX"; */
+"sqO-7u-rIX.text" = "21:00'da bitiyor";
+
+/* Class = "UILabel"; text = "starts at 19:00"; ObjectID = "tFU-hN-C5k"; */
+"tFU-hN-C5k.text" = "19:00'da başlıyor";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "tvU-Mt-o9a"; */
+"tvU-Mt-o9a.text" = "Şifre";
+
+/* Class = "UITableViewSection"; headerTitle = "Session information"; ObjectID = "u24-Jf-L4h"; */
+"u24-Jf-L4h.headerTitle" = "Oturum bilgisi";
+
+/* Class = "UIBarButtonItem"; title = "Profile"; ObjectID = "uQg-DG-bgz"; */
+"uQg-DG-bgz.title" = "Profil";
+
+/* Class = "UINavigationItem"; title = "Sign in to Quessly"; ObjectID = "vMZ-sw-JDf"; */
+"vMZ-sw-JDf.title" = "Quessly'e giriş yap";
+
+/* Class = "UILabel"; text = "Date Added"; ObjectID = "vWT-ie-DcW"; */
+"vWT-ie-DcW.text" = "Eklenme Tarihi";
+
+/* Class = "UILabel"; text = "Share"; ObjectID = "xIL-of-iYD"; */
+"xIL-of-iYD.text" = "Paylaş";
+
+/* Class = "UILabel"; text = "Leave Session"; ObjectID = "yLX-Aq-4hk"; */
+"yLX-Aq-4hk.text" = "Oturumu Terk Et";
+
+/* Class = "UILabel"; text = "1 hour 22 minutes"; ObjectID = "yjB-Q7-F6h"; */
+"yjB-Q7-F6h.text" = "1 saat 22 dakika";
+
+/* Class = "UILabel"; text = "Time remaining"; ObjectID = "z3J-pu-D8t"; */
+"z3J-pu-D8t.text" = "Kalan zaman";

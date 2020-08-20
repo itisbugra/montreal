@@ -3,7 +3,7 @@ import UIKit
 class SessionQuestionsOverviewCollectionViewController: UICollectionViewController {
   var session: Session!
   private var listingFilter: ListingFilter?
-  
+
   private var hiddenQuestionSets = [QuestionSet]() {
     didSet {
       //  Check whether set is changed
@@ -18,18 +18,69 @@ class SessionQuestionsOverviewCollectionViewController: UICollectionViewControll
       
       //  Check whether it is a single element insert or removal
       if abs(oldValue.count - hiddenQuestionSets.count) > 1 {
-        collectionView.reloadData()
+        collectionView.reloadData(animated: true)
       } else {
         //  Retrieve the added or removed question set
         let questionSet = oldValue.count < hiddenQuestionSets.count ? hiddenQuestionSets.last! : oldValue.last!
         
         //  Reload the corresponding section with animation
-        collectionView.reloadSections(IndexSet(integer: session.questionSets.firstIndex(of: questionSet)!))
+        collectionView.reloadSections(IndexSet(integer: session.questionSets!.firstIndex(of: questionSet)!))
       }
     }
   }
   
-  var titleView: SessionQuestionsOverviewNavigationBarTitleView!
+  //  MARK: - View configurations
+  
+  @IBOutlet weak var viewConfigurationBarButtonItem: UIBarButtonItem!
+  
+  enum ViewConfiguration: Equatable {
+    case tile(columns: Int)
+    case full
+    
+    var denominant: CGFloat {
+      switch self {
+      case .tile(let columns):
+        return CGFloat(columns)
+      case .full:
+        return 1.00
+      }
+    }
+  }
+
+  /// List of the supported view configurations. Order affects the next view configuration when user requested.
+  private var supportedViewConfigurations: [ViewConfiguration] = [.tile(columns: 3), .tile(columns: 2), .full]
+  
+  private func imageForViewConfiguration(_ viewConfiguration: ViewConfiguration) -> UIImage {
+    switch viewConfiguration {
+    case .tile(columns: 2):
+      return UIImage(systemName: "rectangle.grid.2x2.fill")!
+    case .tile(columns: 3):
+      return UIImage(systemName: "rectangle.grid.3x2.fill")!
+    case .full:
+      return UIImage(systemName: "rectangle.grid.1x2.fill")!
+    default:
+      fatalError("Unsupported view configuration.")
+    }
+  }
+  
+  var viewConfiguration = ViewConfiguration.tile(columns: 3) {
+    didSet {
+      guard supportedViewConfigurations.contains(viewConfiguration) else {
+        fatalError("Unsupported view configuration.")
+      }
+      
+      viewConfigurationBarButtonItem.image = imageForViewConfiguration(nextViewConfiguration)
+      collectionView.reloadData(animated: true)
+    }
+  }
+  
+  var previousViewConfiguration: ViewConfiguration {
+    return supportedViewConfigurations[(supportedViewConfigurations.firstIndex(of: viewConfiguration)! - 1) % supportedViewConfigurations.count]
+  }
+  
+  var nextViewConfiguration: ViewConfiguration {
+    return supportedViewConfigurations[(supportedViewConfigurations.firstIndex(of: viewConfiguration)! + 1) % supportedViewConfigurations.count]
+  }
   
   //  MARK: - Domain data structures
   
@@ -39,6 +90,8 @@ class SessionQuestionsOverviewCollectionViewController: UICollectionViewControll
   }
   
   //  MARK: - UIViewController lifecycle
+  
+  var titleView: SessionQuestionsOverviewNavigationBarTitleView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -73,12 +126,12 @@ class SessionQuestionsOverviewCollectionViewController: UICollectionViewControll
   // MARK: UICollectionViewDataSource
   
   override func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return session.questionSets.count
+    return session.questionSets!.count
   }
   
   override func collectionView(_ collectionView: UICollectionView,
                                numberOfItemsInSection section: Int) -> Int {
-    let questionSet = session.questionSets[section]
+    let questionSet = session.questionSets![section]
     let isHidden = hiddenQuestionSets.contains(questionSet)
     
     return isHidden ? .zero : questionSet.questions.count
@@ -88,7 +141,7 @@ class SessionQuestionsOverviewCollectionViewController: UICollectionViewControll
                                cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: QuestionContentCollectionViewCell.identifier, for: indexPath) as! QuestionContentCollectionViewCell
     
-    cell.question = session.questionSets[indexPath.section].questions[indexPath.row]
+    cell.question = session.questionSets![indexPath.section].questions[indexPath.row]
     
     return cell
   }
@@ -101,7 +154,7 @@ class SessionQuestionsOverviewCollectionViewController: UICollectionViewControll
       let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                        withReuseIdentifier: SetOverviewHeaderCollectionReusableView.identifier,
                                                                        for: indexPath) as! SetOverviewHeaderCollectionReusableView
-      let questionSet = session.questionSets[indexPath.section]
+      let questionSet = session.questionSets![indexPath.section]
       
       headerView.questionSet = questionSet
       headerView.setExpansionState(expansionState: hiddenQuestionSets.contains(questionSet) ? .narrowed : .expanded,
@@ -138,21 +191,27 @@ class SessionQuestionsOverviewCollectionViewController: UICollectionViewControll
       let viewController = segue.destination as! QuestionMasterTableViewController
       let indexPath = collectionView.indexPathsForSelectedItems!.first!
       
-      viewController.question = session.questionSets[indexPath.section].questions[indexPath.row]
+      viewController.question = session.questionSets![indexPath.section].questions[indexPath.row]
     default:
       break
     }
+  }
+  
+  //  MARK: - Navigation bar item actions
+  
+  @IBAction func changeViewTapped(_ sender: UIBarButtonItem) {
+    viewConfiguration = nextViewConfiguration
   }
   
   //  MARK: - Toolbar handling
   
   func reloadToolbarItems() {
     let expansionToolbarItem = hiddenQuestionSets.isEmpty ?
-      UIBarButtonItem(title: "Shrink All", style: .plain, target: self, action: #selector(shrinkAllButtonTapped(_:))) :
-      UIBarButtonItem(title: "Expand All", style: .plain, target: self, action: #selector(expandAllButtonTapped(_:)))
+      UIBarButtonItem(title: NSLocalizedString("Shrink All", comment: "Bar button item."), style: .plain, target: self, action: #selector(shrinkAllButtonTapped(_:))) :
+      UIBarButtonItem(title: NSLocalizedString("Expand All", comment: "Bar button item."), style: .plain, target: self, action: #selector(expandAllButtonTapped(_:)))
     
     toolbarItems = [
-      UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterButtonTapped(_:))),
+      UIBarButtonItem(title: NSLocalizedString("Filter", comment: "Bar button item."), style: .plain, target: self, action: #selector(filterButtonTapped(_:))),
       UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
       expansionToolbarItem
     ]
@@ -172,7 +231,7 @@ class SessionQuestionsOverviewCollectionViewController: UICollectionViewControll
   }
   
   @objc func shrinkAllButtonTapped(_ toolbarItem: UIBarButtonItem) {
-    hiddenQuestionSets = session.questionSets
+    hiddenQuestionSets = session.questionSets!
   }
 }
 
@@ -183,8 +242,9 @@ extension SessionQuestionsOverviewCollectionViewController: UICollectionViewDele
                       layout collectionViewLayout: UICollectionViewLayout,
                       sizeForItemAt indexPath: IndexPath) -> CGSize {
     let width = UIScreen.main.bounds.size.width
+    let length = width / viewConfiguration.denominant
     
-    return CGSize(width: width / 3.00, height: width / 3.00)
+    return CGSize(width: length, height: length)
   }
   
   func collectionView(_ collectionView: UICollectionView,

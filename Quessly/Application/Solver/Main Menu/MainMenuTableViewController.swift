@@ -5,24 +5,31 @@ import UserNotifications
  Main menu of the application.
  */
 class MainMenuTableViewController: UITableViewController {
-  let upcomingSessions = [
-    UpcomingSession(untouched: true,
-                    title: "Full Exam Coverage",
-                    participantCount: 5172,
-                    timestamp: Date()),
-    UpcomingSession(untouched: false,
-                    title: "Maths'o Round",
-                    participantCount: 427,
-                    timestamp: Date())
+  let upcomingSessions: [Session] = [
   ]
   
-  let session = try! FakeSessionRepository.shared.one().wait()
+  let ongoingSessions = [
+    Session(id: 0,
+            name: LocalizedString(localized: "Physics 101", locale: .current),
+            questionSets: [],
+            contentAvailableAt: Date().addingTimeInterval(2000),
+            startingAt: Date().addingTimeInterval(5000),
+            endingAt: Date().addingTimeInterval(10000))
+  ]
+  
+  //  MARK: - Internal data
+  
+  var session: Session!
+  
+  //  MARK: - View controller lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     navigationItem.hidesBackButton = true
     clearsSelectionOnViewWillAppear = true
+    
+    SessionTableViewCell.registerForReuse(in: tableView)
   }
   
   // MARK: - Table view data source
@@ -34,9 +41,11 @@ class MainMenuTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     switch section {
     case 0:
-      return upcomingSessions.count
+      return ongoingSessions.count
     case 1:
-      return 5
+      return upcomingSessions.count
+    case 2:
+      return 6
     default:
       return 0
     }
@@ -45,15 +54,26 @@ class MainMenuTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if indexPath.section == 0 {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "UpcomingSession", for: indexPath) as! UpcomingSessionTableViewCell
+      let cell = tableView.dequeueReusableCell(withIdentifier: SessionTableViewCell.identifier,
+                                               for: indexPath) as! SessionTableViewCell
       
-      cell.upcomingSession = upcomingSessions[indexPath.row]
+      cell.session = ongoingSessions[indexPath.row]
       cell.accessoryType = .disclosureIndicator
       
       return cell
     }
     
     if indexPath.section == 1 {
+      let cell = tableView.dequeueReusableCell(withIdentifier: SessionTableViewCell.identifier,
+                                               for: indexPath) as! SessionTableViewCell
+
+//      cell.session = upcomingSessions[indexPath.row]
+      cell.accessoryType = .disclosureIndicator
+
+      return cell
+    }
+    
+    if indexPath.section == 2 {
       if indexPath.row == 0 {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         
@@ -93,6 +113,14 @@ class MainMenuTableViewController: UITableViewController {
         
         return cell
       }
+      
+      if indexPath.row == 5 {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        
+        cell.textLabel?.text = "Pseudo Push Notifications"
+        
+        return cell
+      }
     }
     
     fatalError("Section not handled.")
@@ -101,28 +129,38 @@ class MainMenuTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     switch indexPath.section {
     case 0:
-      return 80
+      fallthrough
     case 1:
+      return 80
+    case 2:
       return 44
     default:
       return 0
     }
   }
   
-  override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+  override func tableView(_ tableView: UITableView,
+                          titleForHeaderInSection section: Int) -> String? {
     switch section {
     case 0:
-      return "Upcoming live sessions"
+      return NSLocalizedString("Ongoing live sessions", comment: "Header in the main menu.")
+    case 1:
+      return NSLocalizedString("Upcoming live sessions", comment: "Header in the main menu.")
     default:
       return nil
     }
   }
   
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  override func tableView(_ tableView: UITableView,
+                          didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    
     switch indexPath.section {
     case 0:
-      performSegue(withIdentifier: "showUpcomingSessionDetail", sender: self)
+      performSegue(withIdentifier: "showOngoingSessionDetail", sender: self)
     case 1:
+      performSegue(withIdentifier: "showUpcomingSessionDetail", sender: self)
+    case 2:
       switch indexPath.row {
       case 0:
         performSegue(withIdentifier: "showQuestion", sender: self)
@@ -134,6 +172,8 @@ class MainMenuTableViewController: UITableViewController {
         performSegue(withIdentifier: "showSessionQuestionsOverview", sender: self)
       case 4:
         performSegue(withIdentifier: "showContentStudio", sender: self)
+      case 5:
+        performSegue(withIdentifier: "showPseudoPushNotificationsTest", sender: self)
       default:
         break
       }
@@ -149,7 +189,7 @@ class MainMenuTableViewController: UITableViewController {
     case "showQuestion":
       let viewController = segue.destination as! QuestionMasterTableViewController
       
-      viewController.question = session.questionSets[0].questions.first!
+      viewController.question = session.questionSets![0].questions.first!
     case "showSessionQuestionsOverview":
       let viewController = segue.destination as! SessionQuestionsOverviewCollectionViewController
       
@@ -159,11 +199,22 @@ class MainMenuTableViewController: UITableViewController {
     }
   }
   
-  @IBAction func unwindToMainMenuTableViewController(segue: UIStoryboardSegue) {
-    if let customSegue = segue as? MainMenuUnwindSegue {
-      if customSegue.triggersUserNotificationConsent {
-        performPushNotificationConsentSegueIfNeeded(animated: true)
-      }
+  @IBAction func unwindToMainMenuTableViewController(segue: MainMenuToNotificationConsentSegue) {
+    
+  }
+  
+  @IBAction func unwindToMainMenuToTriggerUserNotificationConsent(segue: UIStoryboardSegue) {
+    DispatchQueue.main.async {
+      self.performPushNotificationConsentSegueIfNeeded(animated: true)
+    }
+  }
+  
+  @IBAction func unwindToMainMenuToShowOngoingSessionOverview(segue: MainMenuToOngoingSessionOverviewSegue) {
+    session = segue.session
+    
+    DispatchQueue.main.async {
+      self.performSegue(withIdentifier: "showSessionQuestionsOverview",
+                        sender: segue.source)
     }
   }
   
