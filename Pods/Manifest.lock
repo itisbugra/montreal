@@ -18,6 +18,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.13.1):
     - PromiseKit/CorePromise
+  - Static (4.0.0)
 
 DEPENDENCIES:
   - Down
@@ -28,6 +29,7 @@ DEPENDENCIES:
   - NSLogger
   - NSLogger/Swift
   - PromiseKit
+  - Static
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -38,6 +40,7 @@ SPEC REPOS:
     - Mantis
     - NSLogger
     - PromiseKit
+    - Static
 
 SPEC CHECKSUMS:
   Down: 1f6a14846dff45ae8e7e4334b4e386a5fd3b2412
@@ -47,7 +50,8 @@ SPEC CHECKSUMS:
   Mantis: 0161c774a6993f301398f8e4cab03e31cd01af6a
   NSLogger: cf3013a4fba189f631f07e6c3d5b8ce2b209654b
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
+  Static: 3204aad2dc648cfe08dc7aa4a26d65ee37e4853a
 
-PODFILE CHECKSUM: 6d73634ee09263956d91a518814b905ff9b05503
+PODFILE CHECKSUM: 5950d0b108f5c0e3100e271508087a7771a5a8b8
 
 COCOAPODS: 1.5.2

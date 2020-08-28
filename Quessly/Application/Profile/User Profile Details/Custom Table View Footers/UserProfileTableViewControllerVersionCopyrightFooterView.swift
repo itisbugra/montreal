@@ -1,5 +1,5 @@
 import UIKit
 
-class UserProfileTableViewControllerVersionCopyrightFooterView: UITableViewHeaderFooterView {
+class UserProfileTableViewControllerVersionCopyrightFooterView: UIView {
   static let identifier = "VersionCopyright"
 }

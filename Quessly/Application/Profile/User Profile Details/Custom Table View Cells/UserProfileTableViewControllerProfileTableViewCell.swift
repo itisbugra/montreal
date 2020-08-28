@@ -1,8 +1,10 @@
 import UIKit
+import Static
 
-class UserProfileTableViewControllerProfileTableViewCell: UITableViewCell {
-  static let identifier = "Profile"
-  static let height: CGFloat = 80.00
+class UserProfileTableViewControllerProfileTableViewCell: UITableViewCell, Cell {
+  static func nib() -> UINib? {
+    return UINib(nibName: "UserProfileTableViewControllerProfileTableViewCell", bundle: .main)
+  }
   
   @IBOutlet weak var profilePictureImageView: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
@@ -13,5 +15,9 @@ class UserProfileTableViewControllerProfileTableViewCell: UITableViewCell {
     
     profilePictureImageView.layer.cornerRadius = profilePictureImageView.frame.height / 2.00
     profilePictureImageView.clipsToBounds = true
+  }
+  
+  func configure(row: Row) {
+    
   }
 }

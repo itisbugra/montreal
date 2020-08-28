@@ -230,4 +230,8 @@ class MainMenuTableViewController: UITableViewController {
       }
     }
   }
+  
+  @IBAction func showProfile(_ sender: UIBarButtonItem) {
+    self.navigationController!.pushViewController(UserProfileTableViewController(), animated: true)
+  }
 }

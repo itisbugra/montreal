@@ -1,8 +1,15 @@
 import UIKit
+import Static
 
-class UserProfileTableViewControllerImageTableViewCell: UITableViewCell {
-  static let identifier = "Image"
-  static let height: CGFloat = 43.50
+class UserProfileTableViewControllerImageTableViewCell: UITableViewCell, Cell {
+  enum Context: String {
+    case tintColor
+    case image
+  }
+  
+  static func nib() -> UINib? {
+    return UINib(nibName: "UserProfileTableViewControllerImageTableViewCell", bundle: .main)
+  }
   
   @IBOutlet weak var iconImageViewContainerView: UIView!
   @IBOutlet weak var iconImageView: UIImageView!
@@ -24,5 +31,11 @@ class UserProfileTableViewControllerImageTableViewCell: UITableViewCell {
   
   override var imageView: UIImageView? {
     return iconImageView
+  }
+  
+  func configure(row: Row) {
+    textLabel?.text = row.text
+    tintColor = (row.context![Context.tintColor.rawValue]! as! UIColor)
+    iconImageView.image = (row.context![Context.image.rawValue]! as! UIImage)
   }
 }
