@@ -87,6 +87,7 @@
 		D5ACD038248A3BD700265CE0 /* PlainSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ACD037248A3BD700265CE0 /* PlainSwitchTableViewCell.swift */; };
 		D5ACD03A248A57EA00265CE0 /* CenteredLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5ACD039248A57EA00265CE0 /* CenteredLabelTableViewCell.swift */; };
 		D5ACD03C248A580500265CE0 /* CenteredLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5ACD03B248A580500265CE0 /* CenteredLabelTableViewCell.xib */; };
+		D5AFB3CC25CE59EC00315150 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D5AFB3CB25CE59EC00315150 /* README.md */; };
 		D5B5E1BD245D4D61001E650F /* OptionContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B5E1BC245D4D61001E650F /* OptionContentTableViewCell.swift */; };
 		D5B5E1BF245D4FC2001E650F /* WKWrapper.html in Resources */ = {isa = PBXBuildFile; fileRef = D5B5E1BE245D4D94001E650F /* WKWrapper.html */; };
 		D5BD3B9D2456F34E002D9DB2 /* SessionContentSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BD3B9C2456F34E002D9DB2 /* SessionContentSectionHeaderView.swift */; };
@@ -237,6 +238,7 @@
 		D5ACD037248A3BD700265CE0 /* PlainSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainSwitchTableViewCell.swift; sourceTree = "<group>"; };
 		D5ACD039248A57EA00265CE0 /* CenteredLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredLabelTableViewCell.swift; sourceTree = "<group>"; };
 		D5ACD03B248A580500265CE0 /* CenteredLabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenteredLabelTableViewCell.xib; sourceTree = "<group>"; };
+		D5AFB3CB25CE59EC00315150 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D5B5E1BC245D4D61001E650F /* OptionContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionContentTableViewCell.swift; sourceTree = "<group>"; };
 		D5B5E1BE245D4D94001E650F /* WKWrapper.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = WKWrapper.html; sourceTree = "<group>"; };
 		D5BD3B9C2456F34E002D9DB2 /* SessionContentSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionContentSectionHeaderView.swift; sourceTree = "<group>"; };
@@ -580,6 +582,7 @@
 				D5A7425B24569069001D83A5 /* Products */,
 				D58B86AB245BFA5500514018 /* Frameworks */,
 				AB6173B1B1C42C4BA1FE062E /* Pods */,
+				D5AFB3CB25CE59EC00315150 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -999,6 +1002,18 @@
 				en,
 				Base,
 				tr,
+				de,
+				ar,
+				"zh-Hans",
+				ja,
+				es,
+				it,
+				"ko-KR",
+				ko,
+				"zh-Hant",
+				ru,
+				fr,
+				"pt-PT",
 			);
 			mainGroup = D5A7425124569069001D83A5;
 			productRefGroup = D5A7425B24569069001D83A5 /* Products */;
@@ -1027,6 +1042,7 @@
 				D5BD3B9F2456F363002D9DB2 /* SessionContentSectionHeaderView.xib in Resources */,
 				D5ACD0232488F98900265CE0 /* SessionQuestionsOverviewNavigationBarTitleView.xib in Resources */,
 				D5A7426A2456906B001D83A5 /* LaunchScreen.storyboard in Resources */,
+				D5AFB3CC25CE59EC00315150 /* README.md in Resources */,
 				D50A938124FD216D00F2716A /* Lato-ThinItalic.ttf in Resources */,
 				D50A937B24FD216D00F2716A /* Lato-Black.ttf in Resources */,
 				D5A742672456906B001D83A5 /* Assets.xcassets in Resources */,
@@ -1445,7 +1461,6 @@
 		};
 		D5A742852456906B001D83A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73D1E1F4411CD9F6E32A6F7E /* Pods-Quessly.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1468,7 +1483,6 @@
 		};
 		D5A742862456906B001D83A5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00286CA73673DA31241A7BF0 /* Pods-Quessly.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1491,7 +1505,6 @@
 		};
 		D5A742882456906B001D83A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C5BAFC737CE72CED6600B93A /* Pods-QuesslyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1514,7 +1527,6 @@
 		};
 		D5A742892456906B001D83A5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8AB8070956F0C655CFB1095F /* Pods-QuesslyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1537,7 +1549,6 @@
 		};
 		D5A7428B2456906B001D83A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F498858C46BA04AFB43D7628 /* Pods-Quessly-QuesslyUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1558,7 +1569,6 @@
 		};
 		D5A7428C2456906B001D83A5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0358EACCD47FF9886E0625D5 /* Pods-Quessly-QuesslyUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
