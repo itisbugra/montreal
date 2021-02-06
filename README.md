@@ -1,6 +1,6 @@
 # Quessly mobile application for iOS: montreal
 
-![iPhone 11](https://github.com/Chatatata/montreal/blob/main/.github/assets/quessly-optimized.gif)
+![iPhone 11](https://github.com/Chatatata/montreal/raw/master/.github/assets/quessly-optimized.gif)
 
 ## Installation
 
