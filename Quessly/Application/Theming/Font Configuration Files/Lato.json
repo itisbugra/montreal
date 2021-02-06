@@ -1,0 +1,97 @@
+{
+  "styles": [
+    {
+      "textStyle": "UICTFontTextStyleTitle0",
+      "fontName": "Lato-Medium",
+      "pointSize": 30
+    },
+    {
+      "textStyle": "UICTFontTextStyleTitle1",
+      "fontName": "Lato-Medium",
+      "pointSize": 25
+    },
+    {
+      "textStyle": "UICTFontTextStyleTitle2",
+      "fontName": "Lato-Regular",
+      "pointSize": 20
+    },
+    {
+      "textStyle": "UICTFontTextStyleTitle3",
+      "fontName": "Lato-Regular",
+      "pointSize": 18
+    },
+    {
+      "textStyle": "UICTFontTextStyleHeadline",
+      "fontName": "Lato-Heavy",
+      "pointSize": 16
+    },
+    {
+      "textStyle": "UICTFontTextStyleSubhead",
+      "fontName": "Lato-Regular",
+      "pointSize": 14
+    },
+    {
+      "textStyle": "UICTFontTextStyleBody",
+      "fontName": "Lato-Regular",
+      "pointSize": 16
+    },
+    {
+      "textStyle": "UICTFontTextStyleCallout",
+      "fontName": "Lato-Regular",
+      "pointSize": 15
+    },
+    {
+      "textStyle": "UICTFontTextStyleFootnote",
+      "fontName": "Lato-Regular",
+      "pointSize": 13
+    },
+    {
+      "textStyle": "UICTFontTextStyleCaption1",
+      "fontName": "Lato-Regular",
+      "pointSize": 12
+    },
+    {
+      "textStyle": "UICTFontTextStyleCaption2",
+      "fontName": "Lato-Regular",
+      "pointSize": 11
+    }
+  ],
+  "weights": [
+    {
+      "fontWeight": "ultraLight",
+      "fontName": "Lato-Light"
+    },
+    {
+      "fontWeight": "thin",
+      "fontName": "Lato-Light"
+    },
+    {
+      "fontWeight": "light",
+      "fontName": "Lato-Light"
+    },
+    {
+      "fontWeight": "regular",
+      "fontName": "Lato-Regular"
+    },
+    {
+      "fontWeight": "medium",
+      "fontName": "Lato-Medium"
+    },
+    {
+      "fontWeight": "semibold",
+      "fontName": "Lato-Heavy"
+    },
+    {
+      "fontWeight": "bold",
+      "fontName": "Lato-Heavy"
+    },
+    {
+      "fontWeight": "heavy",
+      "fontName": "Lato-Heavy"
+    },
+    {
+      "fontWeight": "black",
+      "fontName": "Lato-Black"
+    }
+  ]
+}

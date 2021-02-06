@@ -18,6 +18,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.13.1):
     - PromiseKit/CorePromise
+  - QRCodeReader.swift (10.1.0)
   - Static (4.0.0)
 
 DEPENDENCIES:
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - NSLogger
   - NSLogger/Swift
   - PromiseKit
+  - QRCodeReader.swift
   - Static
 
 SPEC REPOS:
@@ -40,6 +42,7 @@ SPEC REPOS:
     - Mantis
     - NSLogger
     - PromiseKit
+    - QRCodeReader.swift
     - Static
 
 SPEC CHECKSUMS:
@@ -50,8 +53,9 @@ SPEC CHECKSUMS:
   Mantis: 0161c774a6993f301398f8e4cab03e31cd01af6a
   NSLogger: cf3013a4fba189f631f07e6c3d5b8ce2b209654b
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
+  QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
   Static: 3204aad2dc648cfe08dc7aa4a26d65ee37e4853a
 
-PODFILE CHECKSUM: 5950d0b108f5c0e3100e271508087a7771a5a8b8
+PODFILE CHECKSUM: 1d49dee339a129c060088a6ef4d02d8dffe29ed0
 
 COCOAPODS: 1.5.2

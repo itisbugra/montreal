@@ -8,16 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		2818E91312C8F41A40FB849B /* libPods-QuesslyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 541C33295BAB1F681AE8C119 /* libPods-QuesslyTests.a */; };
+		5276F21924B0E99A003D23B7 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21824B0E99A003D23B7 /* SignUpTableViewController.swift */; };
+		5276F21B24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21A24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift */; };
+		5276F21D24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21C24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift */; };
 		D506A47E248E5A0100E16755 /* ActivityAlertControllerAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D506A47D248E5A0100E16755 /* ActivityAlertControllerAnimatedTransitioning.swift */; };
 		D506A480248E6EDB00E16755 /* ActivityAlertController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D506A47F248E6EDB00E16755 /* ActivityAlertController.xib */; };
 		D506A482248E6EE900E16755 /* ActivityAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D506A481248E6EE900E16755 /* ActivityAlertController.swift */; };
 		D506A484248E782A00E16755 /* OngoingSessionTableViewController+AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D506A483248E782A00E16755 /* OngoingSessionTableViewController+AlertControllers.swift */; };
-		5276F21924B0E99A003D23B7 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21824B0E99A003D23B7 /* SignUpTableViewController.swift */; };
-		5276F21B24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21A24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift */; };
-		5276F21D24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21C24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift */; };
 		D507C4DB245EA4C5008D1C49 /* MathJaxSmokeTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D507C4DA245EA4C5008D1C49 /* MathJaxSmokeTestViewController.swift */; };
+		D50A937724FD216D00F2716A /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D50A936C24FD216D00F2716A /* Lato-Italic.ttf */; };
+		D50A937824FD216D00F2716A /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D50A936D24FD216D00F2716A /* Lato-LightItalic.ttf */; };
+		D50A937924FD216D00F2716A /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D50A936E24FD216D00F2716A /* Lato-Thin.ttf */; };
+		D50A937A24FD216D00F2716A /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D50A936F24FD216D00F2716A /* Lato-Bold.ttf */; };
+		D50A937B24FD216D00F2716A /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D50A937024FD216D00F2716A /* Lato-Black.ttf */; };
+		D50A937C24FD216D00F2716A /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D50A937124FD216D00F2716A /* Lato-Regular.ttf */; };
+		D50A937D24FD216D00F2716A /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D50A937224FD216D00F2716A /* Lato-BlackItalic.ttf */; };
+		D50A937F24FD216D00F2716A /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D50A937424FD216D00F2716A /* Lato-BoldItalic.ttf */; };
+		D50A938024FD216D00F2716A /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D50A937524FD216D00F2716A /* Lato-Light.ttf */; };
+		D50A938124FD216D00F2716A /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D50A937624FD216D00F2716A /* Lato-ThinItalic.ttf */; };
+		D50A938424FD224200F2716A /* AppDelegateThemeDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50A938324FD224200F2716A /* AppDelegateThemeDecorator.swift */; };
+		D50A939524FD4ECC00F2716A /* Lato.json in Resources */ = {isa = PBXBuildFile; fileRef = D50A939424FD4ECC00F2716A /* Lato.json */; };
+		D50A9398250155A700F2716A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50A9397250155A700F2716A /* Colors.swift */; };
+		D50A939A250155EB00F2716A /* MethodSwizzling.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50A9399250155EB00F2716A /* MethodSwizzling.swift */; };
+		D50A939F2501562B00F2716A /* ColorConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50A939E2501562B00F2716A /* ColorConfiguration.swift */; };
+		D50A93A12501563A00F2716A /* FontConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50A93A02501563900F2716A /* FontConfiguration.swift */; };
 		D51CD55D2460930A0008DD5A /* RenderSizeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51CD55C2460930A0008DD5A /* RenderSizeCache.swift */; };
 		D51FEBA0245C68120014E386 /* QuestionContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51FEB9F245C68120014E386 /* QuestionContentTableViewCell.swift */; };
+		D522F45224F8F4840041F6CA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D522F45124F8F4840041F6CA /* AVFoundation.framework */; };
 		D52FE10F24EDCF260095DDF2 /* UserProfileTableViewControllerProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52FE10E24EDCF260095DDF2 /* UserProfileTableViewControllerProfileTableViewCell.swift */; };
 		D52FE11124EDCF5D0095DDF2 /* UserProfileTableViewControllerImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52FE11024EDCF5D0095DDF2 /* UserProfileTableViewControllerImageTableViewCell.swift */; };
 		D543EED12462F2D300034240 /* UIAlertAction+isChecked.swift in Sources */ = {isa = PBXBuildFile; fileRef = D543EED02462F2D300034240 /* UIAlertAction+isChecked.swift */; };
@@ -141,8 +158,25 @@
 		D506A481248E6EE900E16755 /* ActivityAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityAlertController.swift; sourceTree = "<group>"; };
 		D506A483248E782A00E16755 /* OngoingSessionTableViewController+AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OngoingSessionTableViewController+AlertControllers.swift"; sourceTree = "<group>"; };
 		D507C4DA245EA4C5008D1C49 /* MathJaxSmokeTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathJaxSmokeTestViewController.swift; sourceTree = "<group>"; };
+		D50A936C24FD216D00F2716A /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		D50A936D24FD216D00F2716A /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		D50A936E24FD216D00F2716A /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		D50A936F24FD216D00F2716A /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		D50A937024FD216D00F2716A /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		D50A937124FD216D00F2716A /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		D50A937224FD216D00F2716A /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		D50A937424FD216D00F2716A /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		D50A937524FD216D00F2716A /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		D50A937624FD216D00F2716A /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
+		D50A938324FD224200F2716A /* AppDelegateThemeDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateThemeDecorator.swift; sourceTree = "<group>"; };
+		D50A939424FD4ECC00F2716A /* Lato.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Lato.json; sourceTree = "<group>"; };
+		D50A9397250155A700F2716A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		D50A9399250155EB00F2716A /* MethodSwizzling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodSwizzling.swift; sourceTree = "<group>"; };
+		D50A939E2501562B00F2716A /* ColorConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConfiguration.swift; sourceTree = "<group>"; };
+		D50A93A02501563900F2716A /* FontConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConfiguration.swift; sourceTree = "<group>"; };
 		D51CD55C2460930A0008DD5A /* RenderSizeCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderSizeCache.swift; sourceTree = "<group>"; };
 		D51FEB9F245C68120014E386 /* QuestionContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionContentTableViewCell.swift; sourceTree = "<group>"; };
+		D522F45124F8F4840041F6CA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D52FE10E24EDCF260095DDF2 /* UserProfileTableViewControllerProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewControllerProfileTableViewCell.swift; sourceTree = "<group>"; };
 		D52FE11024EDCF5D0095DDF2 /* UserProfileTableViewControllerImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewControllerImageTableViewCell.swift; sourceTree = "<group>"; };
 		D543EED02462F2D300034240 /* UIAlertAction+isChecked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+isChecked.swift"; sourceTree = "<group>"; };
@@ -244,6 +278,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D522F45224F8F4840041F6CA /* AVFoundation.framework in Frameworks */,
 				E0F754CF19A3CAFD5FB5A8BB /* libPods-Quessly.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +339,61 @@
 				D507C4DA245EA4C5008D1C49 /* MathJaxSmokeTestViewController.swift */,
 			);
 			path = "MathJax Smoke Test";
+			sourceTree = "<group>";
+		};
+		D50A936A24FD214D00F2716A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D50A936B24FD216D00F2716A /* Lato */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D50A936B24FD216D00F2716A /* Lato */ = {
+			isa = PBXGroup;
+			children = (
+				D50A936C24FD216D00F2716A /* Lato-Italic.ttf */,
+				D50A936D24FD216D00F2716A /* Lato-LightItalic.ttf */,
+				D50A936E24FD216D00F2716A /* Lato-Thin.ttf */,
+				D50A936F24FD216D00F2716A /* Lato-Bold.ttf */,
+				D50A937024FD216D00F2716A /* Lato-Black.ttf */,
+				D50A937124FD216D00F2716A /* Lato-Regular.ttf */,
+				D50A937224FD216D00F2716A /* Lato-BlackItalic.ttf */,
+				D50A937424FD216D00F2716A /* Lato-BoldItalic.ttf */,
+				D50A937524FD216D00F2716A /* Lato-Light.ttf */,
+				D50A937624FD216D00F2716A /* Lato-ThinItalic.ttf */,
+			);
+			path = Lato;
+			sourceTree = "<group>";
+		};
+		D50A938224FD221900F2716A /* Theming */ = {
+			isa = PBXGroup;
+			children = (
+				D50A938324FD224200F2716A /* AppDelegateThemeDecorator.swift */,
+				D50A9399250155EB00F2716A /* MethodSwizzling.swift */,
+				D50A9397250155A700F2716A /* Colors.swift */,
+				D50A939D2501561F00F2716A /* Configuration */,
+				D50A936A24FD214D00F2716A /* Fonts */,
+				D50A939624FD4ED100F2716A /* Font Configuration Files */,
+			);
+			path = Theming;
+			sourceTree = "<group>";
+		};
+		D50A939624FD4ED100F2716A /* Font Configuration Files */ = {
+			isa = PBXGroup;
+			children = (
+				D50A939424FD4ECC00F2716A /* Lato.json */,
+			);
+			path = "Font Configuration Files";
+			sourceTree = "<group>";
+		};
+		D50A939D2501561F00F2716A /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				D50A93A02501563900F2716A /* FontConfiguration.swift */,
+				D50A939E2501562B00F2716A /* ColorConfiguration.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		D52FE10D24EDCF0E0095DDF2 /* Custom Table View Cells */ = {
@@ -406,6 +496,7 @@
 		D58B86AB245BFA5500514018 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D522F45124F8F4840041F6CA /* AVFoundation.framework */,
 				B57C8B38D2C2D7B94194810B /* libPods-Quessly.a */,
 				B65B496F1039F86FA64A85E7 /* libPods-Quessly-QuesslyUITests.a */,
 				541C33295BAB1F681AE8C119 /* libPods-QuesslyTests.a */,
@@ -546,6 +637,7 @@
 				D5A742902456957D001D83A5 /* Solver */,
 				D5A7429C2456BC3F001D83A5 /* Profile */,
 				D5A7429F2456C4FE001D83A5 /* Settings */,
+				D50A938224FD221900F2716A /* Theming */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -925,14 +1017,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D50A939524FD4ECC00F2716A /* Lato.json in Resources */,
 				D5BD3BB0245AFD19002D9DB2 /* QuestionMasterNavigationBarTitleView.xib in Resources */,
+				D50A938024FD216D00F2716A /* Lato-Light.ttf in Resources */,
+				D50A937724FD216D00F2716A /* Lato-Italic.ttf in Resources */,
 				D506A480248E6EDB00E16755 /* ActivityAlertController.xib in Resources */,
+				D50A937924FD216D00F2716A /* Lato-Thin.ttf in Resources */,
+				D50A937F24FD216D00F2716A /* Lato-BoldItalic.ttf in Resources */,
 				D5BD3B9F2456F363002D9DB2 /* SessionContentSectionHeaderView.xib in Resources */,
 				D5ACD0232488F98900265CE0 /* SessionQuestionsOverviewNavigationBarTitleView.xib in Resources */,
 				D5A7426A2456906B001D83A5 /* LaunchScreen.storyboard in Resources */,
+				D50A938124FD216D00F2716A /* Lato-ThinItalic.ttf in Resources */,
+				D50A937B24FD216D00F2716A /* Lato-Black.ttf in Resources */,
 				D5A742672456906B001D83A5 /* Assets.xcassets in Resources */,
+				D50A937824FD216D00F2716A /* Lato-LightItalic.ttf in Resources */,
+				D50A937D24FD216D00F2716A /* Lato-BlackItalic.ttf in Resources */,
 				D5ACD01F2488F67600265CE0 /* Localizable.strings in Resources */,
 				D54778F9248FD9A000576E5C /* SessionTableViewCell.xib in Resources */,
+				D50A937A24FD216D00F2716A /* Lato-Bold.ttf in Resources */,
 				D59EDCCE24EE69AD00E036EA /* UserProfileTableViewControllerProfileTableViewCell.xib in Resources */,
 				D5D0FAFB2485BEDE008169FD /* Question Resources in Resources */,
 				D5D0FAFF2485D085008169FD /* MathJax in Resources */,
@@ -941,6 +1043,7 @@
 				D5868E6124EE6E580001D2DE /* UserProfileTableViewControllerVersionCopyrightFooterView.xib in Resources */,
 				D59EDCD024EE69E500E036EA /* UserProfileTableViewControllerImageTableViewCell.xib in Resources */,
 				D5A7426524569069001D83A5 /* Main.storyboard in Resources */,
+				D50A937C24FD216D00F2716A /* Lato-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1073,6 +1176,7 @@
 				D554D2E324EE385300D9DC85 /* UserProfileTableViewControllerVersionCopyrightFooterView.swift in Sources */,
 				D5A742962456AB4D001D83A5 /* MasterNavigationController.swift in Sources */,
 				D5FCEBE0246286B3006E1124 /* SessionOverviewFooterCollectionReusableView.swift in Sources */,
+				D50A93A12501563A00F2716A /* FontConfiguration.swift in Sources */,
 				D5ACD03A248A57EA00265CE0 /* CenteredLabelTableViewCell.swift in Sources */,
 				D5E638772462DCA20073FB99 /* SessionInformationTableViewController+AlertControllers.swift in Sources */,
 				D5D0FB012485D0B7008169FD /* Renderer.swift in Sources */,
@@ -1088,8 +1192,10 @@
 				D54778FB248FDA6A00576E5C /* SessionTableViewCell.swift in Sources */,
 				5276F21924B0E99A003D23B7 /* SignUpTableViewController.swift in Sources */,
 				D5A7426224569069001D83A5 /* SignInViewController.swift in Sources */,
+				D50A939A250155EB00F2716A /* MethodSwizzling.swift in Sources */,
 				D5D0FAE9246B18BF008169FD /* ContentEditorTableViewController+PresentedViewControllers.swift in Sources */,
 				D5A7425E24569069001D83A5 /* AppDelegate.swift in Sources */,
+				D50A9398250155A700F2716A /* Colors.swift in Sources */,
 				D57CEC9824877B7200BA3246 /* UICollectionView+reloadData(animated).swift in Sources */,
 				D5ACD02F2489423A00265CE0 /* PseudoPushNotificationsTestTableViewController+AlertControllers.swift in Sources */,
 				D5A7426024569069001D83A5 /* SceneDelegate.swift in Sources */,
@@ -1132,8 +1238,10 @@
 				D5BD3B9D2456F34E002D9DB2 /* SessionContentSectionHeaderView.swift in Sources */,
 				D5904C412463F9A80057B9C6 /* PushNotificationConsentViewController.swift in Sources */,
 				D52FE10F24EDCF260095DDF2 /* UserProfileTableViewControllerProfileTableViewCell.swift in Sources */,
+				D50A939F2501562B00F2716A /* ColorConfiguration.swift in Sources */,
 				D51FEBA0245C68120014E386 /* QuestionContentTableViewCell.swift in Sources */,
 				D5A742A22456C524001D83A5 /* UpcomingSessionTableViewController.swift in Sources */,
+				D50A938424FD224200F2716A /* AppDelegateThemeDecorator.swift in Sources */,
 				D507C4DB245EA4C5008D1C49 /* MathJaxSmokeTestViewController.swift in Sources */,
 				D5765D1D2462EDAC00F5131D /* SessionQuestionsOverviewCollectionViewController+AlertControllers.swift in Sources */,
 				D59E753E246188A9001D0192 /* CategoryRepository.swift in Sources */,
@@ -1341,7 +1449,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H5LA8B82MN;
+				DEVELOPMENT_TEAM = DHCR3H4M55;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1351,7 +1459,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.respawm19;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.chatatata.Quessly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1364,7 +1472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H5LA8B82MN;
+				DEVELOPMENT_TEAM = DHCR3H4M55;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1374,7 +1482,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.respawm19;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.chatatata.Quessly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

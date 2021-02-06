@@ -15,6 +15,7 @@ target 'Quessly' do
   pod 'Mantis'
   pod 'FontAwesome.swift'
   pod 'Static'
+  pod 'QRCodeReader.swift'
   
   target 'QuesslyTests' do
     inherit! :search_paths

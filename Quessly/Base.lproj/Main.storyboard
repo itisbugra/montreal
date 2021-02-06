@@ -193,11 +193,32 @@
                             <outlet property="delegate" destination="9E8-RJ-XdC" id="VZb-em-iAs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Sign in to Quessly" largeTitleDisplayMode="always" id="vMZ-sw-JDf"/>
+                    <navigationItem key="navigationItem" title="Sign in to Quessly" largeTitleDisplayMode="always" id="vMZ-sw-JDf">
+                        <barButtonItem key="rightBarButtonItem" image="qrcode.viewfinder" catalog="system" id="7jK-ad-Q8d">
+                            <connections>
+                                <action selector="showSignInWithQR:" destination="9E8-RJ-XdC" id="Snr-lr-5Nj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qcu-Ec-U7Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1792.753623188406" y="137.94642857142856"/>
+            <point key="canvasLocation" x="-204" y="138"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="1R9-nn-g1R">
+            <objects>
+                <viewController id="7Ab-lD-aQo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4wa-vU-oWH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="t2x-pX-iAe"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WuF-Du-M43" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-204" y="832"/>
         </scene>
         <!--Master Navigation Controller-->
         <scene sceneID="Uv3-tD-7xU">
@@ -213,7 +234,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ith-ee-sVH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="952" y="138"/>
+            <point key="canvasLocation" x="-1026" y="138"/>
         </scene>
         <!--Main menu-->
         <scene sceneID="nYF-2I-3KY">
@@ -1307,7 +1328,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ws8-0J-RO8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="ky8-oJ-82n" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1800.0000000000002" y="-840.40178571428567"/>
+            <point key="canvasLocation" x="951" y="-595"/>
         </scene>
         <!--Sign up to Quessly-->
         <scene sceneID="Ck2-D6-Mzg">
@@ -2191,7 +2212,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="iXW-fy-xtr"/>
-        <segue reference="Ryw-Hs-rPz"/>
+        <segue reference="EEo-hy-xVP"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bell.fill" catalog="system" width="128" height="124"/>
@@ -2201,6 +2222,7 @@
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="profile-picture" width="3000" height="4499"/>
+        <image name="qrcode.viewfinder" catalog="system" width="128" height="114"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="rectangle.grid.2x2.fill" catalog="system" width="128" height="99"/>
     </resources>
