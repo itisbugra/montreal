@@ -1,6 +1,1 @@
-module Fakery {
-  umbrella header "Fakery-umbrella.h"
-
-  export *
-  module * { export * }
-}
+../../../Target Support Files/Fakery/Fakery.modulemap

@@ -1,6 +1,1 @@
-module FontAwesome_swift {
-  umbrella header "FontAwesome.swift-umbrella.h"
-
-  export *
-  module * { export * }
-}
+../../../Target Support Files/FontAwesome.swift/FontAwesome.swift.modulemap

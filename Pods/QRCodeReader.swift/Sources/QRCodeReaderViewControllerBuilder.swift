@@ -100,7 +100,6 @@ public final class QRCodeReaderViewControllerBuilder {
     Flag to display the guide view.
   */
   public var handleOrientationChange = true
-
   /**
    A UIStatusBarStyle key indicating your preferred status bar style for the view controller.
    Nil by default. It means it'll use the current context status bar style.

@@ -1,4 +1,4 @@
-framework module Mustache {
+module Mustache {
   umbrella header "GRMustache.swift-umbrella.h"
 
   export *

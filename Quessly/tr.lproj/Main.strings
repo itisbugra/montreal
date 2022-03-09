@@ -162,7 +162,7 @@
 "doJ-tV-Tdr.text" = "İçerik";
 
 /* Class = "UILabel"; text = "120 single-selection questions"; ObjectID = "f33-nL-wZl"; */
-"f33-nL-wZl.text" = "120 tek seçimli soru";
+"f33-nL-wZl.text" = "120 çoktan seçmeli soru";
 
 /* Class = "UILabel"; text = "May 5, 2020 @ 07:53 AM"; ObjectID = "fSA-P6-4b3"; */
 "fSA-P6-4b3.text" = "Mayıs 5, 2020 - 19:53";

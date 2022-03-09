@@ -71,6 +71,16 @@
           margin: 0 auto;
           display: block;
         }
+        
+        ul li, ol li {
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          list-style-position: outside;
+        }
+
+        ul li::marker {
+          vertical-align: top;
+        }
       
         .MathJax_SVG_Display  {
           text-align: left !important;

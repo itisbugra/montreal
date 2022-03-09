@@ -8,10 +8,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Logger.shared.log(.app, .info, "Application started.")
     
     //  TODO: Lato should be used instead
-    let fontConfiguration = FontConfiguration(regularFontName: "Avenir Next", emphasizedFontName: "Avenir Next", obliqueFontName: "Avenir Next")
-    let themeProvider = ThemeProvider(fontConfiguration: fontConfiguration)
-    
-    themeProvider.decorateApplication()
+//    let fontConfiguration = FontConfiguration(regularFontName: "Avenir Next", emphasizedFontName: "Avenir Next", obliqueFontName: "Avenir Next")
+//    let themeProvider = ThemeProvider(fontConfiguration: fontConfiguration)
+//    
+//    themeProvider.decorateApplication()
     
     return true
   }

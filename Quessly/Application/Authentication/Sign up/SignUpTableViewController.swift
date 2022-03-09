@@ -6,6 +6,12 @@ class SignUpTableViewController: UITableViewController {
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var confirmPasswordTextField: UITextField!
   
+  lazy var emailPredicate: NSPredicate = {
+    let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    
+    return NSPredicate(format: "SELF MATCHES %@", regex)
+  }()
+  
   var loading = false
   
   var textFields: [UITextField] {
@@ -54,10 +60,7 @@ class SignUpTableViewController: UITableViewController {
   func validateFields() throws {
     /// Validates email address with a regular expression.
     func validateEmail(email: String) -> Bool {
-      let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-      
-      //  TODO: Initialize lazily and once to match email input against same predicate object
-      return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: email)
+      return emailPredicate.evaluate(with: email)
     }
     
     /// Validates the password if it has a proper length.

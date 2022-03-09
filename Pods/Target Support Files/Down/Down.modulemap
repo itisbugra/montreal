@@ -1,4 +1,4 @@
-framework module Down {
+module Down {
   umbrella header "Down-umbrella.h"
 
   export *
