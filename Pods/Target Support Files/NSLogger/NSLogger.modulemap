@@ -1,4 +1,4 @@
-module NSLogger {
+framework module NSLogger {
   umbrella header "NSLogger-umbrella.h"
 
   export *

@@ -97,16 +97,16 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "${PODS_ROOT}/Down/Resources/DownView.bundle"
+  install_resource "${PODS_ROOT}/Down/Sources/Down/Resources/DownView.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Fakery/Faker.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/FontAwesome.swift/FontAwesome.swift.bundle"
-  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Mantis/Resource.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Mantis/MantisResources.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "${PODS_ROOT}/Down/Resources/DownView.bundle"
+  install_resource "${PODS_ROOT}/Down/Sources/Down/Resources/DownView.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Fakery/Faker.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/FontAwesome.swift/FontAwesome.swift.bundle"
-  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Mantis/Resource.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Mantis/MantisResources.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

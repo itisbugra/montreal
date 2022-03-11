@@ -1,5 +1,6 @@
 ![Fakery logo](https://raw.githubusercontent.com/vadymmarkov/Fakery/master/Images/logo.png)
 [![CI Status](http://img.shields.io/travis/vadymmarkov/Fakery.svg?style=flat)](https://travis-ci.org/vadymmarkov/Fakery)
+[![Carthage](https://img.shields.io/badge/carthage-compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/Fakery.svg?style=flat)](http://cocoadocs.org/docsets/Fakery)
 [![License](https://img.shields.io/cocoapods/l/Fakery.svg?style=flat)](http://cocoadocs.org/docsets/Fakery)
 [![Platform](https://img.shields.io/cocoapods/p/Fakery.svg?style=flat)](http://cocoadocs.org/docsets/Fakery)
@@ -43,6 +44,7 @@ It's useful in all the cases when you need to use some dummy data for testing, p
 ## Usage
 
 ```swift
+import Fakery
 
 let faker = Faker(locale: "nb-NO")
 
@@ -294,6 +296,22 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'Fakery'
 ```
+
+Or alternatively using the Swift Package Manager:
+
+```swift
+let package = Package(
+    //…
+    dependencies[
+        .package(name: "Fakery", url: "https://github.com/vadymmarkov/Fakery", from: "5.0.0"))
+    ],
+    targets: [
+        .target(name: "Foo", dependencies: ["Fakery"]
+    ]
+)
+```
+
+Use of the Swift Package Manager requires Swift >=5.3.
 
 ## Contributing
 

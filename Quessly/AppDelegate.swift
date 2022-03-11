@@ -1,6 +1,9 @@
 import UIKit
 import NSLogger
 
+//import Amplify
+//import AmplifyPlugins
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication,
@@ -10,12 +13,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //  TODO: Lato should be used instead
 //    let fontConfiguration = FontConfiguration(regularFontName: "Avenir Next", emphasizedFontName: "Avenir Next", obliqueFontName: "Avenir Next")
 //    let themeProvider = ThemeProvider(fontConfiguration: fontConfiguration)
-//    
+//
 //    themeProvider.decorateApplication()
     
+//    do {
+//      try Amplify.add(plugin: AWSCognitoAuthPlugin())
+//      try Amplify.configure()
+//      print("Amplify configured with auth plugin")
+//    } catch {
+//      print("Failed to initialize Amplify with \(error)")
+//    }
+  
     return true
   }
-  
   // MARK: UISceneSession Lifecycle
   
   func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -30,4 +40,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
   }
 }
-

@@ -21,6 +21,19 @@ enum ImageRotationType: CGFloat {
             self = ImageRotationType(rawValue: self.rawValue - 90) ?? .none
         }
     }
+    
+    mutating func clockwiseRotate90() {
+        switch (self) {
+        case .counterclockwise90:
+            self = .none
+        case .counterclockwise180:
+            self = .counterclockwise90
+        case .counterclockwise270:
+            self = .counterclockwise180
+        case .none:
+            self = .counterclockwise270
+        }
+    }
 }
 
 class CropViewModel: NSObject {
@@ -66,10 +79,22 @@ class CropViewModel: NSObject {
         setInitialStatus()
     }
     
-    func counterclockwiseRotate90() {
+    func rotateBy90(rotateAngle: CGFloat) {
+        if (rotateAngle < 0) {
+            rotationType.counterclockwiseRotate90()
+        } else {
+            rotationType.clockwiseRotate90()
+        }
+    }
+    
+    func counterclockwiseRotateBy90() {
         rotationType.counterclockwiseRotate90()
     }
     
+    func clockwiseRotateBy90() {
+        rotationType.clockwiseRotate90()
+    }
+
     func getTotalRadias(by radians: CGFloat) -> CGFloat {
         return radians + rotationType.rawValue * CGFloat.pi / 180
     }
@@ -140,8 +165,8 @@ class CropViewModel: NSObject {
         return newCropBoxFrame
     }
     
-    func setCropBoxFrame(by initialCropBox: CGRect, and imageRationH: Double) {
-        var cropBoxFrame = initialCropBox
+    func setCropBoxFrame(by refCropBox: CGRect, and imageRationH: Double) {
+        var cropBoxFrame = refCropBox
         let center = cropBoxFrame.center
         
         if (aspectRatio > CGFloat(imageRationH)) {
@@ -167,8 +192,8 @@ extension CropViewModel {
         viewStatus = .rotating(angle: angle)
     }
     
-    func setDegree90RotatedStatus() {
-        viewStatus = .degree90Rotated
+    func setDegree90RotatingStatus() {
+        viewStatus = .degree90Rotating
     }
     
     func setTouchImageStatus() {

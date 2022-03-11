@@ -3,6 +3,9 @@ import AVFoundation
 import QRCodeReader
 
 class SignInViewController: UITableViewController {
+  @IBOutlet weak var emailTextField: UITextField!
+  @IBOutlet weak var passwordTextField: UITextField!
+  
   lazy var codeReaderViewController: QRCodeReaderViewController = {
     let builder = QRCodeReaderViewControllerBuilder {
       $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
@@ -26,6 +29,12 @@ class SignInViewController: UITableViewController {
     
     present(codeReaderViewController, animated: true, completion: nil)
   }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    super.prepare(for: segue, sender: sender)
+    
+    
+  }
 }
 
 extension SignInViewController: QRCodeReaderViewControllerDelegate {
@@ -35,5 +44,4 @@ extension SignInViewController: QRCodeReaderViewControllerDelegate {
   func readerDidCancel(_ reader: QRCodeReaderViewController) {
     dismiss(animated: true, completion: nil)
   }
-  
 }

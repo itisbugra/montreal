@@ -34,20 +34,20 @@ struct ToolBarButtonImageBuilder {
         
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 18, height: 21), false, 0.0)
         
-        //// Rectangle 2 Drawing
-        let rectangle2Path = UIBezierPath(rect: CGRect(x: 0, y: 9, width: 12, height: 12))
+        //// Draw rectangle
+        let rectanglePath = UIBezierPath(rect: CGRect(x: 0, y: 9, width: 12, height: 12))
         UIColor.white.setFill()
-        rectangle2Path.fill()
+        rectanglePath.fill()
         
-        //// Rectangle 3 Drawing
-        let rectangle3Path = UIBezierPath()
-        rectangle3Path.move(to: CGPoint(x: 5, y: 3))
-        rectangle3Path.addLine(to: CGPoint(x: 10, y: 6))
-        rectangle3Path.addLine(to: CGPoint(x: 10, y: 0))
-        rectangle3Path.addLine(to: CGPoint(x: 5, y: 3))
-        rectangle3Path.close()
+        //// Draw triangle
+        let trianglePath = UIBezierPath()
+        trianglePath.move(to: CGPoint(x: 5, y: 3))
+        trianglePath.addLine(to: CGPoint(x: 10, y: 6))
+        trianglePath.addLine(to: CGPoint(x: 10, y: 0))
+        trianglePath.addLine(to: CGPoint(x: 5, y: 3))
+        trianglePath.close()
         UIColor.white.setFill()
-        rectangle3Path.fill()
+        trianglePath.fill()
         
         //// Bezier Drawing
         let bezierPath = UIBezierPath()
@@ -75,6 +75,86 @@ struct ToolBarButtonImageBuilder {
         let rotateCWImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return rotateCWImage
+    }
+    
+    static func flipHorizontally() -> UIImage? {
+        var flippedImage: UIImage? = nil
+        
+        let wholeWidth = 24
+        let wholeHeight = 24
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: wholeWidth, height: wholeHeight), false, 0.0)
+        
+        let arrowWidth = 5
+        let arrowHeight = 6
+        let topbarWidth = wholeWidth - arrowWidth
+        let topbarY = arrowHeight / 2 - 1
+        
+        // topbar
+        let rectangle2Path = UIBezierPath(rect: CGRect(x: 0, y: topbarY, width: topbarWidth, height: 1))
+        UIColor.white.setFill()
+        rectangle2Path.fill()
+        
+        // left arrow
+        let leftarrowPath = UIBezierPath()
+        leftarrowPath.move(to: CGPoint(x: 0, y: topbarY))
+        leftarrowPath.addLine(to: CGPoint(x: arrowWidth, y: 0))
+        leftarrowPath.addLine(to: CGPoint(x: arrowWidth, y: arrowHeight))
+        leftarrowPath.addLine(to: CGPoint(x: 0, y: topbarY))
+        leftarrowPath.close()
+        UIColor.white.setFill()
+        leftarrowPath.fill()
+        
+        // right arrow
+        let rightarrowPath = UIBezierPath()
+        rightarrowPath.move(to: CGPoint(x: wholeWidth, y: topbarY))
+        rightarrowPath.addLine(to: CGPoint(x: wholeWidth - arrowWidth, y: 0))
+        rightarrowPath.addLine(to: CGPoint(x: wholeWidth - arrowWidth, y: arrowHeight))
+        rightarrowPath.addLine(to: CGPoint(x: wholeWidth, y: topbarY))
+        rightarrowPath.close()
+        UIColor.white.setFill()
+        rightarrowPath.fill()
+        
+        let mirrorWidth = wholeWidth / 2 - 1
+        let mirrowHeight = wholeHeight - 8
+        
+        // left mirror
+        let leftMirror = UIBezierPath()
+        leftMirror.move(to: CGPoint(x: 0, y: wholeHeight))
+        leftMirror.addLine(to: CGPoint(x: mirrorWidth, y: wholeHeight))
+        leftMirror.addLine(to: CGPoint(x: mirrorWidth, y: wholeHeight - mirrowHeight))
+        leftMirror.addLine(to: CGPoint(x: 0, y: wholeHeight))
+        leftMirror.close()
+        UIColor.white.setFill()
+        leftMirror.fill()
+        
+        // right mirror
+        let rightMirror = UIBezierPath()
+        rightMirror.move(to: CGPoint(x: wholeWidth, y: wholeHeight))
+        rightMirror.addLine(to: CGPoint(x: wholeWidth - mirrorWidth, y: wholeHeight))
+        rightMirror.addLine(to: CGPoint(x: wholeWidth - mirrorWidth, y: wholeHeight - mirrowHeight))
+        rightMirror.addLine(to: CGPoint(x: wholeWidth, y: wholeHeight))
+        rightMirror.close()
+        UIColor.white.setFill()
+        rightMirror.fill()
+        
+        flippedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return flippedImage
+
+    }
+    
+    static func flipVertically() -> UIImage? {
+        guard let flippedHorizontallyImage = self.flipHorizontally(), let cgImage = flippedHorizontallyImage.cgImage else { return nil }
+        
+        UIGraphicsBeginImageContextWithOptions(flippedHorizontallyImage.size, false,  flippedHorizontallyImage.scale )
+        let context = UIGraphicsGetCurrentContext()
+        context?.rotate(by: -.pi / 2)
+        context?.translateBy(x: -flippedHorizontallyImage.size.height, y: 0)
+        context?.draw(cgImage, in: CGRect(x: 0, y: 0, width: flippedHorizontallyImage.size.height, height: flippedHorizontallyImage.size.width))
+        let fippedVerticallyImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return fippedVerticallyImage
     }
     
     static func clampImage() -> UIImage? {
@@ -149,6 +229,29 @@ struct ToolBarButtonImageBuilder {
         UIGraphicsEndImageContext()
         
         return resetImage
+    }
+    
+    static func alterCropper90DegreeImage() -> UIImage? {
+        var rotateCropperImage: UIImage? = nil
+        
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 22, height: 22), false, 0.0)
+        
+        //// Draw rectangle
+        let rectanglePath1 = UIBezierPath(rect: CGRect(x: 1, y: 5, width: 20, height: 11))
+        UIColor.white.setStroke()
+        rectanglePath1.lineWidth = 1
+        rectanglePath1.stroke()
+
+        let rectanglePath2 = UIBezierPath(rect: CGRect(x: 6, y: 1, width: 10, height: 20))
+        UIColor.white.setStroke()
+        rectanglePath2.lineWidth = 1
+        rectanglePath2.stroke()
+        
+        rotateCropperImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return rotateCropperImage
     }
     
 }

@@ -1,4 +1,4 @@
-module QRCodeReader {
+framework module QRCodeReader {
   umbrella header "QRCodeReader.swift-umbrella.h"
 
   export *

@@ -7,12 +7,15 @@
 
 import UIKit
 
-public protocol CropToolbarDelegate {
-    func didSelectCancel();
-    func didSelectCrop();
-    func didSelectRotate();
-    func didSelectReset();
-    func didSelectSetRatio();
+public protocol CropToolbarDelegate: AnyObject {
+    func didSelectCancel()
+    func didSelectCrop()
+    func didSelectCounterClockwiseRotate()
+    func didSelectClockwiseRotate()
+    func didSelectReset()
+    func didSelectSetRatio()
+    func didSelectRatio(ratio: Double)
+    func didSelectAlterCropper90Degree()
 }
 
 public protocol CropToolbarProtocol: UIView {    
@@ -21,7 +24,7 @@ public protocol CropToolbarProtocol: UIView {
     var cropToolbarDelegate: CropToolbarDelegate? {get set}
 
     func createToolbarUI(config: CropToolbarConfig)
-    func handleFixedRatioSetted()
+    func handleFixedRatioSetted(ratio: Double)
     func handleFixedRatioUnSetted()
     
     // MARK: - The following functions have default implementations
@@ -54,7 +57,7 @@ public extension CropToolbarProtocol {
     }
     
     func adjustLayoutConstraintsWhenOrientationChange() {
-        if UIApplication.shared.statusBarOrientation.isPortrait {
+        if Orientation.isPortrait {
             heightForVerticalOrientationConstraint?.isActive = true
             widthForHorizonOrientationConstraint?.isActive = false
         } else {

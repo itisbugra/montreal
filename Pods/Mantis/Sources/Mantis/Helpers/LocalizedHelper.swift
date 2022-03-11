@@ -9,13 +9,44 @@
 import Foundation
 
 struct LocalizedHelper {
-    static func getString(_ key: String, value: String? = nil, comment: String = "") -> String {
-        let value = value ?? key
+    private static var bundle: Bundle?
         
-        var text = value
-        if let bundle = Mantis.bundle {            
-            text = NSLocalizedString(key, tableName: "MantisLocalizable", bundle: bundle, value: value, comment: comment)
+    static func setBundle(_ bundle: Bundle) {
+        guard let resourceBundleURL = bundle.url(
+            forResource: "MantisResources", withExtension: "bundle")
+            else { return }
+        LocalizedHelper.bundle = Bundle(url: resourceBundleURL)
+    }
+    
+    static func getString(
+        _ key: String,
+        localizationConfig: LocalizationConfig = Mantis.localizationConfig,
+        value: String? = nil
+    ) -> String {
+        let value = value ?? key
+
+#if MANTIS_SPM
+        let bundle = localizationConfig.bundle ?? Bundle.module
+        
+        return NSLocalizedString(
+            key,
+            tableName: localizationConfig.tableName,
+            bundle: bundle,
+            value: value,
+            comment: ""
+        )
+#else
+        guard let bundle = LocalizedHelper.bundle ?? (localizationConfig.bundle ?? Mantis.bundle) else {
+            return value
         }
-        return text
+        
+        return NSLocalizedString(
+            key,
+            tableName: localizationConfig.tableName,
+            bundle: bundle,
+            value: value,
+            comment: ""
+        )
+#endif
     }
 }

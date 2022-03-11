@@ -13,28 +13,36 @@ class CropMaskViewManager {
     fileprivate var visualEffectView: CropVisualEffectView!
     
     var cropShapeType: CropShapeType = .rect
+    var cropVisualEffectType: CropVisualEffectType = .blurDark
     
-    init(with superview: UIView, cropShapeType: CropShapeType = .rect) {
-        setup(in: superview)
+    init(with superview: UIView,
+         cropRatio: CGFloat = 1.0,
+         cropShapeType: CropShapeType = .rect,
+         cropVisualEffectType: CropVisualEffectType = .blurDark) {
+        
+        setup(in: superview, cropRatio: cropRatio)
         self.cropShapeType = cropShapeType
+        self.cropVisualEffectType = cropVisualEffectType
     }
     
-    private func setupOverlayView(in view: UIView) {
-        dimmingView = CropDimmingView(cropShapeType: cropShapeType)
+    private func setupOverlayView(in view: UIView, cropRatio: CGFloat = 1.0) {
+        dimmingView = CropDimmingView(cropShapeType: cropShapeType, cropRatio: cropRatio)
         dimmingView.isUserInteractionEnabled = false
         dimmingView.alpha = 0
         view.addSubview(dimmingView)
     }
     
-    private func setupTranslucencyView(in view: UIView) {
-        visualEffectView = CropVisualEffectView(cropShapeType: cropShapeType)
+    private func setupTranslucencyView(in view: UIView, cropRatio: CGFloat = 1.0) {
+        visualEffectView = CropVisualEffectView(cropShapeType: cropShapeType,
+                                                effectType: cropVisualEffectType,
+                                                cropRatio: cropRatio)
         visualEffectView.isUserInteractionEnabled = false
         view.addSubview(visualEffectView)
     }
 
-    func setup(in view: UIView) {
-        setupOverlayView(in: view)
-        setupTranslucencyView(in: view)
+    func setup(in view: UIView, cropRatio: CGFloat = 1.0) {
+        setupOverlayView(in: view, cropRatio: cropRatio)
+        setupTranslucencyView(in: view, cropRatio: cropRatio)
     }
     
     func removeMaskViews() {
@@ -61,8 +69,8 @@ class CropMaskViewManager {
         }
     }
     
-    func adaptMaskTo(match cropRect: CGRect) {
-        dimmingView.adaptMaskTo(match: cropRect)
-        visualEffectView.adaptMaskTo(match: cropRect)
+    func adaptMaskTo(match cropRect: CGRect, cropRatio: CGFloat) {
+        dimmingView.adaptMaskTo(match: cropRect, cropRatio: cropRatio)
+        visualEffectView.adaptMaskTo(match: cropRect, cropRatio: cropRatio)
     }
 }

@@ -159,7 +159,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="rcR-a0-dMH" kind="show" id="EEo-hy-xVP"/>
+                                            <segue destination="9E8-RJ-XdC" kind="custom" id="19l-9u-cPn"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -201,6 +201,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="r7C-xu-pn9" id="Og9-PQ-Fxa"/>
+                        <outlet property="passwordTextField" destination="26U-vw-NYz" id="itG-3i-ivr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qcu-Ec-U7Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2213,7 +2217,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="MO8-00-M7U"/>
-        <segue reference="EEo-hy-xVP"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bell.fill" catalog="system" width="128" height="124"/>

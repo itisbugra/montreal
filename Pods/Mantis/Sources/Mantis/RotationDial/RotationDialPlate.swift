@@ -32,32 +32,32 @@ fileprivate let spaceBetweenScaleAndNumber: CGFloat = 10
 class RotationDialPlate: UIView {
 
     let smallDotLayer:CAReplicatorLayer = {
-        var r = CAReplicatorLayer()
-        r.instanceCount = smallDegreeScaleNumber
-        r.instanceTransform =
+        var layer = CAReplicatorLayer()
+        layer.instanceCount = smallDegreeScaleNumber
+        layer.instanceTransform =
             CATransform3DMakeRotation(
-                2 * CGFloat.pi / CGFloat(r.instanceCount),
+                2 * CGFloat.pi / CGFloat(layer.instanceCount),
                 0,0,1)
         
-        return r
+        return layer
     }()
     
     let bigDotLayer:CAReplicatorLayer = {
-        var r = CAReplicatorLayer()
-        r.instanceCount = bigDegreeScaleNumber
-        r.instanceTransform =
+        var layer = CAReplicatorLayer()
+        layer.instanceCount = bigDegreeScaleNumber
+        layer.instanceTransform =
             CATransform3DMakeRotation(
-                2 * CGFloat.pi / CGFloat(r.instanceCount),
+                2 * CGFloat.pi / CGFloat(layer.instanceCount),
                 0,0,1)
         
-        return r
+        return layer
     }()
     
-    var config = DialConfig.Config()
+    var dialConfig = Mantis.Config().dialConfig
     
-    init(frame: CGRect, config: DialConfig.Config = DialConfig.Config()) {
+    init(frame: CGRect, dialConfig: DialConfig = Mantis.Config().dialConfig) {
         super.init(frame: frame)
-        self.config = config
+        self.dialConfig = dialConfig
         setup()
     }
     
@@ -69,7 +69,7 @@ class RotationDialPlate: UIView {
         let mark = CAShapeLayer()
         mark.frame = CGRect(x: 0, y: 0, width: 2, height: 2)
         mark.path = UIBezierPath(ovalIn: mark.bounds).cgPath
-        mark.fillColor = config.smallScaleColor.cgColor
+        mark.fillColor = dialConfig.smallScaleColor.cgColor
         
         return mark
     }
@@ -78,7 +78,7 @@ class RotationDialPlate: UIView {
         let mark = CAShapeLayer()
         mark.frame = CGRect(x: 0, y: 0, width: 4, height: 4)
         mark.path = UIBezierPath(ovalIn: mark.bounds).cgPath
-        mark.fillColor = config.bigScaleColor.cgColor
+        mark.fillColor = dialConfig.bigScaleColor.cgColor
         
         return mark
     }
@@ -96,9 +96,9 @@ class RotationDialPlate: UIView {
         let origin = CGPoint(x: numberPlateLayer.frame.midX, y: numberPlateLayer.frame.midY)
         let startPos = CGPoint(x: numberPlateLayer.bounds.midX, y: numberPlateLayer.bounds.maxY - margin - spaceBetweenScaleAndNumber)
         let step = (2 * CGFloat.pi) / CGFloat(bigDegreeScaleNumber)
-        for i in (0 ..< bigDegreeScaleNumber){
+        for index in (0 ..< bigDegreeScaleNumber) {
             
-            guard i % config.numberShowSpan == 0 else {
+            guard index % dialConfig.numberShowSpan == 0 else {
                 continue
             }
             
@@ -108,11 +108,11 @@ class RotationDialPlate: UIView {
             numberLayer.alignmentMode = CATextLayerAlignmentMode.center
             numberLayer.contentsScale = UIScreen.main.scale
             numberLayer.font = cgFont
-            let angle = (i > bigDegreeScaleNumber / 2 ? i - bigDegreeScaleNumber : i) * 10
+            let angle = (index > bigDegreeScaleNumber / 2 ? index - bigDegreeScaleNumber : index) * 10
             numberLayer.string = "\(angle)"
-            numberLayer.foregroundColor = config.numberColor.cgColor
+            numberLayer.foregroundColor = dialConfig.numberColor.cgColor
             
-            let stepChange = CGFloat(i) * step
+            let stepChange = CGFloat(index) * step
             numberLayer.position = CGVector(from:origin, to:startPos).rotate(-stepChange).add(origin.vector).point.checked
             
             numberLayer.transform = CATransform3DMakeRotation(-stepChange, 0, 0, 1)            
@@ -143,10 +143,10 @@ class RotationDialPlate: UIView {
     
     private func setCenterPart() {
         let layer = CAShapeLayer()
-        let r: CGFloat = 4
-        layer.frame = CGRect(x: (self.layer.bounds.width - r) / 2 , y: (self.layer.bounds.height - r) / 2, width: r, height: r)
+        let radius: CGFloat = 4
+        layer.frame = CGRect(x: (self.layer.bounds.width - radius) / 2 , y: (self.layer.bounds.height - radius) / 2, width: radius, height: radius)
         layer.path = UIBezierPath(ovalIn: layer.bounds).cgPath
-        layer.fillColor = config.centerAxisColor.cgColor
+        layer.fillColor = dialConfig.centerAxisColor.cgColor
         
         self.layer.addSublayer(layer)
     }
