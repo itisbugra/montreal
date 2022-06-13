@@ -1,4 +1,5 @@
 import UIKit
+import Amplify
 
 class SignUpTableViewController: UITableViewController {
   @IBOutlet weak var keyboardAccessoryToolbar: UIToolbar!
@@ -34,7 +35,7 @@ class SignUpTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView,
                           didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    
+   
     switch (indexPath.section, indexPath.row) {
     case (0, 0):
       emailTextField.becomeFirstResponder()

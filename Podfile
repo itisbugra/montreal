@@ -18,7 +18,7 @@ target 'Quessly' do
   pod 'QRCodeReader.swift'
   pod 'Amplify'
   pod 'AmplifyPlugins'
-
+  pod 'GoogleSignIn'
   target 'QuesslyTests' do
     inherit! :search_paths
     # Pods for testing

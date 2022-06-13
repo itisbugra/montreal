@@ -1,14 +1,17 @@
 import UIKit
 import NSLogger
-
-//import Amplify
-//import AmplifyPlugins
+import Amplify
+import AmplifyPlugins
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
+  var window: UIWindow?
+  
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     Logger.shared.log(.app, .info, "Application started.")
+    
     
     //  TODO: Lato should be used instead
 //    let fontConfiguration = FontConfiguration(regularFontName: "Avenir Next", emphasizedFontName: "Avenir Next", obliqueFontName: "Avenir Next")
@@ -16,14 +19,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //
 //    themeProvider.decorateApplication()
     
-//    do {
-//      try Amplify.add(plugin: AWSCognitoAuthPlugin())
-//      try Amplify.configure()
-//      print("Amplify configured with auth plugin")
-//    } catch {
-//      print("Failed to initialize Amplify with \(error)")
-//    }
-  
+    
+    
+    do {
+      try Amplify.add(plugin: AWSCognitoAuthPlugin())
+      try Amplify.configure()
+      let user = Amplify.Auth.getCurrentUser()
+      
+      if user != nil {
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainMenu")
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+      }
+      
+      print("Amplify configured with auth plugin")
+    } catch {
+      print("Failed to initialize Amplify with \(error)")
+    }
+    
+    
     return true
   }
   // MARK: UISceneSession Lifecycle

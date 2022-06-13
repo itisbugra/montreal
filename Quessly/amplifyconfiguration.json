@@ -1,0 +1,67 @@
+{
+  "UserAgent": "aws-amplify-cli/2.0",
+  "Version": "1.0",
+  "auth": {
+    "plugins": {
+      "awsCognitoAuthPlugin": {
+        "UserAgent": "aws-amplify/cli",
+        "Version": "0.1.0",
+        "IdentityManager": {
+          "Default": {}
+        },
+        "CredentialsProvider": {
+          "CognitoIdentity": {
+            "Default": {
+              "PoolId": "eu-west-2:35fb41be-deab-4441-bca1-30141c6adc19",
+              "Region": "eu-west-2"
+            }
+          }
+        },
+        "CognitoUserPool": {
+          "Default": {
+            "PoolId": "eu-west-2_vD37CO1Tu",
+            "AppClientId": "7d6q043t3q6pmn3gg67ng94oes",
+            "Region": "eu-west-2"
+          }
+        },
+        "Auth": {
+          "Default": {
+            "OAuth": {
+              "WebDomain": "any-academy-dev.auth.eu-west-2.amazoncognito.com",
+              "AppClientId": "7d6q043t3q6pmn3gg67ng94oes",
+              "SignInRedirectURI": "myapp://callback/",
+              "SignOutRedirectURI": "myapp://signout/",
+              "Scopes": [
+                "phone",
+                "email",
+                "openid",
+                "profile"
+              ]
+            },
+            "authenticationFlowType": "USER_SRP_AUTH",
+            "socialProviders": [
+              "GOOGLE"
+            ],
+            "usernameAttributes": [
+              "EMAIL"
+            ],
+            "signupAttributes": [
+              "EMAIL"
+            ],
+            "passwordProtectionSettings": {
+              "passwordPolicyMinLength": 8,
+              "passwordPolicyCharacters": []
+            },
+            "mfaConfiguration": "OFF",
+            "mfaTypes": [
+              "SMS"
+            ],
+            "verificationMechanisms": [
+              "EMAIL"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

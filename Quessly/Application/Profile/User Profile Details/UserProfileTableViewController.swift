@@ -1,7 +1,9 @@
 import UIKit
 import FontAwesome_swift
 import Static
-
+import Amplify
+import SwiftUI
+import AWSMobileClient
 /**
  Shows details of the user profile.
  
@@ -46,6 +48,12 @@ class UserProfileTableViewController: TableViewController {
             accessory: .disclosureIndicator,
             cellClass: UserProfileTableViewControllerImageTableViewCell.self,
             context: [UserProfileTableViewControllerImageTableViewCell.Context.tintColor.rawValue: UIColor.systemRed, UserProfileTableViewControllerImageTableViewCell.Context.image.rawValue: UIImage(systemName: "heart.fill")!])
+      ]),
+      Section(rows: [
+        Row(text: "Sign Out",
+            accessory: .disclosureIndicator,
+            cellClass: UserProfileTableViewControllerImageTableViewCell.self,
+            context: [UserProfileTableViewControllerImageTableViewCell.Context.tintColor.rawValue: UIColor.systemRed, UserProfileTableViewControllerImageTableViewCell.Context.image.rawValue: UIImage.fontAwesomeIcon(name: .signOutAlt, style: .solid, textColor: .white, size: CGSize(width: 20, height: 20))])
       ])
     ]
   }
@@ -67,6 +75,29 @@ extension UserProfileTableViewController: UITableViewDelegate {
       return 80
     default:
       return 43.5
+    }
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if indexPath.section == 4 && indexPath.row == 0 {
+      Amplify.Auth
+        .signOut { result in
+          switch result {
+          case .success:
+            NSLog("AWS Amplify Sign out succeeded")
+
+          case .failure(let error):
+            NSLog("AWS Amplify Sign out failed \(error)")
+        }
+      }
+    }
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    super.prepare(for: segue, sender: sender)
+    
+    if segue.identifier == "signOut" {
+      
     }
   }
   

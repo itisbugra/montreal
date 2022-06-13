@@ -1,71 +1,85 @@
 PODS:
-  - Amplify (1.21.0):
-    - Amplify/Default (= 1.21.0)
-  - Amplify/Default (1.21.0)
-  - AmplifyPlugins (1.21.0):
-    - AmplifyPlugins/AWSAPIPlugin (= 1.21.0)
-    - AmplifyPlugins/AWSCognitoAuthPlugin (= 1.21.0)
-    - AmplifyPlugins/AWSDataStorePlugin (= 1.21.0)
-    - AmplifyPlugins/AWSLocationGeoPlugin (= 1.21.0)
-    - AmplifyPlugins/AWSPinpointAnalyticsPlugin (= 1.21.0)
-    - AmplifyPlugins/AWSS3StoragePlugin (= 1.21.0)
+  - Amplify (1.22.3):
+    - Amplify/Default (= 1.22.3)
+  - Amplify/Default (1.22.3)
+  - AmplifyPlugins (1.22.3):
+    - AmplifyPlugins/AWSAPIPlugin (= 1.22.3)
+    - AmplifyPlugins/AWSCognitoAuthPlugin (= 1.22.3)
+    - AmplifyPlugins/AWSDataStorePlugin (= 1.22.3)
+    - AmplifyPlugins/AWSLocationGeoPlugin (= 1.22.3)
+    - AmplifyPlugins/AWSPinpointAnalyticsPlugin (= 1.22.3)
+    - AmplifyPlugins/AWSS3StoragePlugin (= 1.22.3)
     - AWSCore (~> 2.27.0)
-    - AWSPluginsCore (= 1.21.0)
-  - AmplifyPlugins/AWSAPIPlugin (1.21.0):
+    - AWSPluginsCore (= 1.22.3)
+  - AmplifyPlugins/AWSAPIPlugin (1.22.3):
     - AppSyncRealTimeClient (~> 1.8)
     - AWSCore (~> 2.27.0)
-    - AWSPluginsCore (= 1.21.0)
-  - AmplifyPlugins/AWSCognitoAuthPlugin (1.21.0):
+    - AWSPluginsCore (= 1.22.3)
+  - AmplifyPlugins/AWSCognitoAuthPlugin (1.22.3):
     - AWSAuthCore (~> 2.27.0)
     - AWSCognitoIdentityProvider (~> 2.27.0)
     - AWSCognitoIdentityProviderASF (~> 2.27.0)
     - AWSCore (~> 2.27.0)
     - AWSMobileClient (~> 2.27.0)
-    - AWSPluginsCore (= 1.21.0)
-  - AmplifyPlugins/AWSDataStorePlugin (1.21.0):
+    - AWSPluginsCore (= 1.22.3)
+  - AmplifyPlugins/AWSDataStorePlugin (1.22.3):
     - AWSCore (~> 2.27.0)
-    - AWSPluginsCore (= 1.21.0)
-    - SQLite.swift (= 0.12.2)
-  - AmplifyPlugins/AWSLocationGeoPlugin (1.21.0):
+    - AWSPluginsCore (= 1.22.3)
+    - SQLite.swift (= 0.13.2)
+  - AmplifyPlugins/AWSLocationGeoPlugin (1.22.3):
     - AWSCore (~> 2.27.0)
     - AWSLocation (~> 2.27.0)
-    - AWSPluginsCore (= 1.21.0)
-  - AmplifyPlugins/AWSPinpointAnalyticsPlugin (1.21.0):
+    - AWSPluginsCore (= 1.22.3)
+  - AmplifyPlugins/AWSPinpointAnalyticsPlugin (1.22.3):
     - AWSCore (~> 2.27.0)
     - AWSPinpoint (~> 2.27.0)
-    - AWSPluginsCore (= 1.21.0)
-  - AmplifyPlugins/AWSS3StoragePlugin (1.21.0):
+    - AWSPluginsCore (= 1.22.3)
+  - AmplifyPlugins/AWSS3StoragePlugin (1.22.3):
     - AWSCore (~> 2.27.0)
-    - AWSPluginsCore (= 1.21.0)
+    - AWSPluginsCore (= 1.22.3)
     - AWSS3 (~> 2.27.0)
-  - AppSyncRealTimeClient (1.9.0):
+  - AppAuth (1.5.0):
+    - AppAuth/Core (= 1.5.0)
+    - AppAuth/ExternalUserAgent (= 1.5.0)
+  - AppAuth/Core (1.5.0)
+  - AppAuth/ExternalUserAgent (1.5.0):
+    - AppAuth/Core
+  - AppSyncRealTimeClient (1.9.1):
     - Starscream (~> 4.0.4)
-  - AWSAuthCore (2.27.3):
-    - AWSCore (= 2.27.3)
-  - AWSCognitoIdentityProvider (2.27.3):
-    - AWSCognitoIdentityProviderASF (= 2.27.3)
-    - AWSCore (= 2.27.3)
-  - AWSCognitoIdentityProviderASF (2.27.3):
-    - AWSCore (= 2.27.3)
-  - AWSCore (2.27.3)
-  - AWSLocation (2.27.3):
-    - AWSCore (= 2.27.3)
-  - AWSMobileClient (2.27.3):
-    - AWSAuthCore (= 2.27.3)
-    - AWSCognitoIdentityProvider (= 2.27.3)
-    - AWSCognitoIdentityProviderASF (= 2.27.3)
-    - AWSCore (= 2.27.3)
-  - AWSPinpoint (2.27.3):
-    - AWSCore (= 2.27.3)
-  - AWSPluginsCore (1.21.0):
-    - Amplify (= 1.21.0)
+  - AWSAuthCore (2.27.6):
+    - AWSCore (= 2.27.6)
+  - AWSCognitoIdentityProvider (2.27.6):
+    - AWSCognitoIdentityProviderASF (= 2.27.6)
+    - AWSCore (= 2.27.6)
+  - AWSCognitoIdentityProviderASF (2.27.6):
+    - AWSCore (= 2.27.6)
+  - AWSCore (2.27.6)
+  - AWSLocation (2.27.6):
+    - AWSCore (= 2.27.6)
+  - AWSMobileClient (2.27.6):
+    - AWSAuthCore (= 2.27.6)
+    - AWSCognitoIdentityProvider (= 2.27.6)
+    - AWSCognitoIdentityProviderASF (= 2.27.6)
+    - AWSCore (= 2.27.6)
+  - AWSPinpoint (2.27.6):
+    - AWSCore (= 2.27.6)
+  - AWSPluginsCore (1.22.3):
+    - Amplify (= 1.22.3)
     - AWSCore (~> 2.27.0)
-  - AWSS3 (2.27.3):
-    - AWSCore (= 2.27.3)
+  - AWSS3 (2.27.6):
+    - AWSCore (= 2.27.6)
   - Down (0.11.0)
   - Fakery (5.1.0)
   - FontAwesome.swift (1.9.1)
+  - GoogleSignIn (6.1.0):
+    - AppAuth (~> 1.4)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GRMustache.swift (4.0.1)
+  - GTMAppAuth (1.2.3):
+    - AppAuth/Core (~> 1.4)
+    - GTMSessionFetcher/Core (~> 1.5)
+  - GTMSessionFetcher/Core (1.7.1)
   - Mantis (1.9.0)
   - NSLogger (1.9.7):
     - NSLogger/ObjC (= 1.9.7)
@@ -82,9 +96,9 @@ PODS:
   - PromiseKit/UIKit (6.17.0):
     - PromiseKit/CorePromise
   - QRCodeReader.swift (10.1.0)
-  - SQLite.swift (0.12.2):
-    - SQLite.swift/standard (= 0.12.2)
-  - SQLite.swift/standard (0.12.2)
+  - SQLite.swift (0.13.2):
+    - SQLite.swift/standard (= 0.13.2)
+  - SQLite.swift/standard (0.13.2)
   - Starscream (4.0.4)
   - Static (4.0.1)
 
@@ -94,6 +108,7 @@ DEPENDENCIES:
   - Down
   - Fakery
   - FontAwesome.swift
+  - GoogleSignIn
   - GRMustache.swift
   - Mantis
   - NSLogger
@@ -106,6 +121,7 @@ SPEC REPOS:
   trunk:
     - Amplify
     - AmplifyPlugins
+    - AppAuth
     - AppSyncRealTimeClient
     - AWSAuthCore
     - AWSCognitoIdentityProvider
@@ -119,7 +135,10 @@ SPEC REPOS:
     - Down
     - Fakery
     - FontAwesome.swift
+    - GoogleSignIn
     - GRMustache.swift
+    - GTMAppAuth
+    - GTMSessionFetcher
     - Mantis
     - NSLogger
     - PromiseKit
@@ -129,30 +148,34 @@ SPEC REPOS:
     - Static
 
 SPEC CHECKSUMS:
-  Amplify: 8af0fbd1856d7418469ee3f940f428925902210e
-  AmplifyPlugins: f2a93ae2a981e3a7f362ad00c39e2656af038215
-  AppSyncRealTimeClient: 147743ef36c99e25a47ecd3e8f7b6991ba7e3bdd
-  AWSAuthCore: d5a23a60dd39851ee98bbc1c7f28cbda1a3ee521
-  AWSCognitoIdentityProvider: 4a2b24fcd630cd7b418b0249783a2a54e9c386c0
-  AWSCognitoIdentityProviderASF: c7e226e71085c3666e2e52c86c2c15c7499e7405
-  AWSCore: a05d729ef999da1c50d5a3af5e986a57fbcb42f2
-  AWSLocation: c708ce17a9e07341bb844a5d18fe45382cf49a70
-  AWSMobileClient: 24564a67657f3019d70a4075317f7c70caaf9d43
-  AWSPinpoint: 5168197a1e211f6d11479e058e496b243e8f0ef6
-  AWSPluginsCore: d0e4ea6ca225b0f79e40193178c06348b8220a86
-  AWSS3: 586a92d6745cb395f8e43ead9d7b9fdccd6a1ef4
+  Amplify: fb33852ceec9ab2f6683495d02715fa418314883
+  AmplifyPlugins: 85ce44dc171b07b70a26763fea0a5d48866b722e
+  AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
+  AppSyncRealTimeClient: cdee78ab78249cb87a71d975e1436e692813a606
+  AWSAuthCore: 09226ae8dfc63d1338f503f53a38af2d3156267e
+  AWSCognitoIdentityProvider: 9eb24a52488d32b75d8550e8a9d1be36229ae47d
+  AWSCognitoIdentityProviderASF: 60d466e143f8bbf9d47d39c1ad58de5044a111b6
+  AWSCore: 0b6fa020f5f343a211862d702ba7a067272a60f7
+  AWSLocation: 9a8d5d53d41e714203d5065e6c9cf3a5c4f10fdb
+  AWSMobileClient: e0ad3787f793d14c593379c2dba006e3bdad8bf1
+  AWSPinpoint: a77cf6d288855cdb07334998910ff6023cfbeeb7
+  AWSPluginsCore: 21c42bb419ca8dc2afbdefc26096836b99ca61c2
+  AWSS3: 2b8d31de4ae07b8dc00ab26e805f389b328b20a3
   Down: b6ba1bc985c9d2f4e15e3b293d2207766fa12612
   Fakery: a90caff00ca5cacde6c161c3eafc72314a03d34d
   FontAwesome.swift: 6b52cb7be66eacd28cbfaa0ca7ffd0de4a186a1d
+  GoogleSignIn: c90b5bec45e780f54c6a8e1e3c182a86e3dda69d
   GRMustache.swift: a6436504284b22b4b05daf5f46f77bd3fe00a9a2
+  GTMAppAuth: 987526d41b07efb1bedda5e936fe0cb718a03113
+  GTMSessionFetcher: 4577a4cc914a5a07c40a8a0ad0acc22080418c2d
   Mantis: 5dea32ad49addabb3247112f5b1282a6e0964bb0
   NSLogger: cf3013a4fba189f631f07e6c3d5b8ce2b209654b
   PromiseKit: 996202d4cae72b7801b312abef4cd2f995b2978a
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
-  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
+  SQLite.swift: 4fc2be46c36392e3b87afe6fe7f1801c1daa07ef
   Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
   Static: a4ef704ab38e966728ba2e588bcbae9e66c1845e
 
-PODFILE CHECKSUM: 9b461676a23d9a86ed1b683e7d10a32d5c35ad30
+PODFILE CHECKSUM: 950237e2369a1c8ab62d61a48333fdac37e3177f
 
 COCOAPODS: 1.11.2

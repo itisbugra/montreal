@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		521B1BC627DCF01C000B69B8 /* SignInWithGoogleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B1BC527DCF01C000B69B8 /* SignInWithGoogleViewController.swift */; };
+		5230499827DF68B600E58207 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 5230499727DF689100E58207 /* amplifyconfiguration.json */; };
 		5276F21924B0E99A003D23B7 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21824B0E99A003D23B7 /* SignUpTableViewController.swift */; };
 		5276F21B24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21A24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift */; };
 		5276F21D24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21C24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift */; };
@@ -146,9 +148,12 @@
 		00286CA73673DA31241A7BF0 /* Pods-Quessly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quessly.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quessly/Pods-Quessly.release.xcconfig"; sourceTree = "<group>"; };
 		0358EACCD47FF9886E0625D5 /* Pods-Quessly-QuesslyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quessly-QuesslyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quessly-QuesslyUITests/Pods-Quessly-QuesslyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		23E43265763194C85CCAE369 /* Pods_Quessly_QuesslyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quessly_QuesslyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		521B1BC527DCF01C000B69B8 /* SignInWithGoogleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithGoogleViewController.swift; sourceTree = "<group>"; };
+		5230499727DF689100E58207 /* amplifyconfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		5276F21824B0E99A003D23B7 /* SignUpTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
 		5276F21A24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpTableViewController+AlertControllers.swift"; sourceTree = "<group>"; };
 		5276F21C24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+addActivityIndicator.swift"; sourceTree = "<group>"; };
+		52B998252849736A00F0827A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		73D1E1F4411CD9F6E32A6F7E /* Pods-Quessly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quessly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quessly/Pods-Quessly.debug.xcconfig"; sourceTree = "<group>"; };
 		7C0456106252918467CBD7F1 /* Pods_Quessly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quessly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB8070956F0C655CFB1095F /* Pods-QuesslyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuesslyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuesslyTests/Pods-QuesslyTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -211,7 +216,7 @@
 		D5A7425A24569069001D83A5 /* Quessly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quessly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5A7425D24569069001D83A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5A7425F24569069001D83A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D5A7426124569069001D83A5 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		D5A7426124569069001D83A5 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		D5A7426424569069001D83A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D5A742662456906B001D83A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5A742692456906B001D83A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -610,6 +615,7 @@
 				D5A742662456906B001D83A5 /* Assets.xcassets */,
 				D5ACD0292488FA2800265CE0 /* Info.plist */,
 				D5A742682456906B001D83A5 /* LaunchScreen.storyboard */,
+				5230499727DF689100E58207 /* amplifyconfiguration.json */,
 			);
 			path = Quessly;
 			sourceTree = "<group>";
@@ -658,6 +664,7 @@
 			isa = PBXGroup;
 			children = (
 				D5A7426124569069001D83A5 /* SignInViewController.swift */,
+				521B1BC527DCF01C000B69B8 /* SignInWithGoogleViewController.swift */,
 			);
 			path = "Sign In";
 			sourceTree = "<group>";
@@ -1032,6 +1039,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5230499827DF68B600E58207 /* amplifyconfiguration.json in Resources */,
 				D50A939524FD4ECC00F2716A /* Lato.json in Resources */,
 				D5BD3BB0245AFD19002D9DB2 /* QuestionMasterNavigationBarTitleView.xib in Resources */,
 				D50A938024FD216D00F2716A /* Lato-Light.ttf in Resources */,
@@ -1228,6 +1236,7 @@
 				5276F21B24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift in Sources */,
 				D5904C3D2463E2100057B9C6 /* UserNotificationCenterManager.swift in Sources */,
 				D5FCEBE224628B82006E1124 /* Session.swift in Sources */,
+				521B1BC627DCF01C000B69B8 /* SignInWithGoogleViewController.swift in Sources */,
 				D5BD3BAE245AFD08002D9DB2 /* QuestionMasterNavigationBarTitleView.swift in Sources */,
 				D5A74293245695AD001D83A5 /* MainMenuTableViewController.swift in Sources */,
 				D506A47E248E5A0100E16755 /* ActivityAlertControllerAnimatedTransitioning.swift in Sources */,
@@ -1297,6 +1306,7 @@
 			children = (
 				D5A7426424569069001D83A5 /* Base */,
 				D59990C42488F05F004705D8 /* tr */,
+				52B998252849736A00F0827A /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
