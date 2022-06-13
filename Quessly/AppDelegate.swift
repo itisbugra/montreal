@@ -1,7 +1,5 @@
 import UIKit
 import NSLogger
-import Amplify
-import AmplifyPlugins
 
 @UIApplicationMain
 
@@ -12,33 +10,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     Logger.shared.log(.app, .info, "Application started.")
     
-    
     //  TODO: Lato should be used instead
 //    let fontConfiguration = FontConfiguration(regularFontName: "Avenir Next", emphasizedFontName: "Avenir Next", obliqueFontName: "Avenir Next")
 //    let themeProvider = ThemeProvider(fontConfiguration: fontConfiguration)
 //
 //    themeProvider.decorateApplication()
-    
-    
-    
-    do {
-      try Amplify.add(plugin: AWSCognitoAuthPlugin())
-      try Amplify.configure()
-      let user = Amplify.Auth.getCurrentUser()
-      
-      if user != nil {
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainMenu")
-        self.window?.rootViewController = initialViewController
-        self.window?.makeKeyAndVisible()
-      }
-      
-      print("Amplify configured with auth plugin")
-    } catch {
-      print("Failed to initialize Amplify with \(error)")
-    }
-    
     
     return true
   }
