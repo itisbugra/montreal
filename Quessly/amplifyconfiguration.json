@@ -29,8 +29,8 @@
             "OAuth": {
               "WebDomain": "any-academy-dev.auth.eu-west-2.amazoncognito.com",
               "AppClientId": "7d6q043t3q6pmn3gg67ng94oes",
-              "SignInRedirectURI": "myapp://callback/",
-              "SignOutRedirectURI": "myapp://signout/",
+              "SignInRedirectURI": "anyacademy://callback/",
+              "SignOutRedirectURI": "anyacademy://signout/",
               "Scopes": [
                 "phone",
                 "email",

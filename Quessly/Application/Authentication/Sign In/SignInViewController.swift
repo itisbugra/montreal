@@ -10,13 +10,6 @@ class SignInViewController: UITableViewController {
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var didPressSignInWithGoogle: UILabel!
   
-  @IBAction func viewDidLoad(_ sender: Any) {
-    super.viewDidLoad()
-    
-    // Do any additional setup after loading the view.
-    reloadData()
-  }
-  
   lazy var codeReaderViewController: QRCodeReaderViewController = {
     let builder = QRCodeReaderViewControllerBuilder {
       $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
@@ -25,7 +18,7 @@ class SignInViewController: UITableViewController {
       $0.showCancelButton = true
       $0.showOverlayView = false
       $0.rectOfInterest = CGRect(x: 0.2, y: 0.2, width: 0.6, height: 0.6)
-  }
+    }
     
     return QRCodeReaderViewController(builder: builder)
   }()
@@ -50,50 +43,37 @@ class SignInViewController: UITableViewController {
     }
   }
   
-override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if indexPath.section == 3 && indexPath.row == 0 {
       Amplify.Auth
         .signInWithWebUI(for: .google,
-                            presentationAnchor: self.view.window!) { result in
+                         presentationAnchor: self.view.window!) { result in
           switch result {
           case .success:
             NSLog("AWS Amplify Google federated sign in succeeded")
-
-            self.reloadData()
-
+            
+            DispatchQueue.main.async {
+              self.showMainMenu(sender: self.tableView)
+            }
+            
           case .failure(let error):
             NSLog("AWS Amplify Google federated sign in failed \(error)")
-
-            self.showError(error)
+            
+            DispatchQueue.main.async {
+              self.tableView.cellForRow(at: indexPath)!.isSelected = false
+              self.showError(error, sender: self.tableView)
+            }
           }
         }
     }
-  else if indexPath.section == 4 && indexPath.row == 0 {
-    self.reloadData()
-    }
   }
   
-  private func reloadData() {
-    DispatchQueue.main.async {
-      if let user = Amplify.Auth.getCurrentUser() {
-        self.emailTextField.text = user.username
-      } else {
-        self.emailTextField.text = "(not signed in)"
-      }
-    }
+  private func showMainMenu(sender: Any?) {
+    self.performSegue(withIdentifier: "showMainMenu", sender: self.tableView)
   }
   
-  private func showError(_ error: Error) {
-    DispatchQueue.main.async {
-      self.showError(error.localizedDescription)
-    }
-  }
-  
-  private func showError(_ errorMessage: String) {
-    DispatchQueue.main.async {
-      self.emailTextField.text = errorMessage
-    }
+  private func showError(_ error: Error, sender: Any?) {
+    //  TODO: Handle the error
   }
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1293C3D7285808F5009D6AC6 /* UIApplication+keyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1293C3D6285808F5009D6AC6 /* UIApplication+keyWindow.swift */; };
 		521B1BC627DCF01C000B69B8 /* SignInWithGoogleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B1BC527DCF01C000B69B8 /* SignInWithGoogleViewController.swift */; };
 		5230499827DF68B600E58207 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 5230499727DF689100E58207 /* amplifyconfiguration.json */; };
 		5276F21924B0E99A003D23B7 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21824B0E99A003D23B7 /* SignUpTableViewController.swift */; };
@@ -147,6 +148,7 @@
 /* Begin PBXFileReference section */
 		00286CA73673DA31241A7BF0 /* Pods-Quessly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quessly.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quessly/Pods-Quessly.release.xcconfig"; sourceTree = "<group>"; };
 		0358EACCD47FF9886E0625D5 /* Pods-Quessly-QuesslyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quessly-QuesslyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quessly-QuesslyUITests/Pods-Quessly-QuesslyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1293C3D6285808F5009D6AC6 /* UIApplication+keyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+keyWindow.swift"; sourceTree = "<group>"; };
 		23E43265763194C85CCAE369 /* Pods_Quessly_QuesslyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quessly_QuesslyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		521B1BC527DCF01C000B69B8 /* SignInWithGoogleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithGoogleViewController.swift; sourceTree = "<group>"; };
 		5230499727DF689100E58207 /* amplifyconfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				D543EED02462F2D300034240 /* UIAlertAction+isChecked.swift */,
 				D57CEC9724877B7200BA3246 /* UICollectionView+reloadData(animated).swift */,
 				5276F21C24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift */,
+				1293C3D6285808F5009D6AC6 /* UIApplication+keyWindow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1209,6 +1212,7 @@
 				D57CEC9824877B7200BA3246 /* UICollectionView+reloadData(animated).swift in Sources */,
 				D5ACD02F2489423A00265CE0 /* PseudoPushNotificationsTestTableViewController+AlertControllers.swift in Sources */,
 				D5A7426024569069001D83A5 /* SceneDelegate.swift in Sources */,
+				1293C3D7285808F5009D6AC6 /* UIApplication+keyWindow.swift in Sources */,
 				D5BD3BAA245AF40D002D9DB2 /* FormattedContent.swift in Sources */,
 				D5BD3BA2245AF0E5002D9DB2 /* QuestionMasterTableViewController.swift in Sources */,
 				D5D0FAE5246B1873008169FD /* ContentEditorTableViewController+UINavigationControllerDelegate.swift in Sources */,
@@ -1463,7 +1467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H5LA8B82MN;
+				DEVELOPMENT_TEAM = DHCR3H4M55;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1486,7 +1490,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H5LA8B82MN;
+				DEVELOPMENT_TEAM = DHCR3H4M55;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

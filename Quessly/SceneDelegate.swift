@@ -11,6 +11,9 @@ import Amplify
 import AmplifyPlugins
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+  private let mainStoryboardName = "Main"
+  private let signedInViewControllerIdentifier = "SignedInNavigationController"
+  
   var window: UIWindow?
   
   func scene(_ scene: UIScene,
@@ -27,8 +30,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       let user = Amplify.Auth.getCurrentUser()
       
       if user != nil {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainMenu")
+        let storyboard = UIStoryboard(name: mainStoryboardName, bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: signedInViewControllerIdentifier)
         
         self.window = UIWindow(windowScene: windowScene)
         self.window!.rootViewController = initialViewController

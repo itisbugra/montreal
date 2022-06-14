@@ -51,9 +51,13 @@ class UserProfileTableViewController: TableViewController {
       ]),
       Section(rows: [
         Row(text: "Sign Out",
-            accessory: .disclosureIndicator,
+            accessory: Row.Accessory.none,
             cellClass: UserProfileTableViewControllerImageTableViewCell.self,
-            context: [UserProfileTableViewControllerImageTableViewCell.Context.tintColor.rawValue: UIColor.systemRed, UserProfileTableViewControllerImageTableViewCell.Context.image.rawValue: UIImage.fontAwesomeIcon(name: .signOutAlt, style: .solid, textColor: .white, size: CGSize(width: 20, height: 20))])
+            context: [
+              UserProfileTableViewControllerImageTableViewCell.Context.tintColor.rawValue: UIColor.systemRed,
+              UserProfileTableViewControllerImageTableViewCell.Context.image.rawValue: UIImage.fontAwesomeIcon(name: .signOutAlt, style: .solid, textColor: .white, size: CGSize(width: 20, height: 20))
+            ]
+           )
       ])
     ]
   }
@@ -85,19 +89,22 @@ extension UserProfileTableViewController: UITableViewDelegate {
           switch result {
           case .success:
             NSLog("AWS Amplify Sign out succeeded")
-
+            
+            DispatchQueue.main.async {
+              let storyboard = UIStoryboard(name: "Main", bundle: nil)
+              
+              let initialViewController = storyboard.instantiateViewController(
+                  withIdentifier: "AuthenticationNavigationController"
+                )
+              
+              UIApplication.shared.keyWindow!.rootViewController = initialViewController
+              UIApplication.shared.keyWindow!.makeKeyAndVisible()
+            }
+            
           case .failure(let error):
             NSLog("AWS Amplify Sign out failed \(error)")
+          }
         }
-      }
-    }
-  }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    super.prepare(for: segue, sender: sender)
-    
-    if segue.identifier == "signOut" {
-      
     }
   }
   

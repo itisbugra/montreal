@@ -35,7 +35,7 @@ class SignUpTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView,
                           didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-   
+    
     switch (indexPath.section, indexPath.row) {
     case (0, 0):
       emailTextField.becomeFirstResponder()
@@ -104,12 +104,12 @@ class SignUpTableViewController: UITableViewController {
         
         Timer.scheduledTimer(withTimeInterval: 3,
                              repeats: false) { _ in
-                              if self.loading {
-                                self.dismiss(animated: true) {
-                                  self.performSegue(withIdentifier: "showMainMenu",
-                                                    sender: self)
-                                }
-                              }
+          if self.loading {
+            self.dismiss(animated: true) {
+              self.performSegue(withIdentifier: "showMainMenu",
+                                sender: self)
+            }
+          }
         }
       }
     } catch ValidationError.invalidEmail(_) {
