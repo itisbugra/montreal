@@ -9,7 +9,7 @@ import SwiftUI
 import NSLogger
 
 class SignInViewController: UITableViewController {
-  @IBOutlet weak var emailTextField: UITextField!
+  @IBOutlet weak var usernameTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var didPressSignInWithGoogle: UILabel!
   @IBOutlet var resetPasswordTapGestureRecognizer: UITapGestureRecognizer!
@@ -19,7 +19,7 @@ class SignInViewController: UITableViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    
+        
     //  Configure reset password gesture recognizer
     resetPasswordTapGestureRecognizer = UITapGestureRecognizer(target: self,
                                                                action: #selector(shouldPresentResetPassword(_:)))
@@ -28,6 +28,10 @@ class SignInViewController: UITableViewController {
       .addGestureRecognizer(resetPasswordTapGestureRecognizer)
   }
   
+  override func viewDidAppear(_ animated: Bool) {
+    self.usernameTextField.becomeFirstResponder()
+
+  }
   lazy var codeReaderViewController: QRCodeReaderViewController = {
     let builder = QRCodeReaderViewControllerBuilder {
       $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
@@ -56,18 +60,20 @@ class SignInViewController: UITableViewController {
     super.prepare(for: segue, sender: sender)
     
     if segue.identifier == "signInToMainMenu" && segue.identifier == "signInWithGoogle"{
-      emailTextField.text = emailTextField.text!
+      usernameTextField.text = usernameTextField.text!
       passwordTextField.text = passwordTextField.text!
     }
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+
     if indexPath.section == 1 && indexPath.row == 0 {
-      let email = emailTextField.text
+      let username = usernameTextField.text
       let password = passwordTextField.text
       
       Amplify.Auth
-        .signIn(username: email, password: password, options: nil) { result in
+        .signIn(username: username, password: password, options: nil) { result in
           switch result {
           case .success:
             NSLog("Sign in succeeded")
@@ -105,24 +111,6 @@ class SignInViewController: UITableViewController {
         }
       }
     }
-//    else if indexPath.section == 4 && indexPath.row == 0 {
-//      let username = emailTextField.text!
-//
-//      Amplify.Auth
-//        .resetPassword(for: username) { result in
-//              do {
-//                  let resetResult = try result.get()
-//                  switch resetResult.nextStep {
-//                  case .confirmResetPasswordWithCode(let deliveryDetails, let info):
-//                      print("Confirm reset password with code send to - \(deliveryDetails) \(info)")
-//                  case .done:
-//                      print("Reset completed")
-//                  }
-//              } catch {
-//                  print("Reset password failed with error \(error)")
-//              }
-//          }
-//    }
   }
   
   @objc func shouldPresentResetPassword(_ sender: Any?) {

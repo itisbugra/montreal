@@ -136,8 +136,8 @@
 /* Class = "UILabel"; text = "Desperate times call for desperate measures."; ObjectID = "k8S-ld-RFe"; */
 "k8S-ld-RFe.text" = "Desperate times call for desperate measures.";
 
-/* Class = "UILabel"; text = "E-mail"; ObjectID = "kfm-ly-SFk"; */
-"kfm-ly-SFk.text" = "E-posta";
+/* Class = "UILabel"; text = "Kullancı adı"; ObjectID = "kfm-ly-SFk"; */
+"kfm-ly-SFk.text" = "Kullanıcı adı";
 
 /* Class = "UILabel"; text = "Session Start"; ObjectID = "KRO-a1-djX"; */
 "KRO-a1-djX.text" = "Oturumu Başlat";
@@ -175,7 +175,7 @@
 /* Class = "UINavigationItem"; title = "Main menu"; ObjectID = "PYc-1l-Ohp"; */
 "PYc-1l-Ohp.title" = "Ana menü";
 
-/* Class = "UITextField"; placeholder = "username"; ObjectID = "Q3z-nm-fOx"; */
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "Q3z-nm-fOx"; */
 "Q3z-nm-fOx.placeholder" = "kullanici_adi";
 
 /* Class = "UIBarButtonItem"; title = "Select"; ObjectID = "qLc-2S-I5F"; */
@@ -187,8 +187,8 @@
 /* Class = "UITextField"; placeholder = "••••••"; ObjectID = "R6m-kn-oUs"; */
 "R6m-kn-oUs.placeholder" = "••••••";
 
-/* Class = "UITextField"; placeholder = "example@mail.com"; ObjectID = "r7C-xu-pn9"; */
-"r7C-xu-pn9.placeholder" = "ornek@e-posta.com";
+/* Class = "UITextField"; placeholder = "örn. example"; ObjectID = "r7C-xu-pn9"; */
+"r7C-xu-pn9.placeholder" = "örn. example";
 
 /* Class = "UITableViewController"; title = "Main menu"; ObjectID = "rcR-a0-dMH"; */
 "rcR-a0-dMH.title" = "Ana menü";

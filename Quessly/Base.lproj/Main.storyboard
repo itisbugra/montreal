@@ -116,7 +116,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfm-ly-SFk">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfm-ly-SFk">
                                                     <rect key="frame" x="20" y="11.5" width="99" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="moz-rE-RWT"/>
@@ -125,13 +125,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="example@mail.com" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r7C-xu-pn9">
+                                                <textField opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="example" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r7C-xu-pn9" userLabel="Username Text Field">
                                                     <rect key="frame" x="127" y="2.5" width="267" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="ve9-DJ-Aqt"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="username"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="9E8-RJ-XdC" id="t7M-wz-DEG"/>
                                                     </connections>
@@ -268,12 +268,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="didPressSignInWithGoogle" destination="IWT-xe-4np" id="Ls2-Z8-036"/>
-                        <outlet property="emailTextField" destination="r7C-xu-pn9" id="Og9-PQ-Fxa"/>
                         <outlet property="eulaLabel" destination="hg5-ti-3wu" id="0bg-mg-SYI"/>
                         <outlet property="eulaLinkLabel" destination="qQN-EU-39J" id="fu7-hH-YBE"/>
                         <outlet property="passwordTextField" destination="26U-vw-NYz" id="itG-3i-ivr"/>
                         <outlet property="resetPasswordLabel" destination="bnc-gk-3R6" id="Olh-D1-iDf"/>
                         <outlet property="resetPasswordTapGestureRecognizer" destination="z4k-KS-w0R" id="Kzc-yZ-qxR"/>
+                        <outlet property="usernameTextField" destination="r7C-xu-pn9" id="4NL-am-rMk"/>
                         <segue destination="rcR-a0-dMH" kind="show" identifier="showMainMenu" id="3EA-Ov-GEM"/>
                         <segue destination="z1O-4z-hMg" kind="show" identifier="showResetPassword" id="tb8-0X-DPM"/>
                     </connections>
