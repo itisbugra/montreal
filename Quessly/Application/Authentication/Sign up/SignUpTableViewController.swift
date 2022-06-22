@@ -10,6 +10,10 @@ class SignUpTableViewController: UITableViewController {
   @IBOutlet weak var usernameTextField: UITextField!
   @IBOutlet weak var confirmationCode: UITextField!
   
+  override func viewDidAppear(_ animated: Bool) {
+    self.usernameTextField.becomeFirstResponder()
+  }
+  
   lazy var emailPredicate: NSPredicate = {
     let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     
