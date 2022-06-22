@@ -14,7 +14,7 @@
 "Are you sure you want to enroll this session?" = "Are you sure you want to enroll this session?";
 
 /* Alert button. */
-"Cancel" = "Cancel";
+"Cancel" = "Vazgeç";
 
 /* Alert button. */
 "Enroll Session" = "Enroll Session";
@@ -71,13 +71,13 @@
 "Your session is about to start, tap to join in." = "Your session is about to start, tap to join in.";
 
 /* Number of users joined to the live session shown in main menu */
-"%llu users in session" = "";
+"%llu users in session" = "%llu kullanıcı oturumda";
 
 /* Authorization status label. */
 "Authorized" = "";
 
 /* Content of the session. */
-"Content" = "";
+"Content" = "İçerik";
 
 /* Authorization status label. */
 "Denied" = "";
@@ -86,34 +86,34 @@
 "Dismiss" = "";
 
 /* Title of the cell asking for download. */
-"Download When Available" = "";
+"Download When Available" = "Mümkün olduğunda indir";
 
 /* Header of the section for download prompt in session awaiting. */
-"Downloadable content" = "";
+"Downloadable content" = "İndirilebilir içerik";
 
 /* Name of the session. */
-"Duration" = "";
+"Duration" = "Süre";
 
 /* No comment provided by engineer. */
-"Error" = "";
+"Error" = "Hata";
 
 /* Alert message shown when confirmation code is invalid during sign up. */
-"Invalid confirmation code." = "";
+"Invalid confirmation code." = "Hatalı doğrulama kodu girdiniz.";
 
 /* Alert message shown when email address is invalid during sign up. */
-"Invalid email address." = "";
+"Invalid email address." = "Hatalı e-posta adresi girdiniz.";
 
 /* Alert message shown when password is invalid during sign up. */
-"Invalid password." = "";
+"Invalid password." = "Hatalı şifre girdiniz.";
 
 /* Alert message shown when username is invalid during sign up. */
-"Invalid username." = "";
+"Invalid username." = "Hatalı kullanıcı adı girdiniz.";
 
 /* Authorization status label. */
-"N/A" = "";
+"N/A" = "(bilinmiyor)";
 
 /* Name of the session. */
-"Name" = "";
+"Name" = "İsim";
 
 /* Authorization status label. */
 "Not determined" = "";
@@ -122,22 +122,22 @@
 "OK" = "";
 
 /* Header in the main menu. */
-"Ongoing live sessions" = "";
+"Ongoing live sessions" = "Sürmekte olan oturumlar";
 
 /* Alert message shown when passwords do not match during sign up. */
-"Passwords do not match." = "";
+"Passwords do not match." = "Şifreler uyuşmuyor.";
 
 /* Authorization status label. */
 "Provisional" = "";
 
 /* Header of the section for the session content in session awaiting. */
-"Session Content" = "";
+"Session Content" = "Oturum İçeriği";
 
 /* Header of the section for the session information in session awaiting. */
-"Session Information" = "";
+"Session Information" = "Oturum Bilgisi";
 
 /* Alert title shown when network event is occuring during sign up. */
-"Signing you up..." = "";
+"Signing you up..." = "Giriş yapılıyor...";
 
 /* Section footer for the unenrolling from a started session. */
 "Since session has become available to the users, if you unenroll from this session, you might not be able to join it again." = "";
@@ -149,13 +149,20 @@
 "This session cannot be started by its administrator before the starting time." = "";
 
 /* Type of the session. */
-"Type" = "";
+"Type" = "Tip";
 
 /* Unenrolls from the session in session awaiting context. */
-"Unenroll" = "";
+"Unenroll" = "Kaydı geri al";
 
 /* Authorization status label. */
-"Unknown" = "";
+"Unknown" = "Bilinmiyor";
 
 /* Description for the downloadable content setting. */
 "When the session content is made available to the users, the downloading starts automatically if enabled. \n\nOtherwise, you might need to wait for a while in order to download the session content when it begins." = "";
+
+"Verification Code" = "Doğrulama Kodu";
+
+"Enter the verification code you have received with the e-mail." = "E-posta ile gelen doğrulama kodunu girin.";
+
+/* Description for the alert when sending verification code to the e-mail address. */
+"Sending a verification code to your e-mail address." = "Doğrulama kodu e-posta adresinize gönderiliyor.";

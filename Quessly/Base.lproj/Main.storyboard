@@ -285,7 +285,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-204.34782608695653" y="137.94642857142856"/>
+            <point key="canvasLocation" x="-862" y="119"/>
         </scene>
         <!--Master Navigation Controller-->
         <scene sceneID="Uv3-tD-7xU">
@@ -301,7 +301,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ith-ee-sVH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1026" y="138"/>
+            <point key="canvasLocation" x="-1770" y="119"/>
         </scene>
         <!--Master Navigation Controller-->
         <scene sceneID="tHg-UF-9Ww">
@@ -1445,7 +1445,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3zX-CQ-YUr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="KhD-ES-IhZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="123" y="-1310"/>
+            <point key="canvasLocation" x="-862" y="-1215"/>
         </scene>
         <!--Reset Password-->
         <scene sceneID="Q2I-Kt-WjI">
@@ -1565,7 +1565,7 @@ Using that code in the following step, you will be able to reset the password of
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZsC-HS-iQi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124.6376811594203" y="-580.58035714285711"/>
+            <point key="canvasLocation" x="-861" y="-554"/>
         </scene>
         <!--Ongoing Session Table View Controller-->
         <scene sceneID="ubj-L1-Lxg">
@@ -1956,7 +1956,7 @@ Using that code in the following step, you will be able to reset the password of
                     </items>
                 </toolbar>
             </objects>
-            <point key="canvasLocation" x="1793" y="-595"/>
+            <point key="canvasLocation" x="-1" y="-554"/>
         </scene>
         <!--Session Questions Overview Collection View Controller-->
         <scene sceneID="KSC-FV-Ypt">
@@ -2625,7 +2625,7 @@ Using that code in the following step, you will be able to reset the password of
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="iXW-fy-xtr"/>
-        <segue reference="Ryw-Hs-rPz"/>
+        <segue reference="3EA-Ov-GEM"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bell.fill" catalog="system" width="128" height="124"/>
