@@ -1,6 +1,6 @@
 import UIKit
 import NSLogger
-
+import AWSMobileClient
 @UIApplicationMain
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,10 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    let themeProvider = ThemeProvider(fontConfiguration: fontConfiguration)
 //
 //    themeProvider.decorateApplication()
-    
     return true
   }
-  
   // MARK: UISceneSession Lifecycle
   
   func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

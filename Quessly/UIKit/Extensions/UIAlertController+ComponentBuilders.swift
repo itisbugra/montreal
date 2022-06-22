@@ -8,7 +8,7 @@ extension UIAlertController {
                                                                          height: 40))
   }
   
-  func addActivityIndicator() {
+  @discardableResult func addActivityIndicator(builder: ((UIActivityIndicatorView) -> Void)? = nil) -> UIActivityIndicatorView {
     let viewController = UIViewController()
     viewController.preferredContentSize = CGSize(width: 40, height: 40)
     
@@ -17,11 +17,25 @@ extension UIAlertController {
     viewController.view.addSubview(StaticData.activityIndicator)
     
     self.setValue(viewController, forKey: "contentViewController")
+    
+    builder?(StaticData.activityIndicator)
+    
+    return StaticData.activityIndicator
   }
   
   func dismissActivityIndicator() {
     StaticData.activityIndicator.stopAnimating()
     
     self.dismiss(animated: false)
+  }
+  
+  @discardableResult func addTextField(builder: ((UITextField) -> Void)) -> UITextField {
+    self.addTextField()
+    
+    let textField = self.textFields!.last!
+    
+    builder(textField)
+    
+    return textField
   }
 }

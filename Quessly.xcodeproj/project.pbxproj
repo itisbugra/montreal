@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1293C3D7285808F5009D6AC6 /* UIApplication+keyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1293C3D6285808F5009D6AC6 /* UIApplication+keyWindow.swift */; };
-		521B1BC627DCF01C000B69B8 /* SignInWithGoogleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521B1BC527DCF01C000B69B8 /* SignInWithGoogleViewController.swift */; };
 		5230499827DF68B600E58207 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 5230499727DF689100E58207 /* amplifyconfiguration.json */; };
+		52588CAC286292E4008575B6 /* ResetPasswordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52588CAB286292E4008575B6 /* ResetPasswordTableViewController.swift */; };
+		52588CAE28629342008575B6 /* ResetPasswordTableViewController+AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52588CAD28629342008575B6 /* ResetPasswordTableViewController+AlertControllers.swift */; };
+		52588CB1286398B2008575B6 /* CreateNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52588CB0286398B2008575B6 /* CreateNewPasswordViewController.swift */; };
+		52588CB32863AC22008575B6 /* UIAlertController+ComponentBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52588CB22863AC22008575B6 /* UIAlertController+ComponentBuilders.swift */; };
 		5276F21924B0E99A003D23B7 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21824B0E99A003D23B7 /* SignUpTableViewController.swift */; };
 		5276F21B24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21A24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift */; };
-		5276F21D24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21C24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift */; };
 		533D93390EEB9C459EF9B82F /* Pods_Quessly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0456106252918467CBD7F1 /* Pods_Quessly.framework */; };
 		8EC098AECFA2822FA5CEAEBC /* Pods_Quessly_QuesslyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E43265763194C85CCAE369 /* Pods_Quessly_QuesslyUITests.framework */; };
 		B1B5D79FBFDA5B2EE326FF9A /* Pods_QuesslyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8455A19DC72CFE3029E5E9B /* Pods_QuesslyTests.framework */; };
@@ -150,11 +152,13 @@
 		0358EACCD47FF9886E0625D5 /* Pods-Quessly-QuesslyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quessly-QuesslyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quessly-QuesslyUITests/Pods-Quessly-QuesslyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1293C3D6285808F5009D6AC6 /* UIApplication+keyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+keyWindow.swift"; sourceTree = "<group>"; };
 		23E43265763194C85CCAE369 /* Pods_Quessly_QuesslyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quessly_QuesslyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		521B1BC527DCF01C000B69B8 /* SignInWithGoogleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithGoogleViewController.swift; sourceTree = "<group>"; };
 		5230499727DF689100E58207 /* amplifyconfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		52588CAB286292E4008575B6 /* ResetPasswordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordTableViewController.swift; sourceTree = "<group>"; };
+		52588CAD28629342008575B6 /* ResetPasswordTableViewController+AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResetPasswordTableViewController+AlertControllers.swift"; sourceTree = "<group>"; };
+		52588CB0286398B2008575B6 /* CreateNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordViewController.swift; sourceTree = "<group>"; };
+		52588CB22863AC22008575B6 /* UIAlertController+ComponentBuilders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+ComponentBuilders.swift"; sourceTree = "<group>"; };
 		5276F21824B0E99A003D23B7 /* SignUpTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
 		5276F21A24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpTableViewController+AlertControllers.swift"; sourceTree = "<group>"; };
-		5276F21C24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+addActivityIndicator.swift"; sourceTree = "<group>"; };
 		52B998252849736A00F0827A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		73D1E1F4411CD9F6E32A6F7E /* Pods-Quessly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quessly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quessly/Pods-Quessly.debug.xcconfig"; sourceTree = "<group>"; };
 		7C0456106252918467CBD7F1 /* Pods_Quessly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quessly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -311,6 +315,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52588CAA286292B0008575B6 /* Reset Password */ = {
+			isa = PBXGroup;
+			children = (
+				52588CAB286292E4008575B6 /* ResetPasswordTableViewController.swift */,
+				52588CAD28629342008575B6 /* ResetPasswordTableViewController+AlertControllers.swift */,
+			);
+			path = "Reset Password";
+			sourceTree = "<group>";
+		};
+		52588CAF28639895008575B6 /* Create New Password */ = {
+			isa = PBXGroup;
+			children = (
+				52588CB0286398B2008575B6 /* CreateNewPasswordViewController.swift */,
+			);
+			path = "Create New Password";
+			sourceTree = "<group>";
+		};
 		5276F21724B0E974003D23B7 /* Sign up */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,8 +469,8 @@
 			children = (
 				D543EED02462F2D300034240 /* UIAlertAction+isChecked.swift */,
 				D57CEC9724877B7200BA3246 /* UICollectionView+reloadData(animated).swift */,
-				5276F21C24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift */,
 				1293C3D6285808F5009D6AC6 /* UIApplication+keyWindow.swift */,
+				52588CB22863AC22008575B6 /* UIAlertController+ComponentBuilders.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -659,6 +680,8 @@
 			children = (
 				5276F21724B0E974003D23B7 /* Sign up */,
 				D5A7428F2456956F001D83A5 /* Sign In */,
+				52588CAA286292B0008575B6 /* Reset Password */,
+				52588CAF28639895008575B6 /* Create New Password */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -667,7 +690,6 @@
 			isa = PBXGroup;
 			children = (
 				D5A7426124569069001D83A5 /* SignInViewController.swift */,
-				521B1BC527DCF01C000B69B8 /* SignInWithGoogleViewController.swift */,
 			);
 			path = "Sign In";
 			sourceTree = "<group>";
@@ -1204,6 +1226,7 @@
 				D5ACD02D24893BC000265CE0 /* PseudoPushNotificationsTestTableViewController.swift in Sources */,
 				D54778FB248FDA6A00576E5C /* SessionTableViewCell.swift in Sources */,
 				5276F21924B0E99A003D23B7 /* SignUpTableViewController.swift in Sources */,
+				52588CAC286292E4008575B6 /* ResetPasswordTableViewController.swift in Sources */,
 				D5A7426224569069001D83A5 /* SignInViewController.swift in Sources */,
 				D50A939A250155EB00F2716A /* MethodSwizzling.swift in Sources */,
 				D5D0FAE9246B18BF008169FD /* ContentEditorTableViewController+PresentedViewControllers.swift in Sources */,
@@ -1240,8 +1263,8 @@
 				5276F21B24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift in Sources */,
 				D5904C3D2463E2100057B9C6 /* UserNotificationCenterManager.swift in Sources */,
 				D5FCEBE224628B82006E1124 /* Session.swift in Sources */,
-				521B1BC627DCF01C000B69B8 /* SignInWithGoogleViewController.swift in Sources */,
 				D5BD3BAE245AFD08002D9DB2 /* QuestionMasterNavigationBarTitleView.swift in Sources */,
+				52588CB1286398B2008575B6 /* CreateNewPasswordViewController.swift in Sources */,
 				D5A74293245695AD001D83A5 /* MainMenuTableViewController.swift in Sources */,
 				D506A47E248E5A0100E16755 /* ActivityAlertControllerAnimatedTransitioning.swift in Sources */,
 				D5EDAED5246B05BF00A971FC /* ContentEditorTableViewController.swift in Sources */,
@@ -1257,11 +1280,13 @@
 				D51FEBA0245C68120014E386 /* QuestionContentTableViewCell.swift in Sources */,
 				D5A742A22456C524001D83A5 /* UpcomingSessionTableViewController.swift in Sources */,
 				D50A938424FD224200F2716A /* AppDelegateThemeDecorator.swift in Sources */,
+				52588CAE28629342008575B6 /* ResetPasswordTableViewController+AlertControllers.swift in Sources */,
 				D507C4DB245EA4C5008D1C49 /* MathJaxSmokeTestViewController.swift in Sources */,
 				D5765D1D2462EDAC00F5131D /* SessionQuestionsOverviewCollectionViewController+AlertControllers.swift in Sources */,
 				D59E753E246188A9001D0192 /* CategoryRepository.swift in Sources */,
 				D5FCEBDE2462868F006E1124 /* QuestionContentCollectionViewCell.swift in Sources */,
 				D5D0FAEE246B1B99008169FD /* ContentEditorTableViewController+AlertControllers.swift in Sources */,
+				52588CB32863AC22008575B6 /* UIAlertController+ComponentBuilders.swift in Sources */,
 				D5D0FAE7246B1890008169FD /* ContentEditorTableViewController+CropViewControllerDelegate.swift in Sources */,
 				D58B86BC245C189000514018 /* OptionEnumeration.swift in Sources */,
 				D54AD0E9245EF693005BB278 /* UITableViewController+SwipeAction.swift in Sources */,
@@ -1269,7 +1294,6 @@
 				D54778F5248F8EA500576E5C /* MainMenuToOngoingSessionOverviewSegue.swift in Sources */,
 				D5EDAED3246AF0A500A971FC /* QuestionEditorViewController+AlertControllers.swift in Sources */,
 				D58EE0A72469C7F100C1DDEA /* ContentStudioTableViewController.swift in Sources */,
-				5276F21D24B100E0003D23B7 /* UIAlertController+addActivityIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1466,8 +1490,9 @@
 			baseConfigurationReference = 73D1E1F4411CD9F6E32A6F7E /* Pods-Quessly.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DHCR3H4M55;
+				DEVELOPMENT_TEAM = H5LA8B82MN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1477,8 +1502,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.chatatata.Quessly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.respawm1.Quessly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1489,8 +1515,9 @@
 			baseConfigurationReference = 00286CA73673DA31241A7BF0 /* Pods-Quessly.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DHCR3H4M55;
+				DEVELOPMENT_TEAM = H5LA8B82MN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1500,8 +1527,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.chatatata.Quessly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.respawm1.Quessly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1514,7 +1542,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DHCR3H4M55;
+				DEVELOPMENT_TEAM = H5LA8B82MN;
 				INFOPLIST_FILE = QuesslyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1537,7 +1565,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DHCR3H4M55;
+				DEVELOPMENT_TEAM = H5LA8B82MN;
 				INFOPLIST_FILE = QuesslyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1559,7 +1587,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DHCR3H4M55;
+				DEVELOPMENT_TEAM = H5LA8B82MN;
 				INFOPLIST_FILE = QuesslyUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1579,8 +1607,9 @@
 			baseConfigurationReference = 0358EACCD47FF9886E0625D5 /* Pods-Quessly-QuesslyUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DHCR3H4M55;
+				DEVELOPMENT_TEAM = H5LA8B82MN;
 				INFOPLIST_FILE = QuesslyUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1588,6 +1617,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.quessly.QuesslyUITests;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = com.github.quessly.QuesslyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

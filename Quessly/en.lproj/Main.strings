@@ -1,4 +1,3 @@
-
 /* Class = "UITableViewSection"; headerTitle = "Author"; ObjectID = "10i-BA-qHa"; */
 "10i-BA-qHa.headerTitle" = "Author";
 
@@ -8,20 +7,14 @@
 /* Class = "UITextField"; placeholder = "••••••"; ObjectID = "26U-vw-NYz"; */
 "26U-vw-NYz.placeholder" = "••••••";
 
-/* Class = "UILabel"; text = "Sign Out"; ObjectID = "2ny-xh-YL8"; */
-"2ny-xh-YL8.text" = "Sign Out";
-
 /* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "3Ob-Up-ozg"; */
 "3Ob-Up-ozg.normalTitle" = "Cancel";
-
-/* Class = "UILabel"; text = "Dismiss"; ObjectID = "4Z8-DO-UMm"; */
-"4Z8-DO-UMm.text" = "Dismiss";
 
 /* Class = "UINavigationItem"; title = "Content Studio"; ObjectID = "4bE-Da-Nhi"; */
 "4bE-Da-Nhi.title" = "Content Studio";
 
-/* Class = "UILabel"; text = "Reload Data"; ObjectID = "4d6-sC-dQX"; */
-"4d6-sC-dQX.text" = "Reload Data";
+/* Class = "UILabel"; text = "Dismiss"; ObjectID = "4Z8-DO-UMm"; */
+"4Z8-DO-UMm.text" = "Dismiss";
 
 /* Class = "UILabel"; text = "32 have been marked, 8 need to be inspected."; ObjectID = "6MS-Gk-M3L"; */
 "6MS-Gk-M3L.text" = "32 have been marked, 8 need to be inspected.";
@@ -35,8 +28,14 @@
 /* Class = "UITableViewSection"; headerTitle = "Session Content"; ObjectID = "8dI-Fq-ULD"; */
 "8dI-Fq-ULD.headerTitle" = "Session Content";
 
+/* Class = "UINavigationItem"; title = "MathJax Test"; ObjectID = "aoD-Py-reG"; */
+"aoD-Py-reG.title" = "MathJax Test";
+
 /* Class = "UILabel"; text = "By signing up to the platform, you accept end user license agreement and terms and conditions."; ObjectID = "APC-KM-BB8"; */
 "APC-KM-BB8.text" = "By signing up to the platform, you accept end user license agreement and terms and conditions.";
+
+/* Class = "UILabel"; text = "Link content"; ObjectID = "aTm-iW-2tb"; */
+"aTm-iW-2tb.text" = "Link content";
 
 /* Class = "UILabel"; text = "4 questions have not been seen."; ObjectID = "B7w-YN-26o"; */
 "B7w-YN-26o.text" = "4 questions have not been seen.";
@@ -44,8 +43,17 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "BFW-MZ-iiy"; */
 "BFW-MZ-iiy.text" = "Label";
 
+/* Class = "UILabel"; text = "10 seconds"; ObjectID = "bfy-hP-0Ss"; */
+"bfy-hP-0Ss.text" = "10 seconds";
+
 /* Class = "UILabel"; text = "Your schedule is available for the timetable of this session without any collisions."; ObjectID = "C17-JP-WMq"; */
 "C17-JP-WMq.text" = "Your schedule is available for the timetable of this session without any collisions.";
+
+/* Class = "UILabel"; text = "120 minutes"; ObjectID = "c4C-57-rXF"; */
+"c4C-57-rXF.text" = "120 minutes";
+
+/* Class = "UILabel"; text = "starts at 19:00"; ObjectID = "CgI-DJ-QBf"; */
+"CgI-DJ-QBf.text" = "starts at 19:00";
 
 /* Class = "UITableViewSection"; headerTitle = "Information"; ObjectID = "CHI-lJ-HRQ"; */
 "CHI-lJ-HRQ.headerTitle" = "Information";
@@ -53,23 +61,47 @@
 /* Class = "UILabel"; text = "Type"; ObjectID = "CHL-dl-ivJ"; */
 "CHL-dl-ivJ.text" = "Type";
 
-/* Class = "UILabel"; text = "starts at 19:00"; ObjectID = "CgI-DJ-QBf"; */
-"CgI-DJ-QBf.text" = "starts at 19:00";
-
 /* Class = "UILabel"; text = "Timetable"; ObjectID = "Cou-kt-whN"; */
 "Cou-kt-whN.text" = "Timetable";
+
+/* Class = "UITableViewSection"; headerTitle = "Privileges"; ObjectID = "dnc-pS-K4j"; */
+"dnc-pS-K4j.headerTitle" = "Privileges";
+
+/* Class = "UILabel"; text = "Content"; ObjectID = "doJ-tV-Tdr"; */
+"doJ-tV-Tdr.text" = "Content";
+
+/* Class = "UILabel"; text = "Sign Up"; ObjectID = "dSC-hp-A1q"; */
+"dSC-hp-A1q.text" = "Sign Up";
+
+/* Class = "UINavigationItem"; title = "Push Notifications"; ObjectID = "e2g-lp-m9v"; */
+"e2g-lp-m9v.title" = "Push Notifications";
 
 /* Class = "UILabel"; text = "Enroll"; ObjectID = "EEz-Lg-KZd"; */
 "EEz-Lg-KZd.text" = "Enroll";
 
+/* Class = "UILabel"; text = "120 single-selection questions"; ObjectID = "f33-nL-wZl"; */
+"f33-nL-wZl.text" = "120 single-selection questions";
+
 /* Class = "UILabel"; text = "120 minutes"; ObjectID = "Flv-8Y-aMC"; */
 "Flv-8Y-aMC.text" = "120 minutes";
+
+/* Class = "UILabel"; text = "May 5, 2020 @ 07:53 AM"; ObjectID = "fSA-P6-4b3"; */
+"fSA-P6-4b3.text" = "May 5, 2020 @ 07:53 AM";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "Gqd-Cb-nAA"; */
+"Gqd-Cb-nAA.text" = "Detail";
+
+/* Class = "UILabel"; text = "Create New Question"; ObjectID = "gQL-sq-FAl"; */
+"gQL-sq-FAl.text" = "Create New Question";
+
+/* Class = "UILabel"; text = "Dismiss"; ObjectID = "gSz-4v-qxz"; */
+"gSz-4v-qxz.text" = "Dismiss";
 
 /* Class = "UILabel"; text = "To receive notifications as they happen, turn on push notifications. You'll also receive them when you're not on Quessly. Turn them off anytime."; ObjectID = "GYp-m1-fAL"; */
 "GYp-m1-fAL.text" = "To receive notifications as they happen, turn on push notifications. You'll also receive them when you're not on Quessly. Turn them off anytime.";
 
-/* Class = "UILabel"; text = "Detail"; ObjectID = "Gqd-Cb-nAA"; */
-"Gqd-Cb-nAA.text" = "Detail";
+/* Class = "UITextField"; placeholder = "••••••"; ObjectID = "h4o-tT-39h"; */
+"h4o-tT-39h.placeholder" = "••••••";
 
 /* Class = "UILabel"; text = "Marathon"; ObjectID = "HWv-Uz-AAf"; */
 "HWv-Uz-AAf.text" = "Marathon";
@@ -83,125 +115,23 @@
 /* Class = "UILabel"; text = "Content"; ObjectID = "I6P-LW-dd1"; */
 "I6P-LW-dd1.text" = "Content";
 
+/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "iin-op-aYm"; */
+"iin-op-aYm.normalTitle" = "OK";
+
+/* Class = "UINavigationItem"; title = "New Question"; ObjectID = "ing-Yi-Aen"; */
+"ing-Yi-Aen.title" = "New Question";
+
+/* Class = "UILabel"; text = "Multiple, mutual exclusive"; ObjectID = "Io7-0B-EWt"; */
+"Io7-0B-EWt.text" = "Multiple, mutual exclusive";
+
 /* Class = "UILabel"; text = "Sign In With Google"; ObjectID = "IWT-xe-4np"; */
 "IWT-xe-4np.text" = "Sign In With Google";
 
 /* Class = "UILabel"; text = "John Appleseed"; ObjectID = "IYJ-sL-CkP"; */
 "IYJ-sL-CkP.text" = "John Appleseed";
 
-/* Class = "UILabel"; text = "Multiple, mutual exclusive"; ObjectID = "Io7-0B-EWt"; */
-"Io7-0B-EWt.text" = "Multiple, mutual exclusive";
-
-/* Class = "UILabel"; text = "Session Start"; ObjectID = "KRO-a1-djX"; */
-"KRO-a1-djX.text" = "Session Start";
-
-/* Class = "UILabel"; text = "Title"; ObjectID = "LvW-1R-Obs"; */
-"LvW-1R-Obs.text" = "Title";
-
-/* Class = "UILabel"; text = "ends at 21:00"; ObjectID = "MCB-cz-SYl"; */
-"MCB-cz-SYl.text" = "ends at 21:00";
-
-/* Class = "UILabel"; text = "Request For Consent"; ObjectID = "MkY-De-0Qt"; */
-"MkY-De-0Qt.text" = "Request For Consent";
-
-/* Class = "UINavigationItem"; title = "Main menu"; ObjectID = "PYc-1l-Ohp"; */
-"PYc-1l-Ohp.title" = "Main menu";
-
-/* Class = "UILabel"; text = "Marathon"; ObjectID = "Pdw-5w-L4G"; */
-"Pdw-5w-L4G.text" = "Marathon";
-
-/* Class = "UITextField"; placeholder = "example@mail.com"; ObjectID = "Q3z-nm-fOx"; */
-"Q3z-nm-fOx.placeholder" = "example@mail.com";
-
-/* Class = "UITextField"; placeholder = "••••••"; ObjectID = "Qsp-jF-cHT"; */
-"Qsp-jF-cHT.placeholder" = "••••••";
-
-/* Class = "UILabel"; text = "62 have been marked, 12 need to be inspected."; ObjectID = "RR5-KO-7Tu"; */
-"RR5-KO-7Tu.text" = "62 have been marked, 12 need to be inspected.";
-
-/* Class = "UINavigationItem"; title = "Category Explorer"; ObjectID = "S3I-2H-8Xj"; */
-"S3I-2H-8Xj.title" = "Category Explorer";
-
-/* Class = "UILabel"; text = "Timetable"; ObjectID = "SV5-H0-H3y"; */
-"SV5-H0-H3y.text" = "Timetable";
-
-/* Class = "UILabel"; text = "Title"; ObjectID = "Ssh-cE-s67"; */
-"Ssh-cE-s67.text" = "Title";
-
-/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Tt1-2j-0zz"; */
-"Tt1-2j-0zz.title" = "Item";
-
-/* Class = "UILabel"; text = "Type"; ObjectID = "UNr-rJ-s7k"; */
-"UNr-rJ-s7k.text" = "Type";
-
-/* Class = "UILabel"; text = "Push Notifications"; ObjectID = "Vcl-xN-A43"; */
-"Vcl-xN-A43.text" = "Push Notifications";
-
-/* Class = "UITableViewSection"; headerTitle = "Your schedule"; ObjectID = "XFC-06-o2F"; */
-"XFC-06-o2F.headerTitle" = "Your schedule";
-
-/* Class = "UILabel"; text = "Dismiss"; ObjectID = "XNY-kh-gRT"; */
-"XNY-kh-gRT.text" = "Dismiss";
-
-/* Class = "UILabel"; text = "Flag This Content"; ObjectID = "XX6-6B-hUE"; */
-"XX6-6B-hUE.text" = "Flag This Content";
-
-/* Class = "UILabel"; text = "Duration"; ObjectID = "Y0E-ir-jX8"; */
-"Y0E-ir-jX8.text" = "Duration";
-
-/* Class = "UITableViewSection"; headerTitle = "Sign In"; ObjectID = "YQf-AU-Jsj"; */
-"YQf-AU-Jsj.headerTitle" = "Sign In";
-
-/* Class = "UILabel"; text = "N/A"; ObjectID = "ZAC-jm-2UV"; */
-"ZAC-jm-2UV.text" = "N/A";
-
-/* Class = "UILabel"; text = "Link content"; ObjectID = "aTm-iW-2tb"; */
-"aTm-iW-2tb.text" = "Link content";
-
-/* Class = "UINavigationItem"; title = "MathJax Test"; ObjectID = "aoD-Py-reG"; */
-"aoD-Py-reG.title" = "MathJax Test";
-
-/* Class = "UILabel"; text = "10 seconds"; ObjectID = "bfy-hP-0Ss"; */
-"bfy-hP-0Ss.text" = "10 seconds";
-
-/* Class = "UILabel"; text = "120 minutes"; ObjectID = "c4C-57-rXF"; */
-"c4C-57-rXF.text" = "120 minutes";
-
-/* Class = "UILabel"; text = "Sign Up"; ObjectID = "dSC-hp-A1q"; */
-"dSC-hp-A1q.text" = "Sign Up";
-
-/* Class = "UITableViewSection"; headerTitle = "Privileges"; ObjectID = "dnc-pS-K4j"; */
-"dnc-pS-K4j.headerTitle" = "Privileges";
-
-/* Class = "UILabel"; text = "Content"; ObjectID = "doJ-tV-Tdr"; */
-"doJ-tV-Tdr.text" = "Content";
-
-/* Class = "UINavigationItem"; title = "Push Notifications"; ObjectID = "e2g-lp-m9v"; */
-"e2g-lp-m9v.title" = "Push Notifications";
-
-/* Class = "UILabel"; text = "120 single-selection questions"; ObjectID = "f33-nL-wZl"; */
-"f33-nL-wZl.text" = "120 single-selection questions";
-
-/* Class = "UILabel"; text = "May 5, 2020 @ 07:53 AM"; ObjectID = "fSA-P6-4b3"; */
-"fSA-P6-4b3.text" = "May 5, 2020 @ 07:53 AM";
-
-/* Class = "UILabel"; text = "Create New Question"; ObjectID = "gQL-sq-FAl"; */
-"gQL-sq-FAl.text" = "Create New Question";
-
-/* Class = "UILabel"; text = "Dismiss"; ObjectID = "gSz-4v-qxz"; */
-"gSz-4v-qxz.text" = "Dismiss";
-
-/* Class = "UITextField"; placeholder = "••••••"; ObjectID = "h4o-tT-39h"; */
-"h4o-tT-39h.placeholder" = "••••••";
-
-/* Class = "UILabel"; text = "By signing in to the platform, you accept end user license agreement and terms and conditions."; ObjectID = "hg5-ti-3wu"; */
-"hg5-ti-3wu.text" = "By signing in to the platform, you accept end user license agreement and terms and conditions.";
-
-/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "iin-op-aYm"; */
-"iin-op-aYm.normalTitle" = "OK";
-
-/* Class = "UINavigationItem"; title = "New Question"; ObjectID = "ing-Yi-Aen"; */
-"ing-Yi-Aen.title" = "New Question";
+/* Class = "UILabel"; text = "Type"; ObjectID = "jam-EX-f1c"; */
+"jam-EX-f1c.text" = "Type";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "jGH-Y3-jIZ"; */
 "jGH-Y3-jIZ.text" = "Password";
@@ -212,20 +142,29 @@
 /* Class = "UINavigationItem"; title = "Sign up to Quessly"; ObjectID = "jZf-Qp-msY"; */
 "jZf-Qp-msY.title" = "Sign up to Quessly";
 
-/* Class = "UILabel"; text = "Type"; ObjectID = "jam-EX-f1c"; */
-"jam-EX-f1c.text" = "Type";
-
 /* Class = "UILabel"; text = "Desperate times call for desperate measures."; ObjectID = "k8S-ld-RFe"; */
 "k8S-ld-RFe.text" = "Desperate times call for desperate measures.";
 
 /* Class = "UILabel"; text = "E-mail"; ObjectID = "kfm-ly-SFk"; */
 "kfm-ly-SFk.text" = "E-mail";
 
+/* Class = "UILabel"; text = "Session Start"; ObjectID = "KRO-a1-djX"; */
+"KRO-a1-djX.text" = "Session Start";
+
 /* Class = "UILabel"; text = "SET NAME"; ObjectID = "lBS-gK-t2D"; */
 "lBS-gK-t2D.text" = "SET NAME";
 
+/* Class = "UILabel"; text = "Title"; ObjectID = "LvW-1R-Obs"; */
+"LvW-1R-Obs.text" = "Title";
+
+/* Class = "UILabel"; text = "ends at 21:00"; ObjectID = "MCB-cz-SYl"; */
+"MCB-cz-SYl.text" = "ends at 21:00";
+
 /* Class = "UILabel"; text = "Status"; ObjectID = "mJf-xj-Fsq"; */
 "mJf-xj-Fsq.text" = "Status";
+
+/* Class = "UILabel"; text = "Request For Consent"; ObjectID = "MkY-De-0Qt"; */
+"MkY-De-0Qt.text" = "Request For Consent";
 
 /* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "mKY-vc-vsR"; */
 "mKY-vc-vsR.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
@@ -242,20 +181,38 @@
 /* Class = "UITableViewSection"; headerTitle = "Session information"; ObjectID = "o4V-bO-fef"; */
 "o4V-bO-fef.headerTitle" = "Session information";
 
+/* Class = "UILabel"; text = "Marathon"; ObjectID = "Pdw-5w-L4G"; */
+"Pdw-5w-L4G.text" = "Marathon";
+
 /* Class = "UITableViewSection"; headerTitle = "Session Content"; ObjectID = "pG2-zB-7f8"; */
 "pG2-zB-7f8.headerTitle" = "Session Content";
+
+/* Class = "UINavigationItem"; title = "Main menu"; ObjectID = "PYc-1l-Ohp"; */
+"PYc-1l-Ohp.title" = "Main menu";
+
+/* Class = "UITextField"; placeholder = "username"; ObjectID = "Q3z-nm-fOx"; */
+"Q3z-nm-fOx.placeholder" = "example@mail.com";
 
 /* Class = "UIBarButtonItem"; title = "Select"; ObjectID = "qLc-2S-I5F"; */
 "qLc-2S-I5F.title" = "Select";
 
+/* Class = "UITextField"; placeholder = "••••••"; ObjectID = "Qsp-jF-cHT"; */
+"Qsp-jF-cHT.placeholder" = "••••••";
+
 /* Class = "UITextField"; placeholder = "example@mail.com"; ObjectID = "r7C-xu-pn9"; */
 "r7C-xu-pn9.placeholder" = "example@mail.com";
+
+/* Class = "UITableViewController"; title = "Main menu"; ObjectID = "rcR-a0-dMH"; */
+"rcR-a0-dMH.title" = "Main menu";
 
 /* Class = "UILabel"; text = "Type"; ObjectID = "rMx-nQ-vGY"; */
 "rMx-nQ-vGY.text" = "Type";
 
-/* Class = "UITableViewController"; title = "Main menu"; ObjectID = "rcR-a0-dMH"; */
-"rcR-a0-dMH.title" = "Main menu";
+/* Class = "UILabel"; text = "62 have been marked, 12 need to be inspected."; ObjectID = "RR5-KO-7Tu"; */
+"RR5-KO-7Tu.text" = "62 have been marked, 12 need to be inspected.";
+
+/* Class = "UINavigationItem"; title = "Category Explorer"; ObjectID = "S3I-2H-8Xj"; */
+"S3I-2H-8Xj.title" = "Category Explorer";
 
 /* Class = "UITableViewSection"; headerTitle = "Push Notifications"; ObjectID = "saW-xB-SdT"; */
 "saW-xB-SdT.headerTitle" = "Push Notifications";
@@ -263,8 +220,17 @@
 /* Class = "UILabel"; text = "ends at 21:00"; ObjectID = "sqO-7u-rIX"; */
 "sqO-7u-rIX.text" = "ends at 21:00";
 
+/* Class = "UILabel"; text = "Title"; ObjectID = "Ssh-cE-s67"; */
+"Ssh-cE-s67.text" = "Title";
+
+/* Class = "UILabel"; text = "Timetable"; ObjectID = "SV5-H0-H3y"; */
+"SV5-H0-H3y.text" = "Timetable";
+
 /* Class = "UILabel"; text = "starts at 19:00"; ObjectID = "tFU-hN-C5k"; */
 "tFU-hN-C5k.text" = "starts at 19:00";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Tt1-2j-0zz"; */
+"Tt1-2j-0zz.title" = "Item";
 
 /* Class = "UILabel"; text = "Password"; ObjectID = "tvU-Mt-o9a"; */
 "tvU-Mt-o9a.text" = "Password";
@@ -272,14 +238,20 @@
 /* Class = "UITableViewSection"; headerTitle = "Session information"; ObjectID = "u24-Jf-L4h"; */
 "u24-Jf-L4h.headerTitle" = "Session information";
 
-/* Class = "UIBarButtonItem"; title = "Profile"; ObjectID = "uQg-DG-bgz"; */
-"uQg-DG-bgz.title" = "Profile";
-
 /* Class = "UILabel"; text = "Time Interval"; ObjectID = "ugd-OY-jug"; */
 "ugd-OY-jug.text" = "Time Interval";
 
+/* Class = "UILabel"; text = "Type"; ObjectID = "UNr-rJ-s7k"; */
+"UNr-rJ-s7k.text" = "Type";
+
+/* Class = "UIBarButtonItem"; title = "Profile"; ObjectID = "uQg-DG-bgz"; */
+"uQg-DG-bgz.title" = "Profile";
+
 /* Class = "UITableViewSection"; headerTitle = "Sign up"; ObjectID = "usD-GZ-k45"; */
 "usD-GZ-k45.headerTitle" = "Sign up";
+
+/* Class = "UILabel"; text = "Push Notifications"; ObjectID = "Vcl-xN-A43"; */
+"Vcl-xN-A43.text" = "Push Notifications";
 
 /* Class = "UINavigationItem"; title = "Sign in to Quessly"; ObjectID = "vMZ-sw-JDf"; */
 "vMZ-sw-JDf.title" = "Sign in to Quessly";
@@ -287,14 +259,23 @@
 /* Class = "UILabel"; text = "Date Added"; ObjectID = "vWT-ie-DcW"; */
 "vWT-ie-DcW.text" = "Date Added";
 
+/* Class = "UITableViewSection"; headerTitle = "Your schedule"; ObjectID = "XFC-06-o2F"; */
+"XFC-06-o2F.headerTitle" = "Your schedule";
+
 /* Class = "UILabel"; text = "Share"; ObjectID = "xIL-of-iYD"; */
 "xIL-of-iYD.text" = "Share";
 
-/* Class = "UILabel"; text = "E-mail"; ObjectID = "xKt-QZ-ZE6"; */
+/* Class = "UILabel"; text = "Username"; ObjectID = "xKt-QZ-ZE6"; */
 "xKt-QZ-ZE6.text" = "E-mail";
 
-/* Class = "UILabel"; text = "Leave Session"; ObjectID = "yLX-Aq-4hk"; */
-"yLX-Aq-4hk.text" = "Leave Session";
+/* Class = "UILabel"; text = "Dismiss"; ObjectID = "XNY-kh-gRT"; */
+"XNY-kh-gRT.text" = "Dismiss";
+
+/* Class = "UILabel"; text = "Flag This Content"; ObjectID = "XX6-6B-hUE"; */
+"XX6-6B-hUE.text" = "Flag This Content";
+
+/* Class = "UILabel"; text = "Duration"; ObjectID = "Y0E-ir-jX8"; */
+"Y0E-ir-jX8.text" = "Duration";
 
 /* Class = "UILabel"; text = "Confirm password"; ObjectID = "yhg-ch-Fm8"; */
 "yhg-ch-Fm8.text" = "Confirm password";
@@ -302,8 +283,47 @@
 /* Class = "UILabel"; text = "1 hour 22 minutes"; ObjectID = "yjB-Q7-F6h"; */
 "yjB-Q7-F6h.text" = "1 hour 22 minutes";
 
+/* Class = "UILabel"; text = "Leave Session"; ObjectID = "yLX-Aq-4hk"; */
+"yLX-Aq-4hk.text" = "Leave Session";
+
+/* Class = "UITableViewSection"; headerTitle = "Sign In"; ObjectID = "YQf-AU-Jsj"; */
+"YQf-AU-Jsj.headerTitle" = "Sign In";
+
 /* Class = "UILabel"; text = "Time remaining"; ObjectID = "z3J-pu-D8t"; */
 "z3J-pu-D8t.text" = "Time remaining";
 
+/* Class = "UILabel"; text = "N/A"; ObjectID = "ZAC-jm-2UV"; */
+"ZAC-jm-2UV.text" = "N/A";
+
 /* Class = "UILabel"; text = "Sign Up"; ObjectID = "zdc-Tb-117"; */
 "zdc-Tb-117.text" = "Sign Up";
+
+/* Class = "UITableViewSection"; headerTitle = "Reset Password"; ObjectID = "5bK-BQ-XMX"; */
+"5bK-BQ-XMX.headerTitle" = "";
+
+/* Class = "UINavigationItem"; title = "Reset Password"; ObjectID = "6ig-9C-MRg"; */
+"6ig-9C-MRg.title" = "";
+
+/* Class = "UILabel"; text = "E-mail"; ObjectID = "A8l-TZ-SXZ"; */
+"A8l-TZ-SXZ.text" = "";
+
+/* Class = "UILabel"; text = "Confirmation Code"; ObjectID = "BXZ-5L-vWg"; */
+"BXZ-5L-vWg.text" = "";
+
+/* Class = "UILabel"; text = "Send Password Reset Code"; ObjectID = "g1V-ZZ-fpc"; */
+"g1V-ZZ-fpc.text" = "";
+
+/* Class = "UILabel"; text = "E-mail"; ObjectID = "maF-Oy-8nk"; */
+"maF-Oy-8nk.text" = "";
+
+/* Class = "UITextField"; placeholder = "••••••"; ObjectID = "R6m-kn-oUs"; */
+"R6m-kn-oUs.placeholder" = "";
+
+/* Class = "UILabel"; text = "Confirmation Code"; ObjectID = "Rbn-tq-ieo"; */
+"Rbn-tq-ieo.text" = "";
+
+/* Class = "UITextField"; placeholder = "example@mail.com"; ObjectID = "tRZ-s2-WrN"; */
+"tRZ-s2-WrN.placeholder" = "";
+
+/* Class = "UITextField"; placeholder = "example@mail.com"; ObjectID = "yOh-WC-Cn0"; */
+"yOh-WC-Cn0.placeholder" = "";
