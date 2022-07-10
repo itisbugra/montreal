@@ -12,15 +12,15 @@
         "CredentialsProvider": {
           "CognitoIdentity": {
             "Default": {
-              "PoolId": "eu-west-2:35fb41be-deab-4441-bca1-30141c6adc19",
+              "PoolId": "eu-west-2:9e1bc18f-24f1-4e71-91d1-6fdbd8b01477",
               "Region": "eu-west-2"
             }
           }
         },
         "CognitoUserPool": {
           "Default": {
-            "PoolId": "eu-west-2_vD37CO1Tu",
-            "AppClientId": "7d6q043t3q6pmn3gg67ng94oes",
+            "PoolId": "eu-west-2_XuNZYQORN",
+            "AppClientId": "6ijk4v0n3mdu0cqhvqno7m2hg4",
             "Region": "eu-west-2"
           }
         },
@@ -28,7 +28,7 @@
           "Default": {
             "OAuth": {
               "WebDomain": "any-academy-dev.auth.eu-west-2.amazoncognito.com",
-              "AppClientId": "7d6q043t3q6pmn3gg67ng94oes",
+              "AppClientId": "6ijk4v0n3mdu0cqhvqno7m2hg4",
               "SignInRedirectURI": "anyacademy://callback/",
               "SignOutRedirectURI": "anyacademy://signout/",
               "Scopes": [

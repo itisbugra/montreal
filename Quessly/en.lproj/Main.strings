@@ -191,7 +191,7 @@
 "PYc-1l-Ohp.title" = "Main menu";
 
 /* Class = "UITextField"; placeholder = "username"; ObjectID = "Q3z-nm-fOx"; */
-"Q3z-nm-fOx.placeholder" = "example@mail.com";
+"Q3z-nm-fOx.placeholder" = "example";
 
 /* Class = "UIBarButtonItem"; title = "Select"; ObjectID = "qLc-2S-I5F"; */
 "qLc-2S-I5F.title" = "Select";
@@ -266,7 +266,7 @@
 "xIL-of-iYD.text" = "Share";
 
 /* Class = "UILabel"; text = "Username"; ObjectID = "xKt-QZ-ZE6"; */
-"xKt-QZ-ZE6.text" = "E-mail";
+"xKt-QZ-ZE6.text" = "Username";
 
 /* Class = "UILabel"; text = "Dismiss"; ObjectID = "XNY-kh-gRT"; */
 "XNY-kh-gRT.text" = "Dismiss";
@@ -305,7 +305,7 @@
 "6ig-9C-MRg.title" = "";
 
 /* Class = "UILabel"; text = "E-mail"; ObjectID = "A8l-TZ-SXZ"; */
-"A8l-TZ-SXZ.text" = "";
+"A8l-TZ-SXZ.text" = "E-mail";
 
 /* Class = "UILabel"; text = "Confirmation Code"; ObjectID = "BXZ-5L-vWg"; */
 "BXZ-5L-vWg.text" = "";
@@ -326,4 +326,4 @@
 "tRZ-s2-WrN.placeholder" = "";
 
 /* Class = "UITextField"; placeholder = "example@mail.com"; ObjectID = "yOh-WC-Cn0"; */
-"yOh-WC-Cn0.placeholder" = "";
+"yOh-WC-Cn0.placeholder" = "example@mail.com";

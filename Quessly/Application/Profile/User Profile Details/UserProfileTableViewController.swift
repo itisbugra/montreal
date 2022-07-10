@@ -4,15 +4,46 @@ import Static
 import Amplify
 import SwiftUI
 import AWSMobileClient
+import NSLogger
 /**
  Shows details of the user profile.
  
  - SeeAlso: MainMenuTableViewController
  */
 class UserProfileTableViewController: TableViewController {
+  enum SignOutResult {
+    case success
+    case failure(error: SignOutError)
+  }
+  
+  enum SignOutError: Error {
+    case unknown
+    case internalError(error: Error)
+  }
+  
+  enum RememberDeviceResult {
+    case success
+    case failure(error: RememberDeviceError)
+  }
+  enum RememberDeviceError: Error{
+    case unkonw
+    case internalError(error: Error)
+  }
+  
+  enum ForgetDeviceResult {
+    case success
+    case failure(error: ForgetDeviceError)
+  }
+  enum ForgetDeviceError: Error {
+    case unknown
+    case internalError(error: Error)
+  }
+  
   convenience init() {
     self.init(style: .grouped)
   }
+  
+  //  MARK: - UIViewController lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -70,6 +101,76 @@ class UserProfileTableViewController: TableViewController {
     tableView.separatorInset = UIEdgeInsets(top: 0, left: 64, bottom: 0, right: 0)
     tableView.backgroundColor = .systemGroupedBackground
   }
+  
+  //  MARK: - Remote procedure calls
+  
+  /// User can log out whenever they want to log out their account
+  func signOut(completion: ((SignOutResult) -> Void)?) {
+    Amplify.Auth
+      .signOut { result in
+        DispatchQueue.main.async {
+          switch result {
+          case .success:
+            Logger.shared.log(.controller, .info, "AWS Amplify Sign out succeeded")
+            
+            completion?(.success)
+            
+          case .failure(let error):
+            Logger.shared.log(.controller, .error, "AWS Amplify Sign out failed \(error)")
+            
+            completion?(.failure(error: .internalError(error: error)))
+          }
+        }
+      }
+  }
+  
+  /// Users can remember their devices
+  func rememberDevice(completion: ((RememberDeviceResult) -> Void)?) {
+    Amplify.Auth
+      .rememberDevice() { result in
+        DispatchQueue.main.async {
+          switch result {
+          case .success:
+            Logger.shared.log(.controller, .info, "Remember device succeeded")
+            NSLog("Remember Device succeeded")
+            
+          case .failure(let error):
+            Logger.shared.log(.controller, .error, "Remember device failed with error \(error)")
+            NSLog("Remember device failed with error")
+          }
+        }
+      }
+  }
+  
+  ///Users can forget their devices
+  func forgetDevice(completion: ((ForgetDeviceResult) -> Void)?) {
+    Amplify.Auth
+      .forgetDevice() { result in
+        DispatchQueue.main.async {
+          switch result {
+          case .success:
+            Logger.shared.log(.controller, .info, "Forget device succeeded")
+            NSLog("Forget device succeeded")
+          case .failure(let error):
+            Logger.shared.log(.controller, .error, "Forget device failed with error \(error)")
+            NSLog("Forget device failed with error")
+          }
+        }
+      }
+  }
+  
+  //  MARK: - Navigation
+  
+  private func presentSignInMenu(sender: Any?) {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+    let initialViewController = storyboard.instantiateViewController(
+        withIdentifier: "AuthenticationNavigationController"
+      )
+
+    UIApplication.shared.keyWindow!.rootViewController = initialViewController
+    UIApplication.shared.keyWindow!.makeKeyAndVisible()
+  }
 }
 
 extension UserProfileTableViewController: UITableViewDelegate {
@@ -83,28 +184,41 @@ extension UserProfileTableViewController: UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if indexPath.section == 4 && indexPath.row == 0 {
-      Amplify.Auth
-        .signOut { result in
-          switch result {
-          case .success:
-            NSLog("AWS Amplify Sign out succeeded")
-            
-            DispatchQueue.main.async {
-              let storyboard = UIStoryboard(name: "Main", bundle: nil)
-              
-              let initialViewController = storyboard.instantiateViewController(
-                  withIdentifier: "AuthenticationNavigationController"
-                )
-              
-              UIApplication.shared.keyWindow!.rootViewController = initialViewController
-              UIApplication.shared.keyWindow!.makeKeyAndVisible()
+    tableView.deselectRow(at: indexPath, animated: true)
+    if indexPath.section == 1 && indexPath.row == 0 {
+      self.presentForgetDeviceAlert() { isForgetDevice in
+        self.dismiss(animated: true) {
+          if isForgetDevice {
+            self.forgetDevice { result in
+              switch result {
+              case .success:
+                self.presentSignInMenu(sender: nil)
+                
+              case .failure(let error):
+                fatalError(error.localizedDescription)
+              }
             }
-            
-          case .failure(let error):
-            NSLog("AWS Amplify Sign out failed \(error)")
           }
         }
+      }
+    }
+    
+    else if indexPath.section == 4 && indexPath.row == 0 {
+      self.presentSignOutAlert() { isSignOutConfirmed in
+        self.dismiss(animated: true) {
+          if isSignOutConfirmed {
+            self.signOut { result in
+              switch result {
+              case .success:
+                self.presentSignInMenu(sender: nil)
+                
+              case .failure(let error):
+                fatalError(error.localizedDescription)
+              }
+            }
+          }
+        }
+      }
     }
   }
   

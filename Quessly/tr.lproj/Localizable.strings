@@ -119,7 +119,7 @@
 "Not determined" = "";
 
 /* Default action on alert when push notification is addded */
-"OK" = "";
+"OK" = "Tamam";
 
 /* Header in the main menu. */
 "Ongoing live sessions" = "Sürmekte olan oturumlar";

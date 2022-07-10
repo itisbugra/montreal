@@ -1,8 +1,12 @@
 import UIKit
 import Amplify
+import AmplifyPlugins
+import NSLogger
 
 class ResetPasswordTableViewController: UITableViewController {
   @IBOutlet weak var usernameTextField: UITextField!
+  
+  private var code: String!
   
   //  MARK: - View controller lifecycle
   
@@ -16,7 +20,7 @@ class ResetPasswordTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     assert(self.tableView == tableView)
-
+    
     switch indexPath.section {
     case 0:
       self.tableView.deselectRow(at: indexPath, animated: true)
@@ -44,6 +48,7 @@ class ResetPasswordTableViewController: UITableViewController {
     }
   }
   
+  
   //  MARK: - Actions
   
   private func performResetPassword() {
@@ -51,7 +56,9 @@ class ResetPasswordTableViewController: UITableViewController {
       let username = self.usernameTextField.text!
       
       if username.isEmpty {
-        return
+        self.checkUsername {
+          return
+        }
       }
       
       self.performResetPassword(username: username)
@@ -66,27 +73,49 @@ class ResetPasswordTableViewController: UITableViewController {
             let resetResult = try result.get()
             
             switch resetResult.nextStep {
-            case .confirmResetPasswordWithCode(let deliveryDetails, let info):
-              print("confirm reset password with code send to - \(deliveryDetails) \(info)")
-              
-              DispatchQueue.main.async {
-                self.dismiss(animated: true) {
-                  self.presentResetPasswordCodeAlert { code in
-                    print(code)
-                    
-                    self.performSegue(withIdentifier: "showCreatePassword",
-                                      sender: self.tableView)
+            case .confirmResetPasswordWithCode(let deliveryDetails, _):
+              switch deliveryDetails.destination {
+              case .email(let emailAddress):
+                DispatchQueue.main.async {
+                  self.dismiss(animated: true) {
+                    self.presentResetPasswordCodeAlert(destination: emailAddress!) { code in
+                      guard let code = code else {
+                        //  TODO: Show an error that the code was not available at the input field.
+                        
+                        return
+                      }
+                      
+                      self.code = code
+                      
+                      self.performSegue(withIdentifier: "showCreatePassword", sender: self.tableView)
+                    }
                   }
                 }
+                
+              default:
+                Logger.shared.log(.controller, .error, "Password reset code destination not supported.")
               }
               
-            case .done:
-              print("Reset completed")
+            default:
+              Logger.shared.log(.controller, .error, "Unexpected state for resetting password.")
             }
           } catch {
-            print("Reset password failed with error \(error)")
+            Logger.shared.log(.controller, .error, "Reset password failed with error. \(error)")
           }
         }
+    }
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    switch segue.identifier {
+    case "showCreatePassword":
+      let destination = segue.destination as! CreateNewPasswordViewController
+      
+      destination.username = self.usernameTextField.text!
+      destination.code = self.code
+      
+    default:
+      break
     }
   }
 }

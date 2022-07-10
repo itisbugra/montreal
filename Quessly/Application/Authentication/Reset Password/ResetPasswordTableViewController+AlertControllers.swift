@@ -1,10 +1,10 @@
 import UIKit
 
 extension ResetPasswordTableViewController {
-  func presentResetPasswordCodeAlert(completion: ((String?) -> Void)?) {
+  func presentResetPasswordCodeAlert(destination emailAddress: String, completion: ((String?) -> Void)?) {
     DispatchQueue.main.async {
       let alertController = UIAlertController(title: NSLocalizedString("Verification Code", comment: ""),
-                                              message: NSLocalizedString("Enter the verification code you have received with the e-mail.", comment: ""),
+                                              message: NSLocalizedString("Enter the verification code you have received with the e-mail \(emailAddress).", comment: ""),
                                               preferredStyle: .alert)
       
       let codeTextField = alertController.addTextField {
@@ -16,13 +16,6 @@ extension ResetPasswordTableViewController {
       
       [UIAlertAction(title: NSLocalizedString("Continue", comment: ""),
                      style: .default) { _ in
-        print(alertController.textFields!.first!.text!)
-      }, UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
-                       style: .cancel) { _ in
-        self.dismiss(animated: true, completion: nil)
-      }].forEach { alertController.addAction($0) }
-      
-      self.present(alertController, animated: true) {
         if let completion = completion {
           if let code = codeTextField.text, code != "" {
             completion(code)
@@ -30,7 +23,24 @@ extension ResetPasswordTableViewController {
             completion(nil)
           }
         }
-      }
+      }, UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
+                       style: .cancel) { _ in
+        self.dismiss(animated: true, completion: nil)
+      }].forEach { alertController.addAction($0) }
+      
+      self.present(alertController, animated: true)
+    }
+  }
+  
+  func checkUsername(completion: (() -> Void)?) {
+    DispatchQueue.main.async {
+      let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
+                                              message: NSLocalizedString("Wrong username, please enter correct username.", comment: ""),
+                                              preferredStyle: .alert)
+      
+      [UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel)].forEach { alertController.addAction($0) }
+      
+      self.present(alertController, animated: true, completion: completion)
     }
   }
   
@@ -45,6 +55,21 @@ extension ResetPasswordTableViewController {
       [UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel)].forEach { alertController.addAction($0) }
       
       self.present(alertController, animated: true, completion: completion)
+    }
+  }
+  
+  func redirectPasswordResetAlert(completion : (() -> Void)?) {
+    DispatchQueue.main.async {
+      let alertController = UIAlertController(title: NSLocalizedString("Redirecting to reset password", comment: ""),
+                                              message: NSLocalizedString("Redirecting to reset your password", comment: ""),
+                                              preferredStyle: .alert)
+      
+      alertController.addActivityIndicator()
+      
+      [UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
+                     style: .cancel)].forEach { alertController.addAction($0) }
+      
+      self.present(alertController, animated: true, completion: nil)
     }
   }
 }

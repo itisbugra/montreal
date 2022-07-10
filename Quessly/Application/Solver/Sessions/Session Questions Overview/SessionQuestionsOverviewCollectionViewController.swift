@@ -113,7 +113,6 @@ class SessionQuestionsOverviewCollectionViewController: UICollectionViewControll
     
     navigationController!.setToolbarHidden(false, animated: true)
     reloadToolbarItems()
-    
     titleView.startAnimating()
   }
   

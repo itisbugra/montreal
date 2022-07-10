@@ -2,6 +2,7 @@ import UIKit
 
 extension SignUpTableViewController {
   //  MARK: - Alerts
+  
   func presentUsernameAlert(completion: (() -> Void)?) {
     let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
                                             message: NSLocalizedString("Invalid username.",
@@ -29,20 +30,16 @@ extension SignUpTableViewController {
   }
   
   func presentInvalidPasswordAlert(completion: (() -> Void)?) {
-    DispatchQueue.main.async {
-      self.dismissLoadingAlert {
-        let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
-                                                message: NSLocalizedString("Invalid password.",
-                                                                           comment: "Alert message shown when password is invalid during sign up."),
-                                                preferredStyle: .alert)
-        
-        [UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { _ in
-          self.dismiss(animated: true, completion: nil)
-        }].forEach { alertController.addAction($0) }
-        
-        self.present(alertController, animated: true, completion: completion)
-      }
-    }
+    let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
+                                            message: NSLocalizedString("Invalid password.",
+                                                                       comment: "Alert message shown when password is invalid during sign up."),
+                                            preferredStyle: .alert)
+    
+    [UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { _ in
+      self.dismiss(animated: true, completion: nil)
+    }].forEach { alertController.addAction($0) }
+    
+    self.present(alertController, animated: true, completion: completion)
   }
   
   func presentNonMatchingPasswordsAlert(completion: (() -> Void)?) {
@@ -58,51 +55,61 @@ extension SignUpTableViewController {
     present(alertController, animated: true, completion: completion)
   }
   
-  func presentInvalidConfirmationCodeAlert(completion: (() -> Void)?) {
+  func presentInvalidConfirmationCodeAlert(completion: (() -> Void)? = nil) {
     let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
                                             message: NSLocalizedString("Invalid confirmation code.",
                                                                        comment: "Alert message shown when confirmation code is invalid during sign up."),
                                             preferredStyle: .alert)
     
     [UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { _ in
-      self.dismiss(animated: true, completion: nil)
+      self.dismiss(animated: true, completion: completion)
     }].forEach { alertController.addAction($0) }
     
-    present(alertController, animated: true, completion: completion)
+    present(alertController, animated: true, completion: nil)
   }
   
   func presentLoadingAlert(completion: (() -> Void)?) {
-    DispatchQueue.main.async {
-      if !self.loading {
-        let alertController = UIAlertController(title: NSLocalizedString("Signing you up...",
-                                                                         comment: "Alert title shown when network event is occuring during sign up."),
-                                                message: nil,
-                                                preferredStyle: .alert)
-        
-        alertController.addActivityIndicator()
-        
-        [UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { _ in
-          self.loading = false
-          
-          self.dismiss(animated: true, completion: nil)
-        }].forEach { alertController.addAction($0) }
-        
-        self.present(alertController, animated: true, completion: completion)
-      } else {
-        completion?()
-      }
-    }
+    let alertController = UIAlertController(title: NSLocalizedString("Signing you up...",
+                                                                     comment: "Alert title shown when network event is occuring during sign up."),
+                                            message: nil,
+                                            preferredStyle: .alert)
+    
+    alertController.addActivityIndicator()
+    
+    [UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { _ in
+      
+      self.dismiss(animated: true, completion: nil)
+    }].forEach { alertController.addAction($0) }
+    
+    self.present(alertController, animated: true, completion: completion)
   }
   
-  func dismissLoadingAlert(completion: (() -> Void)?) {
-    if loading {
-      self.dismiss(animated: true) {
-        self.loading = false
-        
-        completion?()
-      }
-    } else {
-      completion?()
+  func presentConfirmationCodeAlert(destination: String, completion: ((String?) -> Void)?) {
+    let alertController = UIAlertController(title: NSLocalizedString("Verification Code", comment: ""),
+                                            message: NSLocalizedString("Enter the verification code you have received with the e-mail.", comment: ""),
+                                            preferredStyle: .alert)
+    
+    let codeTextField = alertController.addTextField {
+      $0.keyboardType = .numberPad
+      $0.font = .monospacedSystemFont(ofSize: 11.0, weight: .regular)
+      $0.textAlignment = .center
+      $0.clearButtonMode = .whileEditing
     }
+    
+    [UIAlertAction(title: NSLocalizedString("Continue", comment: ""),
+                   style: .default) { _ in
+      if let completion = completion {
+        if let code = codeTextField.text, code != "" {
+          completion(code)
+        } else {
+          completion(nil)
+        }
+      }
+    }, UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
+                     style: .cancel) { _ in
+      self.dismiss(animated: true, completion: nil)
+    }].forEach { alertController.addAction($0) }
+    
+    self.present(alertController, animated: true)
   }
 }

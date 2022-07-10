@@ -1,8 +1,8 @@
 import UIKit
 import NSLogger
 import AWSMobileClient
-@UIApplicationMain
 
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   

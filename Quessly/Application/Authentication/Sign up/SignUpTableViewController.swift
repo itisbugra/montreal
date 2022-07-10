@@ -1,14 +1,43 @@
 import UIKit
 import Amplify
+import AmplifyPlugins
 import AWSMobileClient
+import NSLogger
 
 class SignUpTableViewController: UITableViewController {
+  enum SignUpResult {
+    case success
+    case challengeRequired(challenge: Challenge)
+    case failure(error: SignUpError)
+  }
+  
+  enum ChallengeResult {
+    case success
+    case failure(error: ChallengeError)
+  }
+  
+  enum Challenge {
+    case email(emailAddress: String)
+    case phone(phoneNumber: String)
+    case sms(phoneNumber: String)
+  }
+  
+  enum SignUpError: Error {
+    case delivery
+    case network
+    case usernameExists
+    case unknownChallenge
+  }
+  
+  enum ChallengeError: Error {
+    case mismatch
+  }
+  
   @IBOutlet weak var keyboardAccessoryToolbar: UIToolbar!
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var confirmPasswordTextField: UITextField!
   @IBOutlet weak var usernameTextField: UITextField!
-  @IBOutlet weak var confirmationCode: UITextField!
   
   override func viewDidAppear(_ animated: Bool) {
     self.usernameTextField.becomeFirstResponder()
@@ -26,11 +55,21 @@ class SignUpTableViewController: UITableViewController {
     return NSPredicate(format: "SELF MATCHES %@", regex)
   }()
   
-  var loading = false
+  lazy var passwordPredicate: NSPredicate = {
+    let regex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*()\\-_=+{}|?>.<,:;~`’]{10,}$"
+    
+    return NSPredicate(format: "SELF MATCHES %@", regex)
+  }()
   
-  var textFields: [UITextField] {
-    return [usernameTextField, emailTextField, passwordTextField, confirmPasswordTextField, confirmationCode]
+  private var textFields: [UITextField] {
+    return [usernameTextField, emailTextField, passwordTextField, confirmPasswordTextField]
   }
+  
+  private var hasMatchingPasswords: Bool {
+    return passwordTextField.text! == confirmPasswordTextField.text!
+  }
+  
+  //  MARK: - UIViewController lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -39,16 +78,11 @@ class SignUpTableViewController: UITableViewController {
     textFields.forEach { $0.inputAccessoryView = keyboardAccessoryToolbar }
   }
   
-  var hasMatchingPasswords: Bool {
-    return passwordTextField.text! == confirmPasswordTextField.text!
-  }
-  
   //  MARK: - Table view delegate methods
   
   override func tableView(_ tableView: UITableView,
                           didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    
     
     switch (indexPath.section, indexPath.row) {
     case (0, 0):
@@ -63,43 +97,12 @@ class SignUpTableViewController: UITableViewController {
     case (0, 3):
       confirmPasswordTextField.becomeFirstResponder()
       
-    case (0, 4):
-      confirmationCode.becomeFirstResponder()
-      
     case (1, 0):
       performSignUp()
-      
-    case (2, 0):
-      guard
-        let username = usernameTextField.text,
-        let confirmationCode = confirmationCode.text else {
-        return
-      }
-//      guard let username = usernameTextField.text else { return }
-//      guard let confirmationCode = confirmationCode.text else { return }
-      
-      confirmationCodeSignUp(for: username, with: confirmationCode)
-      
-      //        DispatchQueue.main.async {
-      //          self.showMainMenu(sender: self.tableView)
-      //      }
-      performConfirmationCode()
       
     default:
       break
     }
-  }
-  
-  func confirmationCodeSignUp(for username: String, with confirmationCode: String) {
-    Amplify.Auth
-      .confirmSignUp(for: username, confirmationCode: confirmationCode) { result in
-        switch result {
-        case .success:
-          print("Confirm signUp succeeded")
-        case .failure(let error):
-          print("An error occurred while confirming sign up \(error)")
-        }
-      }
   }
   
   private func showMainMenu(sender: Any?) {
@@ -113,22 +116,8 @@ class SignUpTableViewController: UITableViewController {
     case invalidEmail(email: String)
     case invalidPassword(password: String)
     case nonMatchingPasswords
-    case invalidConfirmationCode(confirmationCode: String)
   }
   
-  func validateConfirmationCodeField() throws {
-    func validateConfirmationCode(confirmationCode: String) -> Bool {
-      let length = confirmationCode.count
-      
-      return length == 6
-    }
-    
-    let confirmationCode = confirmationCode.text!
-    
-    guard validateConfirmationCode(confirmationCode: confirmationCode) else {
-      throw ValidationError.invalidConfirmationCode(confirmationCode: confirmationCode)
-    }
-  }
   func validateFields() throws {
     /// Validates username with a regular expression.
     func validateUsername(username: String) -> Bool {
@@ -176,45 +165,68 @@ class SignUpTableViewController: UITableViewController {
     }
   }
   
+  //  MARK: - User interface actions
+  
   func performSignUp() {
     do {
       try validateFields()
       
-      presentLoadingAlert {
-        self.loading = true
-        
-        Timer.scheduledTimer(withTimeInterval: 3,
-                             repeats: false) { _ in
-          if self.loading {
-            self.dismiss(animated: true)
-          }
-        }
-        
-        guard
-          let username = self.usernameTextField.text,
-          let email = self.emailTextField.text,
-          let password = self.passwordTextField.text else {
-          return
-        }
-        
-        let userAttributes = [AuthUserAttribute(.email, value: email)]
-        let options = AuthSignUpRequest.Options(userAttributes: userAttributes)
-        
-        Amplify.Auth
-          .signUp(username: username, password: password, options: options) { result in
+      self.presentLoadingAlert {
+        self.signUp { result in
+          self.dismiss(animated: true) {
             switch result {
-            case .success(let signUpResult):
-              if case let .confirmUser(deliveryDetails, _) = signUpResult.nextStep {
-                print("Delivery details \(String(describing: deliveryDetails))")
-              } else {
-                // TODO: Delivery not needed.
-              }
-            case .failure(let error):
-              print("An error occurred while registering a user \(error)")
+            case .success:
+              self.presentMainMenu(sender: nil)
               
-              self.presentInvalidPasswordAlert(completion: nil)
+            case .challengeRequired(.email(let emailAddress)):
+              self.presentConfirmationCodeAlert(destination: emailAddress) { code in
+                guard let code = code else {
+                  //  TODO: Handle cancel case
+                  
+                  return
+                }
+                
+                self.completeChallenge(code: code) { result in
+                  self.dismiss(animated: true) {
+                    switch result {
+                    case .success:
+                      self.presentMainMenu(sender: nil)
+                      
+                    case .failure(.mismatch):
+                      self.presentInvalidConfirmationCodeAlert() {
+                          //  TODO: Show code input alert controller
+                      }
+                    }
+                  }
+                }
+              }
+              
+            case .challengeRequired(.phone(let phoneNumber)):
+              //  TODO: Call handling
+              break
+              
+            case .challengeRequired(.sms(let phoneNumber)):
+              //  TODO: SMS handling
+              break
+              
+            case .failure(error: .delivery):
+              //  TODO: Code delivery
+              break
+              
+            case .failure(error: .usernameExists):
+              //  TODO: Username exists
+              break
+              
+            case .failure(error: .network):
+              //  TODO: Network error
+              break
+            
+            case .failure(error: .unknownChallenge):
+              //  TODO: Handle error
+              break
             }
           }
+        }
       }
     } catch ValidationError.invalidUsername(_) {
       presentUsernameAlert(completion: nil)
@@ -229,28 +241,135 @@ class SignUpTableViewController: UITableViewController {
     }
   }
   
-  func performConfirmationCode() {
-    do {
-      try validateConfirmationCodeField()
-      
-      presentLoadingAlert {
-        self.loading = true
-        
-        Timer.scheduledTimer(withTimeInterval: 3,
-                             repeats: false) { _ in
-          if self.loading {
-            self.dismiss(animated: true) {
-              self.performSegue(withIdentifier: "showMainMenu",
-                                sender: self)
+  //  MARK: - Remote procedure calls
+  
+  /// Performs sign up with the data found in the user interface elements. As the callback, invokes given completion function.
+  private func signUp(completion: ((SignUpResult) -> Void)? = nil) {
+    signUp(username: self.usernameTextField.text!,
+           email: self.emailTextField.text!,
+           password: self.passwordTextField.text!,
+           completion: completion)
+  }
+  
+  /// Performs sign up with the given username, e-mail address, password. As the callback, invokes given completion function.
+  private func signUp(username: String, email: String, password: String, completion: ((SignUpResult) -> Void)? = nil) {
+    let userAttributes = [AuthUserAttribute(.email, value: email)]
+    let options = AuthSignUpRequest.Options(userAttributes: userAttributes)
+    
+    Amplify.Auth
+      .signUp(username: username,
+              password: password,
+              options: options) { result in
+        DispatchQueue.main.async {
+          switch result {
+          case .success(let signUpResult):
+            if case let .confirmUser(deliveryDetails, _) = signUpResult.nextStep {
+              Logger.shared.log(.controller, .info, "Delivery details \(String(describing: deliveryDetails))")
+              
+              switch deliveryDetails!.destination {
+              case .email(let emailAddress):
+                completion?(.challengeRequired(challenge: .email(emailAddress: emailAddress!)))
+                
+              case .phone(let phoneNumber):
+                completion?(.challengeRequired(challenge: .phone(phoneNumber: phoneNumber!)))
+                
+              case .sms(let phoneNumber):
+                completion?(.challengeRequired(challenge: .sms(phoneNumber: phoneNumber!)))
+                
+              case .unknown(_):
+                fatalError()
+              }
+            } else {
+              Logger.shared.log(.controller, .info, "Sign up successful but challenge was not needed.")
+              
+              completion?(.success)
+            }
+            
+          case .failure(.service(_, _, let error)):
+            switch error as! AWSCognitoAuthError {
+            case .codeDelivery:
+              completion?(.failure(error: .delivery))
+              
+            case .network:
+              completion?(.failure(error: .network))
+              
+            case .usernameExists:
+              completion?(.failure(error: .usernameExists))
+              
+            case .lambda:
+              // TODO: Handle e-mail collision case
+              break
+              
+            default:
+              fatalError()
+            }
+            
+          default:
+            fatalError()
+        }
+      }
+      }
+  }
+  
+  /// Completes challenge with the given code with the username found in the user interface elements. As the callback, invokes given completion function.
+  private func completeChallenge(code: String, completion: ((ChallengeResult) -> Void)? = nil) {
+    completeChallenge(username: self.usernameTextField.text!,
+                      code: code,
+                      completion: completion)
+  }
+  
+  private func completeChallenge(username: String, code: String, completion: ((ChallengeResult) -> Void)? = nil) {
+    Amplify.Auth
+      .confirmSignUp(for: username,
+                     confirmationCode: code) { result in
+        DispatchQueue.main.async {
+          switch result {
+          case .success:
+            Logger.shared.log(.controller, .info, "Sign up successful with the challenge.")
+            
+            completion?(.success)
+            
+          case .failure(let error):
+            Logger.shared.log(.controller, .error, "Error occurred while completing sign up challenge.")
+            Logger.shared.log(.controller, .important, error.debugDescription)
+            
+            switch error {
+            case .service(_, _, let error):
+              switch error as! AWSCognitoAuthError {
+              case .codeMismatch:
+                completion?(.failure(error: .mismatch))
+                
+              default:
+                fatalError()
+              }
+              
+            default:
+              fatalError()
             }
           }
         }
       }
-    } catch ValidationError.invalidConfirmationCode {
-      presentInvalidConfirmationCodeAlert(completion: nil)
-    } catch {
-      fatalError(error.localizedDescription)
-    }
+  }
+  
+  private func resendCode() {
+    Amplify.Auth
+      .resendConfirmationCode(for: .email) { result in
+        DispatchQueue.main.async {
+          switch result {
+          case .success(let deliveryDetails):
+            Logger.shared.log(.controller, .info, "Resend code send to - \(deliveryDetails)")
+            
+          case .failure(let error):
+            Logger.shared.log(.controller, .error, "Resend code failed with error \(error)")
+          }
+        }
+      }
+  }
+  
+  //  MARK: - Navigation
+  
+  private func presentMainMenu(sender: Any?) {
+    performSegue(withIdentifier: "showMainMenu", sender: sender)
   }
   
   //  MARK: - Interface builder actions

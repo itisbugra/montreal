@@ -9,6 +9,7 @@
 import UIKit
 import Amplify
 import AmplifyPlugins
+import NSLogger
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   private let mainStoryboardName = "Main"
@@ -38,9 +39,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window!.makeKeyAndVisible()
       }
       
-      print("Amplify configured with auth plugin")
+      Logger.shared.log(.controller, .info, "Amplify configured with auth plugin")
     } catch {
-      print("Failed to initialize Amplify with \(error)")
+      Logger.shared.log(.controller, .error, "Failed to initialize Amplify with \(error)")
     }
   }
   

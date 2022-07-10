@@ -13,8 +13,13 @@
 		52588CAE28629342008575B6 /* ResetPasswordTableViewController+AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52588CAD28629342008575B6 /* ResetPasswordTableViewController+AlertControllers.swift */; };
 		52588CB1286398B2008575B6 /* CreateNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52588CB0286398B2008575B6 /* CreateNewPasswordViewController.swift */; };
 		52588CB32863AC22008575B6 /* UIAlertController+ComponentBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52588CB22863AC22008575B6 /* UIAlertController+ComponentBuilders.swift */; };
+		52588CB52863C33A008575B6 /* CreateNewPasswordTableViewController+AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52588CB42863C339008575B6 /* CreateNewPasswordTableViewController+AlertControllers.swift */; };
 		5276F21924B0E99A003D23B7 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21824B0E99A003D23B7 /* SignUpTableViewController.swift */; };
 		5276F21B24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21A24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift */; };
+		52D14D4A2874CA2300243300 /* UserProfileTableViewAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D14D492874CA2200243300 /* UserProfileTableViewAlertController.swift */; };
+		52D14D4C2874FB4700243300 /* SignInViewAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D14D4B2874FB4600243300 /* SignInViewAlertController.swift */; };
+		52E8D0B22878A34A00BED84F /* RememberDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E8D0B12878A34900BED84F /* RememberDeviceViewController.swift */; };
+		52E8D0B42878A36100BED84F /* ForgetDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E8D0B32878A36100BED84F /* ForgetDeviceViewController.swift */; };
 		533D93390EEB9C459EF9B82F /* Pods_Quessly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0456106252918467CBD7F1 /* Pods_Quessly.framework */; };
 		8EC098AECFA2822FA5CEAEBC /* Pods_Quessly_QuesslyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E43265763194C85CCAE369 /* Pods_Quessly_QuesslyUITests.framework */; };
 		B1B5D79FBFDA5B2EE326FF9A /* Pods_QuesslyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8455A19DC72CFE3029E5E9B /* Pods_QuesslyTests.framework */; };
@@ -157,9 +162,14 @@
 		52588CAD28629342008575B6 /* ResetPasswordTableViewController+AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResetPasswordTableViewController+AlertControllers.swift"; sourceTree = "<group>"; };
 		52588CB0286398B2008575B6 /* CreateNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordViewController.swift; sourceTree = "<group>"; };
 		52588CB22863AC22008575B6 /* UIAlertController+ComponentBuilders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+ComponentBuilders.swift"; sourceTree = "<group>"; };
+		52588CB42863C339008575B6 /* CreateNewPasswordTableViewController+AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateNewPasswordTableViewController+AlertControllers.swift"; sourceTree = "<group>"; };
 		5276F21824B0E99A003D23B7 /* SignUpTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
 		5276F21A24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpTableViewController+AlertControllers.swift"; sourceTree = "<group>"; };
 		52B998252849736A00F0827A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		52D14D492874CA2200243300 /* UserProfileTableViewAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewAlertController.swift; sourceTree = "<group>"; };
+		52D14D4B2874FB4600243300 /* SignInViewAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewAlertController.swift; sourceTree = "<group>"; };
+		52E8D0B12878A34900BED84F /* RememberDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberDeviceViewController.swift; sourceTree = "<group>"; };
+		52E8D0B32878A36100BED84F /* ForgetDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetDeviceViewController.swift; sourceTree = "<group>"; };
 		73D1E1F4411CD9F6E32A6F7E /* Pods-Quessly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quessly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quessly/Pods-Quessly.debug.xcconfig"; sourceTree = "<group>"; };
 		7C0456106252918467CBD7F1 /* Pods_Quessly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quessly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB8070956F0C655CFB1095F /* Pods-QuesslyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuesslyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuesslyTests/Pods-QuesslyTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -328,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				52588CB0286398B2008575B6 /* CreateNewPasswordViewController.swift */,
+				52588CB42863C339008575B6 /* CreateNewPasswordTableViewController+AlertControllers.swift */,
 			);
 			path = "Create New Password";
 			sourceTree = "<group>";
@@ -339,6 +350,15 @@
 				5276F21A24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift */,
 			);
 			path = "Sign up";
+			sourceTree = "<group>";
+		};
+		52E8D0B02878A05B00BED84F /* Device Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				52E8D0B12878A34900BED84F /* RememberDeviceViewController.swift */,
+				52E8D0B32878A36100BED84F /* ForgetDeviceViewController.swift */,
+			);
+			path = "Device Tracking";
 			sourceTree = "<group>";
 		};
 		AB6173B1B1C42C4BA1FE062E /* Pods */ = {
@@ -678,6 +698,7 @@
 		D5A7428E24569567001D83A5 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				52E8D0B02878A05B00BED84F /* Device Tracking */,
 				5276F21724B0E974003D23B7 /* Sign up */,
 				D5A7428F2456956F001D83A5 /* Sign In */,
 				52588CAA286292B0008575B6 /* Reset Password */,
@@ -690,6 +711,7 @@
 			isa = PBXGroup;
 			children = (
 				D5A7426124569069001D83A5 /* SignInViewController.swift */,
+				52D14D4B2874FB4600243300 /* SignInViewAlertController.swift */,
 			);
 			path = "Sign In";
 			sourceTree = "<group>";
@@ -769,6 +791,7 @@
 			isa = PBXGroup;
 			children = (
 				D5A7429D2456BC60001D83A5 /* UserProfileTableViewController.swift */,
+				52D14D492874CA2200243300 /* UserProfileTableViewAlertController.swift */,
 				D52FE10D24EDCF0E0095DDF2 /* Custom Table View Cells */,
 				D554D2E124EE382900D9DC85 /* Custom Table View Footers */,
 			);
@@ -1219,6 +1242,7 @@
 				D5904C48246448E30057B9C6 /* MainMenuToNotificationConsentSegue.swift in Sources */,
 				D5FCEBF02462BCE9006E1124 /* SessionInformationTableViewController.swift in Sources */,
 				D54AD0DA245EBE4F005BB278 /* FormattedContentRenderer.swift in Sources */,
+				52D14D4A2874CA2300243300 /* UserProfileTableViewAlertController.swift in Sources */,
 				D5FCEBEA2462AAD6006E1124 /* SessionQuestionsOverviewNavigationBarTitleView.swift in Sources */,
 				D5EDAED1246AE46500A971FC /* QuestionEditorViewController.swift in Sources */,
 				D59B02202461824000DC2659 /* CategoryExplorerTableViewController.swift in Sources */,
@@ -1228,7 +1252,9 @@
 				5276F21924B0E99A003D23B7 /* SignUpTableViewController.swift in Sources */,
 				52588CAC286292E4008575B6 /* ResetPasswordTableViewController.swift in Sources */,
 				D5A7426224569069001D83A5 /* SignInViewController.swift in Sources */,
+				52588CB52863C33A008575B6 /* CreateNewPasswordTableViewController+AlertControllers.swift in Sources */,
 				D50A939A250155EB00F2716A /* MethodSwizzling.swift in Sources */,
+				52E8D0B42878A36100BED84F /* ForgetDeviceViewController.swift in Sources */,
 				D5D0FAE9246B18BF008169FD /* ContentEditorTableViewController+PresentedViewControllers.swift in Sources */,
 				D5A7425E24569069001D83A5 /* AppDelegate.swift in Sources */,
 				D50A9398250155A700F2716A /* Colors.swift in Sources */,
@@ -1261,6 +1287,7 @@
 				D5ABD954248E53B100BCD0E1 /* ActivityAlertControllerPresentationController.swift in Sources */,
 				D59B02192461787B00DC2659 /* QuestionDetailTableViewController.swift in Sources */,
 				5276F21B24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift in Sources */,
+				52E8D0B22878A34A00BED84F /* RememberDeviceViewController.swift in Sources */,
 				D5904C3D2463E2100057B9C6 /* UserNotificationCenterManager.swift in Sources */,
 				D5FCEBE224628B82006E1124 /* Session.swift in Sources */,
 				D5BD3BAE245AFD08002D9DB2 /* QuestionMasterNavigationBarTitleView.swift in Sources */,
@@ -1273,6 +1300,7 @@
 				D5A7429E2456BC60001D83A5 /* UserProfileTableViewController.swift in Sources */,
 				D5FCEBDC24628675006E1124 /* SetOverviewHeaderCollectionReusableView.swift in Sources */,
 				D58B86BA245BFEE700514018 /* ClientConfiguration.swift in Sources */,
+				52D14D4C2874FB4700243300 /* SignInViewAlertController.swift in Sources */,
 				D5BD3B9D2456F34E002D9DB2 /* SessionContentSectionHeaderView.swift in Sources */,
 				D5904C412463F9A80057B9C6 /* PushNotificationConsentViewController.swift in Sources */,
 				D52FE10F24EDCF260095DDF2 /* UserProfileTableViewControllerProfileTableViewCell.swift in Sources */,
