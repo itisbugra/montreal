@@ -19,8 +19,8 @@
         },
         "CognitoUserPool": {
           "Default": {
-            "PoolId": "eu-west-2_XuNZYQORN",
-            "AppClientId": "6ijk4v0n3mdu0cqhvqno7m2hg4",
+            "PoolId": "eu-west-2_B0HoTQmIo",
+            "AppClientId": "3mcrm3j857h6tl93elc44utdi2",
             "Region": "eu-west-2"
           }
         },
@@ -28,7 +28,7 @@
           "Default": {
             "OAuth": {
               "WebDomain": "any-academy-dev.auth.eu-west-2.amazoncognito.com",
-              "AppClientId": "6ijk4v0n3mdu0cqhvqno7m2hg4",
+              "AppClientId": "3mcrm3j857h6tl93elc44utdi2",
               "SignInRedirectURI": "anyacademy://callback/",
               "SignOutRedirectURI": "anyacademy://signout/",
               "Scopes": [

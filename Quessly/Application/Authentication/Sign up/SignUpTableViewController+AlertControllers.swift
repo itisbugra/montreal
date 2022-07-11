@@ -84,7 +84,13 @@ extension SignUpTableViewController {
     self.present(alertController, animated: true, completion: completion)
   }
   
-  func presentConfirmationCodeAlert(destination: String, completion: ((String?) -> Void)?) {
+  enum ConfirmationCodeAlertActionResult {
+    case code(_ code: String)
+    case resend
+    case cancel
+  }
+  
+  func presentConfirmationCodeAlert(destination: String, completion: ((ConfirmationCodeAlertActionResult) -> Void)?) {
     let alertController = UIAlertController(title: NSLocalizedString("Verification Code", comment: ""),
                                             message: NSLocalizedString("Enter the verification code you have received with the e-mail.", comment: ""),
                                             preferredStyle: .alert)
@@ -98,16 +104,13 @@ extension SignUpTableViewController {
     
     [UIAlertAction(title: NSLocalizedString("Continue", comment: ""),
                    style: .default) { _ in
-      if let completion = completion {
-        if let code = codeTextField.text, code != "" {
-          completion(code)
-        } else {
-          completion(nil)
-        }
-      }
+      completion?(.code(codeTextField.text!))
+    }, UIAlertAction(title: NSLocalizedString("Resend code", comment: ""),
+                     style: .default) { _ in
+      completion?(.resend)
     }, UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
                      style: .cancel) { _ in
-      self.dismiss(animated: true, completion: nil)
+      completion?(.cancel)
     }].forEach { alertController.addAction($0) }
     
     self.present(alertController, animated: true)

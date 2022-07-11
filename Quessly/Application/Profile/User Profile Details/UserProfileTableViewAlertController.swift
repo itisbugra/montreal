@@ -54,4 +54,20 @@ extension UserProfileTableViewController {
     self.present(alertController, animated: true, completion: nil)
   }
   
+  func presentLoadingAlert(completion: (() -> Void)?) {
+    let alertController = UIAlertController(title: NSLocalizedString("Signing you out...",
+                                                                     comment: "Alert title shown when network event is occuring during sign out."),
+                                            message: nil,
+                                            preferredStyle: .alert)
+    
+    alertController.addActivityIndicator()
+    
+    [UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { _ in
+      
+      self.dismiss(animated: true, completion: nil)
+    }].forEach { alertController.addAction($0) }
+    
+    self.present(alertController, animated: true, completion: completion)
+  }
+  
 }

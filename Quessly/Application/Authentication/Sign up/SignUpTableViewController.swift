@@ -33,6 +33,9 @@ class SignUpTableViewController: UITableViewController {
     case mismatch
   }
   
+  
+
+  
   @IBOutlet weak var keyboardAccessoryToolbar: UIToolbar!
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
@@ -179,25 +182,31 @@ class SignUpTableViewController: UITableViewController {
               self.presentMainMenu(sender: nil)
               
             case .challengeRequired(.email(let emailAddress)):
-              self.presentConfirmationCodeAlert(destination: emailAddress) { code in
-                guard let code = code else {
-                  //  TODO: Handle cancel case
-                  
-                  return
-                }
-                
-                self.completeChallenge(code: code) { result in
-                  self.dismiss(animated: true) {
-                    switch result {
-                    case .success:
-                      self.presentMainMenu(sender: nil)
-                      
-                    case .failure(.mismatch):
-                      self.presentInvalidConfirmationCodeAlert() {
-                          //  TODO: Show code input alert controller
+              self.presentConfirmationCodeAlert(destination: emailAddress) { result in
+                switch result {
+                case .code(let code):
+                  self.completeChallenge(code: code) { result in
+                    self.dismiss(animated: true) {
+                      switch result {
+                      case .success:
+                        self.presentMainMenu(sender: nil)
+                        
+                      case .failure(.mismatch):
+                        self.presentInvalidConfirmationCodeAlert() {
+                            //  TODO: Show code input alert controller
+                          self.dismiss(animated: true) {
+                            self.presentConfirmationCodeAlert(destination: emailAddress, completion: nil)
+                          }
+                        }
                       }
                     }
                   }
+                  
+                case .resend:
+                  self.resendCode()
+                  
+                case .cancel:
+                  self.dismiss(animated: true)
                 }
               }
               
@@ -351,19 +360,19 @@ class SignUpTableViewController: UITableViewController {
       }
   }
   
+  /// When the users enter the authentication code incorrectly, they can request the code again
   private func resendCode() {
-    Amplify.Auth
-      .resendConfirmationCode(for: .email) { result in
-        DispatchQueue.main.async {
-          switch result {
-          case .success(let deliveryDetails):
-            Logger.shared.log(.controller, .info, "Resend code send to - \(deliveryDetails)")
-            
-          case .failure(let error):
-            Logger.shared.log(.controller, .error, "Resend code failed with error \(error)")
-          }
+    let username = usernameTextField.text!
+    Amplify.Auth.resendSignUpCode(for: username) { result in
+      DispatchQueue.main.async {
+        switch result {
+        case .success(let deliveryDetails):
+          Logger.shared.log(.controller, .info, "Resend code send to - \(deliveryDetails)")
+        case .failure(let error):
+          Logger.shared.log(.controller, .error, "Resend code failed with error \(error)")
         }
       }
+    }
   }
   
   //  MARK: - Navigation
