@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1293C3D7285808F5009D6AC6 /* UIApplication+keyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1293C3D6285808F5009D6AC6 /* UIApplication+keyWindow.swift */; };
 		5230499827DF68B600E58207 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 5230499727DF689100E58207 /* amplifyconfiguration.json */; };
+		5247BB51287E713700B679D1 /* SignUpNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5247BB50287E713700B679D1 /* SignUpNavigationController.swift */; };
 		52588CAC286292E4008575B6 /* ResetPasswordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52588CAB286292E4008575B6 /* ResetPasswordTableViewController.swift */; };
 		52588CAE28629342008575B6 /* ResetPasswordTableViewController+AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52588CAD28629342008575B6 /* ResetPasswordTableViewController+AlertControllers.swift */; };
 		52588CB1286398B2008575B6 /* CreateNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52588CB0286398B2008575B6 /* CreateNewPasswordViewController.swift */; };
@@ -156,6 +157,7 @@
 		1293C3D6285808F5009D6AC6 /* UIApplication+keyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+keyWindow.swift"; sourceTree = "<group>"; };
 		23E43265763194C85CCAE369 /* Pods_Quessly_QuesslyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quessly_QuesslyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5230499727DF689100E58207 /* amplifyconfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		5247BB50287E713700B679D1 /* SignUpNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNavigationController.swift; sourceTree = "<group>"; };
 		52588CAB286292E4008575B6 /* ResetPasswordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordTableViewController.swift; sourceTree = "<group>"; };
 		52588CAD28629342008575B6 /* ResetPasswordTableViewController+AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResetPasswordTableViewController+AlertControllers.swift"; sourceTree = "<group>"; };
 		52588CB0286398B2008575B6 /* CreateNewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPasswordViewController.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 			children = (
 				5276F21824B0E99A003D23B7 /* SignUpTableViewController.swift */,
 				5276F21A24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift */,
+				5247BB50287E713700B679D1 /* SignUpNavigationController.swift */,
 			);
 			path = "Sign up";
 			sourceTree = "<group>";
@@ -1231,6 +1234,7 @@
 				52D14D4A2874CA2300243300 /* UserProfileTableViewAlertController.swift in Sources */,
 				D5FCEBEA2462AAD6006E1124 /* SessionQuestionsOverviewNavigationBarTitleView.swift in Sources */,
 				D5EDAED1246AE46500A971FC /* QuestionEditorViewController.swift in Sources */,
+				5247BB51287E713700B679D1 /* SignUpNavigationController.swift in Sources */,
 				D59B02202461824000DC2659 /* CategoryExplorerTableViewController.swift in Sources */,
 				D5D0FAFD2485C174008169FD /* SessionRepository.swift in Sources */,
 				D5ACD02D24893BC000265CE0 /* PseudoPushNotificationsTestTableViewController.swift in Sources */,

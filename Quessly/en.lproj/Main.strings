@@ -145,8 +145,8 @@
 /* Class = "UILabel"; text = "Desperate times call for desperate measures."; ObjectID = "k8S-ld-RFe"; */
 "k8S-ld-RFe.text" = "Desperate times call for desperate measures.";
 
-/* Class = "UILabel"; text = "E-mail"; ObjectID = "kfm-ly-SFk"; */
-"kfm-ly-SFk.text" = "E-mail";
+/* Class = "UILabel"; text = "Username"; ObjectID = "kfm-ly-SFk"; */
+"kfm-ly-SFk.text" = "Username";
 
 /* Class = "UILabel"; text = "Session Start"; ObjectID = "KRO-a1-djX"; */
 "KRO-a1-djX.text" = "Session Start";
@@ -199,8 +199,8 @@
 /* Class = "UITextField"; placeholder = "••••••"; ObjectID = "Qsp-jF-cHT"; */
 "Qsp-jF-cHT.placeholder" = "••••••";
 
-/* Class = "UITextField"; placeholder = "example@mail.com"; ObjectID = "r7C-xu-pn9"; */
-"r7C-xu-pn9.placeholder" = "example@mail.com";
+/* Class = "UITextField"; placeholder = "example"; ObjectID = "r7C-xu-pn9"; */
+"r7C-xu-pn9.placeholder" = "example";
 
 /* Class = "UITableViewController"; title = "Main menu"; ObjectID = "rcR-a0-dMH"; */
 "rcR-a0-dMH.title" = "Main menu";

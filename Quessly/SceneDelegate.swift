@@ -43,6 +43,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     } catch {
       Logger.shared.log(.controller, .error, "Failed to initialize Amplify with \(error)")
     }
+    
+  
   }
   
   func sceneDidDisconnect(_ scene: UIScene) {

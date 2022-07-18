@@ -6,6 +6,7 @@ import AmplifyPlugins
 import GoogleSignIn
 import AWSMobileClient
 import SwiftUI
+import libPhoneNumber_iOS
 import NSLogger
 
 class SignInViewController: UITableViewController {
@@ -16,8 +17,14 @@ class SignInViewController: UITableViewController {
   @IBOutlet weak var resetPasswordLabel: UILabel!
   @IBOutlet weak var eulaLabel: UILabel!
   @IBOutlet weak var eulaLinkLabel: UILabel!
+  @IBOutlet weak var phoneNumberTextField: UITextField!
+  
+  lazy var phoneNumberFormatter: NBAsYouTypeFormatter = {
+    return NBAsYouTypeFormatter(regionCode: Locale.current.regionCode!.lowercased())
+  }()
   
   var loading = false
+  
   enum SignInResult {
     case success
     case failure(error: SignInError)
@@ -27,6 +34,8 @@ class SignInViewController: UITableViewController {
     case unknown
     case internalError(error: Error)
   }
+  
+  //  MARK: - UIViewController lifecycle
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
@@ -37,11 +46,23 @@ class SignInViewController: UITableViewController {
     resetPasswordLabel
       .addGestureRecognizer(resetPasswordTapGestureRecognizer)
   }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    self.usernameTextField.becomeFirstResponder()
-    
+  override func viewDidLoad() {
+    super.viewDidLoad()
   }
+  
+  
+  private var textFields: [UITextField] {
+    return [usernameTextField, passwordTextField, phoneNumberTextField]
+  }
+  
+  
+  override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+    if motion == .motionShake {
+      self.resignFirstResponder()
+      self.fillInputsWithDebugContent()
+    }
+  }
+  
   lazy var codeReaderViewController: QRCodeReaderViewController = {
     let builder = QRCodeReaderViewControllerBuilder {
       $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
@@ -73,15 +94,21 @@ class SignInViewController: UITableViewController {
       usernameTextField.text = usernameTextField.text!
       passwordTextField.text = passwordTextField.text!
     }
+    
+    if segue.identifier == "showSignUp" {
+      let signUpNavigationController = segue.destination as! SignUpNavigationController
+      
+      signUpNavigationController.signInViewController = self
+    }
   }
   
-   func signIn(completion: ((SignInResult) -> Void)? = nil) {
+  func signIn(completion: ((SignInResult) -> Void)? = nil) {
     signIn(username: self.usernameTextField.text!,
            password: self.passwordTextField.text!,
            completion: completion)
   }
   
-   func signIn(username: String, password: String, completion: ((SignInResult) -> Void)? = nil) {
+  func signIn(username: String, password: String, completion: ((SignInResult) -> Void)? = nil) {
     let username = usernameTextField.text
     let password = passwordTextField.text
     
@@ -95,12 +122,15 @@ class SignInViewController: UITableViewController {
             completion?(.success)
             
           case .failure(let error):
-            Logger.shared.log(.controller, .error, "Sign in failed")
-            completion?(.failure(error: .internalError(error: error)))
+            self.dismiss(animated: true) {
+              self.presentInvalidUsernameOrPassword()
+              Logger.shared.log(.controller, .error, "Sign in failed")
+              //              completion?(.failure(error: .internalError(error: error)))
+            }
           }
         }
       }
-   }
+  }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
@@ -126,28 +156,6 @@ class SignInViewController: UITableViewController {
           }
         }
       }
-      //      let username = usernameTextField.text
-      //      let password = passwordTextField.text
-      //
-      //      Amplify.Auth
-      //        .signIn(username: username, password: password, options: nil) { result in
-      //          switch result {
-      //          case .success:
-      //            Logger.shared.log(.controller, .important, "Sign in was successful.")
-      //
-      //            DispatchQueue.main.async {
-      //              self.showMainMenu(sender: self.tableView)
-      //            }
-      //          case .failure(let error):
-      //            Logger.shared.log(.controller, .error, "Sign in failed.")
-      //            Logger.shared.log(.controller, .important, error.debugDescription)
-      //
-      //            DispatchQueue.main.async {
-      //              self.tableView.cellForRow(at: indexPath)!.isSelected = false
-      //              self.showError(error, sender: self.tableView)
-      //            }
-      //          }
-      //        }
     } else if indexPath.section == 3 && indexPath.row == 0 {
       Amplify.Auth
         .signInWithWebUI(for: .google,
@@ -171,6 +179,10 @@ class SignInViewController: UITableViewController {
             }
           }
         }
+    } else if indexPath.section == 4 && indexPath.row == 0 {
+      self.phoneNumberTextField.text = "Start typing..."
+      self.phoneNumberTextField.text = nil
+      self.phoneNumberFormatter.clear()
     }
   }
   
@@ -181,18 +193,43 @@ class SignInViewController: UITableViewController {
                       sender: sender)
   }
   
-  @IBAction func unwindToSignInViewControllerCreatePassword(segue: UIStoryboardSegue) {
+  @IBAction func unwindToSignInViewControllerCreatePassword(unwindSegue: UIStoryboardSegue) {
     
   }
   
-  private func showMainMenu(sender: Any?) {
+  @IBAction func unwindToSignInViewControllerSignUpWithSuccess(unwindSegue: UIStoryboardSegue) {
+    self.showMainMenu(sender: unwindSegue.source)
+  }
+  
+  @IBAction func unwindToSignInViewControllerSignUpWithNoAction(unwindSegue: UIStoryboardSegue) {
+    self.showSignInMenu(sender: unwindSegue.source)
+  }
+  
+  func showMainMenu(sender: Any?) {
     self.performSegue(withIdentifier: "showMainMenu",
                       sender: self.tableView)
   }
   
+  func showSignInMenu(sender: Any?) {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    
+    let initialViewController = storyboard.instantiateViewController(
+      withIdentifier: "AuthenticationNavigationController"
+    )
+    
+    UIApplication.shared.keyWindow!.rootViewController = initialViewController
+    UIApplication.shared.keyWindow!.makeKeyAndVisible()
+  }
+  
   private func showError(_ error: Error, sender: Any?) {
     //  TODO: Handle the error
-    
+  }
+  
+  //  MARK: - Debug capabilities
+  
+  func fillInputsWithDebugContent() {
+    self.usernameTextField.text = "ersin"
+    self.passwordTextField.text = "123!A987b."
   }
 }
 
@@ -204,6 +241,25 @@ extension SignInViewController: UITextFieldDelegate {
     nextTextField?.becomeFirstResponder()
     
     return true
+  }
+  
+  func textField(_ textField: UITextField,
+                 shouldChangeCharactersIn range: NSRange,
+                 replacementString string: String) -> Bool {
+    if textField == self.phoneNumberTextField {
+      if !(string.count + range.location > 18) {
+        if range.length == 0 {
+          self.phoneNumberTextField.text = self.phoneNumberFormatter.inputDigit(string)
+        } else if range.length == 1 {
+          self.phoneNumberTextField.text = self.phoneNumberFormatter.removeLastDigit()
+        } else if range.length == self.phoneNumberTextField.text!.count {
+          self.phoneNumberFormatter.clear()
+          self.phoneNumberTextField.text = ""
+        }
+      }
+    }
+    
+    return false
   }
 }
 

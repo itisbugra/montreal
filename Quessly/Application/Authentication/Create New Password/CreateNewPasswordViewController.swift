@@ -26,7 +26,7 @@ class CreateNewPasswordViewController : UITableViewController {
     func validatePassword(password: String) -> Bool {
       let length = password.count
     
-      return length >= 10 && length <= 40 && passwordPredicate.evaluate(with: password)
+      return length >= 8 && length <= 40 && passwordPredicate.evaluate(with: password)
     }
     
     func validateMatchingPasswords(password: String,
