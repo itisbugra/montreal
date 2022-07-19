@@ -17,10 +17,9 @@ class SignInViewController: UITableViewController {
   @IBOutlet weak var resetPasswordLabel: UILabel!
   @IBOutlet weak var eulaLabel: UILabel!
   @IBOutlet weak var eulaLinkLabel: UILabel!
-  @IBOutlet weak var phoneNumberTextField: UITextField!
   
   lazy var phoneNumberFormatter: NBAsYouTypeFormatter = {
-    return NBAsYouTypeFormatter(regionCode: Locale.current.regionCode!.lowercased())
+    return NBAsYouTypeFormatter(regionCode: Locale.current.languageCode!.lowercased())
   }()
   
   var loading = false
@@ -52,7 +51,7 @@ class SignInViewController: UITableViewController {
   
   
   private var textFields: [UITextField] {
-    return [usernameTextField, passwordTextField, phoneNumberTextField]
+    return [usernameTextField, passwordTextField]
   }
   
   
@@ -121,9 +120,10 @@ class SignInViewController: UITableViewController {
           case .success:
             completion?(.success)
             
-          case .failure(let error):
+          case .failure:
             self.dismiss(animated: true) {
               self.presentInvalidUsernameOrPassword()
+              
               Logger.shared.log(.controller, .error, "Sign in failed")
               //              completion?(.failure(error: .internalError(error: error)))
             }
@@ -179,10 +179,6 @@ class SignInViewController: UITableViewController {
             }
           }
         }
-    } else if indexPath.section == 4 && indexPath.row == 0 {
-      self.phoneNumberTextField.text = "Start typing..."
-      self.phoneNumberTextField.text = nil
-      self.phoneNumberFormatter.clear()
     }
   }
   
@@ -210,7 +206,7 @@ class SignInViewController: UITableViewController {
                       sender: self.tableView)
   }
   
-  func showSignInMenu(sender: Any?) {
+  public func showSignInMenu(sender: Any?) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
     let initialViewController = storyboard.instantiateViewController(
@@ -241,25 +237,6 @@ extension SignInViewController: UITextFieldDelegate {
     nextTextField?.becomeFirstResponder()
     
     return true
-  }
-  
-  func textField(_ textField: UITextField,
-                 shouldChangeCharactersIn range: NSRange,
-                 replacementString string: String) -> Bool {
-    if textField == self.phoneNumberTextField {
-      if !(string.count + range.location > 18) {
-        if range.length == 0 {
-          self.phoneNumberTextField.text = self.phoneNumberFormatter.inputDigit(string)
-        } else if range.length == 1 {
-          self.phoneNumberTextField.text = self.phoneNumberFormatter.removeLastDigit()
-        } else if range.length == self.phoneNumberTextField.text!.count {
-          self.phoneNumberFormatter.clear()
-          self.phoneNumberTextField.text = ""
-        }
-      }
-    }
-    
-    return false
   }
 }
 

@@ -10,10 +10,10 @@ extension SignUpTableViewController {
                                             preferredStyle: .alert)
     
     [UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { _ in
-      self.dismiss(animated: true, completion: nil)
+      completion?()
     }].forEach { alertController.addAction($0) }
     
-    present(alertController, animated: true, completion: completion)
+    present(alertController, animated: true, completion: nil)
   }
   /// Warning shown when users enter an invalid email address
   func presentInvalidEmailAlert(completion: (() -> Void)?) {
@@ -23,10 +23,10 @@ extension SignUpTableViewController {
                                             preferredStyle: .alert)
     
     [UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { _ in
-      self.dismiss(animated: true, completion: nil)
+      completion?()
     }].forEach { alertController.addAction($0) }
     
-    present(alertController, animated: true, completion: completion)
+    present(alertController, animated: true, completion: nil)
   }
   
   /// Warning shown when users enter an invalid password
@@ -37,10 +37,10 @@ extension SignUpTableViewController {
                                             preferredStyle: .alert)
     
     [UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { _ in
-      self.dismiss(animated: true, completion: nil)
+      completion?()
     }].forEach { alertController.addAction($0) }
     
-    self.present(alertController, animated: true, completion: completion)
+    self.present(alertController, animated: true, completion: nil)
   }
   
   /// User's password non matching alert
@@ -51,10 +51,10 @@ extension SignUpTableViewController {
                                             preferredStyle: .alert)
     
     [UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { _ in
-      self.dismiss(animated: true, completion: nil)
+      completion?()
     }].forEach { alertController.addAction($0) }
     
-    present(alertController, animated: true, completion: completion)
+    present(alertController, animated: true, completion: nil)
   }
   
   /// Users entered wrong confirmation code
@@ -65,44 +65,39 @@ extension SignUpTableViewController {
                                             preferredStyle: .alert)
     
     [UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { _ in
-      self.dismiss(animated: true, completion: completion)
+      completion?()
     }].forEach { alertController.addAction($0) }
     
     present(alertController, animated: true, completion: nil)
   }
   
   func presentLoadingAlert(completion: (() -> Void)?) {
-    let alertController = UIAlertController(title: NSLocalizedString("Signing you up...",
-                                                                     comment: "Alert title shown when network event is occuring during sign up."),
-                                            message: nil,
-                                            preferredStyle: .alert)
-    
-    alertController.addActivityIndicator()
-    
-    [UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { _ in
-      
-      self.dismiss(animated: true, completion: nil)
-    }].forEach { alertController.addAction($0) }
-    
-    self.present(alertController, animated: true, completion: completion)
+    self.present(
+      UIAlertController.loading(
+        title: NSLocalizedString("Signing you up...",
+                                 comment: "Alert title shown when network event is occuring during sign up."),
+        
+        message: nil
+      ),
+      animated: true,
+      completion: completion
+    )
   }
   
   /// Warning displayed to prevent users from accidentally exiting the sign up screen
-  func presentDiscardInformationSignUpAlert(completion: ((Bool) -> Void)? = nil) {
+  func presentDiscardInformationSignUpAlert(completion: (() -> Void)? = nil) {
     let alertController = UIAlertController(title: nil,
                                             message: NSLocalizedString("Are you sure you want to discard this information?", comment: ""),
                                             preferredStyle: .actionSheet)
     
     [
       UIAlertAction(title: NSLocalizedString("Discard Changes", comment: ""), style: .destructive) { _ in
-        completion?(true)
+        completion?()
       },
-      UIAlertAction(title: NSLocalizedString("Keep Editing", comment: ""), style: .cancel) { _ in
-        completion?(false)
-      }
+      UIAlertAction(title: NSLocalizedString("Keep Editing", comment: ""), style: .cancel)
     ].forEach { alertController.addAction($0) }
     
-    self.present(alertController, animated: true, completion: nil)
+    self.present(alertController, animated: true)
   }
   
   /// Username exist alert
@@ -136,12 +131,12 @@ extension SignUpTableViewController {
   /// Users have 3 attempts, if they try more than 3 times they will get an error
   func presentOutOfTriesAlert(completion: (() -> Void)? = nil) {
     let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
-                                            message: NSLocalizedString("Out of tries, you have 3 attempts",
+                                            message: NSLocalizedString("Cannot proceed to sign up, out of all tries.",
                                                                        comment: "Alert message shown when confirmation code is invalid during sign up."),
                                             preferredStyle: .alert)
     
     [UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { _ in
-      self.dismiss(animated: true, completion: completion)
+      completion?()
     }].forEach { alertController.addAction($0) }
     
     present(alertController, animated: true, completion: nil)

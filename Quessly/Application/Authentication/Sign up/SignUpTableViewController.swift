@@ -47,8 +47,15 @@ class SignUpTableViewController: UITableViewController {
   @IBOutlet weak var usernameTextField: UITextField!
   @IBOutlet weak var extraAttributeLabel: UILabel!
   @IBOutlet weak var SignUpToQuessly: UINavigationItem!
+  @IBOutlet weak var signUpWithPhoneNumberLabel: UILabel!
   
   private weak var logger = Logger.shared
+  
+  lazy var asYouTypePhoneNumberFormatter: NBAsYouTypeFormatter = {
+    let regionCode = Locale.current.regionCode!.lowercased()
+    
+    return NBAsYouTypeFormatter(regionCode: regionCode)
+  }()
   
   private var currentMedium: TwoFactorAuthenticationMedium = .email {
     didSet {
@@ -66,10 +73,6 @@ class SignUpTableViewController: UITableViewController {
         self.extraAttributeTextField.placeholder = NSLocalizedString("+1 (234) 789 5614", comment: "")
       }
     }
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    self.usernameTextField.becomeFirstResponder()
   }
   
   lazy var emailPredicate: NSPredicate = {
@@ -105,6 +108,14 @@ class SignUpTableViewController: UITableViewController {
     
     //  Set input accessory of each text field
     textFields.forEach { $0.inputAccessoryView = keyboardAccessoryToolbar }
+    
+    //  Register nib for the custom section header
+    let sectionHeaderNib = UINib(nibName: "ChangeAttributeHeaderFooterView", bundle: nil)
+    tableView.register(sectionHeaderNib, forHeaderFooterViewReuseIdentifier: "ChangeAttribute")
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    self.usernameTextField.becomeFirstResponder()
   }
   
   override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
@@ -116,8 +127,46 @@ class SignUpTableViewController: UITableViewController {
   
   //  MARK: - Table view delegate methods
   
+  override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    guard tableView == self.tableView else {
+      return nil
+    }
+    
+    guard section == 0 else {
+      return nil
+    }
+    
+    let headerFooterView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ChangeAttribute") as! ChangeAttributeHeaderFooterView
+    
+    headerFooterView.delegate = self
+    
+    if headerFooterView.attributeType == nil {
+      switch currentMedium {
+      case .email:
+        headerFooterView.attributeType = .email
+        
+      case .phoneNumber:
+        headerFooterView.attributeType = .phoneNumber
+      }
+    }
+    
+    return headerFooterView
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    guard tableView == self.tableView else {
+      return 0
+    }
+    
+    return 43.0
+  }
+  
   override func tableView(_ tableView: UITableView,
                           didSelectRowAt indexPath: IndexPath) {
+    guard tableView == self.tableView else {
+      return
+    }
+    
     tableView.deselectRow(at: indexPath, animated: true)
     
     switch (indexPath.section, indexPath.row) {
@@ -142,13 +191,12 @@ class SignUpTableViewController: UITableViewController {
     self.performSegue(withIdentifier: "showMainMenu", sender: self.tableView)
   }
   
-  
-  
   //  MARK: - Operations
   
   enum ValidationError: Error {
     case invalidUsername(username: String)
     case invalidEmail(email: String)
+    case invalidPhoneNumber(phoneNumber: String)
     case invalidPassword(password: String)
     case nonMatchingPasswords
   }
@@ -162,6 +210,11 @@ class SignUpTableViewController: UITableViewController {
     /// Validates email address with a regular expression.
     func validateEmail(email: String) -> Bool {
       return emailPredicate.evaluate(with: email)
+    }
+    
+    /// Validates phone number with an external library.
+    func validatePhoneNumber(phoneNumber: String) -> Bool {
+      return PhoneNumberFormatter().isValid(string: phoneNumber)
     }
     
     /// Validates the password if it has a proper length.
@@ -179,7 +232,7 @@ class SignUpTableViewController: UITableViewController {
     }
     
     let username = usernameTextField.text!
-    let email = extraAttributeTextField.text!
+    let extraAttribute = extraAttributeTextField.text!
     let password = passwordTextField.text!
     let confirmingPassword = confirmPasswordTextField.text!
     
@@ -189,13 +242,14 @@ class SignUpTableViewController: UITableViewController {
     
     switch currentMedium {
     case .email:
-      guard validateEmail(email: email) else {
-        throw ValidationError.invalidEmail(email: email)
+      guard validateEmail(email: extraAttribute) else {
+        throw ValidationError.invalidEmail(email: extraAttribute)
       }
       
     case .phoneNumber:
-      //  TODO: Handle validation of phone number
-      break
+      guard validatePhoneNumber(phoneNumber: extraAttribute) else {
+        throw ValidationError.invalidPhoneNumber(phoneNumber: extraAttribute)
+      }
     }
     
     guard validatePassword(password: password) else {
@@ -214,44 +268,42 @@ class SignUpTableViewController: UITableViewController {
       try validateFields()
       
       self.presentLoadingAlert {
-        DispatchQueue.main.async {
-          self.signUp { result in
-            self.dismiss(animated: true) {
-              switch result {
-              case .success:
-                self.presentMainMenu(sender: nil)
-                
-              case .challengeRequired(let challenge):
-                self.performCompletion(for: challenge) { success in
-                  if success {
-                    self.presentMainMenu(sender: nil)
-                  } else {
-                    self.exitToSignInMenu(sender: nil, withDirtyValuesCheck: true)
-                  }
+        self.signUp { result in
+          self.dismiss(animated: true) {
+            switch result {
+            case .success:
+              self.presentMainMenu(sender: nil)
+              
+            case .challengeRequired(let challenge):
+              self.performCompletion(for: challenge) { success in
+                if success {
+                  self.presentMainMenu(sender: nil)
+                } else {
+                  self.exitToSignInMenu(sender: nil, withDirtyValuesCheck: true)
                 }
-                
-              case .failure(error: .delivery):
-                //  TODO: Code delivery
-                break
-                
-              case .failure(error: .usernameExists):
-                self.presentUsernameExistsAlert()
-                
-              case .failure(error: .network):
-                //  TODO: Network error
-                break
-                
-              case .failure(error: .unknownChallenge):
-                //  TODO: Handle error
-                break
-              case .failure(error: .lambda):
-                break
               }
+              
+            case .failure(error: .delivery):
+              //  TODO: Code delivery
+              break
+              
+            case .failure(error: .usernameExists):
+              self.presentUsernameExistsAlert()
+              
+            case .failure(error: .network):
+              //  TODO: Network error
+              break
+              
+            case .failure(error: .unknownChallenge):
+              //  TODO: Handle error
+              break
+            case .failure(error: .lambda):
+              break
             }
           }
         }
       }
-    }catch ValidationError.invalidUsername(_) {
+    } catch ValidationError.invalidUsername(_) {
       presentUsernameAlert(completion: nil)
     } catch ValidationError.invalidEmail(_) {
       presentInvalidEmailAlert(completion: nil)
@@ -264,50 +316,52 @@ class SignUpTableViewController: UITableViewController {
     }
   }
   
-  func performCompletion(for challenge: Challenge, tries: UInt = 3, completion: ((Bool) -> Void)? = nil) {
-    guard tries != 0 else {
+  func performCompletion(for challenge: Challenge,
+                         withTries tries: UInt = 3,
+                         completion: ((Bool) -> Void)? = nil) {
+    guard tries > 0 else {
       logger?.log(.controller, .warning, "Out of tries, will not performing completion.")
-      self.dismiss(animated: true) {
-        self.presentOutOfTriesAlert()
-      }
+      
       return
     }
     
-    DispatchQueue.main.async {
-      self.presentConfirmationCodeAlert(for: challenge) { result in
-        switch result {
-        case .code(let code):
-          self.completeChallenge(code: code) { result in
-            self.dismiss(animated: true) {
-              switch result {
-              case .success:
-                completion?(true)
-                
-              case .failure(.mismatch):
-                self.dismiss(animated: true) {
-                  self.presentInvalidConfirmationCodeAlert() {
-                    self.dismiss(animated: true) {
-                      self.performCompletion(for: challenge, tries: tries - 1, completion: completion)
-                    }
-//                    self.performCompletion(for: challenge, tries: tries - 1, completion: completion)
-                }
+    self.presentConfirmationCodeAlert(for: challenge) { result in
+      switch result {
+      case .code(let code):
+        self.completeChallenge(code: code) { result in
+          switch result {
+          case .success:
+            completion?(true)
+            
+          case .failure(.mismatch):
+            if tries - 1 == 0 {
+              self.presentOutOfTriesAlert {
+                completion?(false)
+              }
+            } else {
+              self.presentInvalidConfirmationCodeAlert() {
+                self.performCompletion(for: challenge,
+                                       withTries: tries - 1,
+                                       completion: completion)
               }
             }
           }
         }
-          
-        case .resend:
+        
+      case .resend:
+        self.presentLoadingAlert {
           self.resendCode() { _ in
             self.dismiss(animated: true) {
-              self.performCompletion(for: challenge, tries: tries - 1, completion: completion)
+              self.performCompletion(for: challenge,
+                                     withTries: 3,
+                                     completion: completion)
             }
           }
-          
-          
-        case .cancel:
-          self.dismiss(animated: true) {
-            completion?(false)
-          }
+        }
+        
+      case .cancel:
+        self.dismiss(animated: true) {
+          completion?(false)
         }
       }
     }
@@ -317,9 +371,21 @@ class SignUpTableViewController: UITableViewController {
   
   /// Performs sign up with the data found in the user interface elements. As the callback, invokes given completion function.
   private func signUp(completion: ((SignUpResult) -> Void)? = nil) {
-    signUp(username: self.usernameTextField.text!,
-           extraAttribute: self.extraAttributeTextField.text!,
-           password: self.passwordTextField.text!,
+    guard
+      let username = self.usernameTextField.text,
+      let password = self.passwordTextField.text,
+      var extraAttribute = self.extraAttributeTextField.text else
+    {
+      fatalError()
+    }
+    
+    if currentMedium == .phoneNumber {
+      extraAttribute = try! PhoneNumberFormatter().convert(string: extraAttribute, to: .e164)
+    }
+    
+    signUp(username: username,
+           extraAttribute: extraAttribute,
+           password: password,
            completion: completion)
   }
   
@@ -380,7 +446,6 @@ class SignUpTableViewController: UITableViewController {
               
             case .lambda:
               completion?(.failure(error: .lambda))
-              break
               
             default:
               fatalError()
@@ -455,24 +520,6 @@ class SignUpTableViewController: UITableViewController {
       }
   }
   
-  func phoneNumber() {
-    guard
-      let phoneUtil = NBPhoneNumberUtil.sharedInstance(),
-      let locale = Locale.current.regionCode else {
-      return
-    }
-    
-    do {
-      let phoneNumber: NBPhoneNumber = try phoneUtil.parse("[^0-9]", defaultRegion: locale)
-      let formattedString: String = try phoneUtil.format(phoneNumber, numberFormat: .INTERNATIONAL)
-      
-      NSLog("[%@]", formattedString)
-    }
-    catch let error as NSError {
-      print(error.localizedDescription)
-    }
-  }
-  
   //  MARK: - Navigation
   
   private func presentMainMenu(sender: Any?) {
@@ -490,8 +537,8 @@ class SignUpTableViewController: UITableViewController {
     
     guard
       (username == "" && attribute == "" && password == "" && passwordConfirmation == "") || !dirtyValuesChecked else {
-      self.dismiss(animated: true) {
-        self.presentDiscardInformationSignUpAlert()
+      self.presentDiscardInformationSignUpAlert() {
+        self.exitToSignInMenu(sender: sender, withDirtyValuesCheck: false)
       }
       
       return
@@ -508,17 +555,12 @@ class SignUpTableViewController: UITableViewController {
   
   
   @IBAction func cancel(_ sender: Any) {
-    exitToSignInMenu(sender: nil)
-//    let username = usernameTextField.text
-//    let attribute = extraAttributeTextField.text
-//    let password = passwordTextField.text
-//    let passwordConfirmation = confirmPasswordTextField.text
-//
-//    if username == "" && attribute == "" && password == "" && passwordConfirmation == "" {
+//    self.presentDiscardInformationSignUpAlert {
 //      self.dismiss(animated: true) {
-//        self.presentDiscardInformationSignUpAlert()
+//        self.exitToSignInMenu(sender: nil)
 //      }
 //    }
+    self.exitToSignInMenu(sender: sender)
   }
   
   @IBAction func switchTwoFactorAuthenticationMedium(_ sender: Any) {
@@ -548,7 +590,7 @@ class SignUpTableViewController: UITableViewController {
       self.extraAttributeTextField.text = generateEmailAddress()
       
     case .phoneNumber:
-      self.extraAttributeTextField.text = "00447551787784"
+      self.extraAttributeTextField.text = "+447551787784"
     }
   }
   
@@ -568,18 +610,6 @@ class SignUpTableViewController: UITableViewController {
     let postfix = debugEmailAddressDateFormatter.string(from: Date())
     
     return "ersin+\(postfix)@any.academy"
-  }
-  
-  func rightToLeft() {
-    let lang = Locale.current.languageCode
-    if lang == "sa" {
-      self.usernameTextField.textAlignment = NSTextAlignment.right
-      self.extraAttributeTextField.textAlignment = NSTextAlignment.right
-      self.passwordTextField.textAlignment = NSTextAlignment.right
-      self.confirmPasswordTextField.textAlignment = NSTextAlignment.right
-      UIView.appearance().semanticContentAttribute = .forceRightToLeft
-      
-    }
   }
 }
 
@@ -604,5 +634,40 @@ extension SignUpTableViewController: UITextFieldDelegate {
     }
     
     return true
+  }
+  
+  func textField(_ textField: UITextField,
+                 shouldChangeCharactersIn range: NSRange,
+                 replacementString string: String) -> Bool {
+    if textField == self.extraAttributeTextField {
+      if !(string.count + range.location > 18) {
+        if range.length == 0 {
+          self.extraAttributeTextField.text = self.asYouTypePhoneNumberFormatter.inputDigit(string)
+        } else if range.length == 1 {
+          self.extraAttributeTextField.text = self.asYouTypePhoneNumberFormatter.removeLastDigit()
+        } else if range.length == self.extraAttributeTextField.text!.count {
+          self.asYouTypePhoneNumberFormatter.clear()
+          self.extraAttributeTextField.text = ""
+        }
+      }
+      
+      return false
+    }
+    
+    return true
+  }
+}
+
+extension SignUpTableViewController: ChangeAttributeHeaderFooterViewDelegate {
+  func changeAttributeHeaderFooterView(_ changeAttributeHeaderFooterView: ChangeAttributeHeaderFooterView, didSwitchAttributeType attributeType: ChangeAttributeHeaderFooterView.AttributeType) {
+    switch attributeType {
+    case .email:
+      self.currentMedium = .email
+      
+    case .phoneNumber:
+      self.currentMedium = .phoneNumber
+    }
+    
+    self.tableView.reloadData()
   }
 }

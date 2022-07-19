@@ -17,8 +17,12 @@
 		52588CB52863C33A008575B6 /* CreateNewPasswordTableViewController+AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52588CB42863C339008575B6 /* CreateNewPasswordTableViewController+AlertControllers.swift */; };
 		5276F21924B0E99A003D23B7 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21824B0E99A003D23B7 /* SignUpTableViewController.swift */; };
 		5276F21B24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276F21A24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift */; };
+		528DA34C2886164400F7CC82 /* UIAlertController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528DA34B2886164400F7CC82 /* UIAlertController+Convenience.swift */; };
+		52BF18202886307D0014D503 /* PhoneNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BF181F2886307D0014D503 /* PhoneNumberFormatter.swift */; };
 		52D14D4A2874CA2300243300 /* UserProfileTableViewAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D14D492874CA2200243300 /* UserProfileTableViewAlertController.swift */; };
 		52D14D4C2874FB4700243300 /* SignInViewAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D14D4B2874FB4600243300 /* SignInViewAlertController.swift */; };
+		52DF2D652885E36A00B0489E /* ChangeAttributeHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF2D642885E36A00B0489E /* ChangeAttributeHeaderFooterView.swift */; };
+		52DF2D672885E38200B0489E /* ChangeAttributeHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2D662885E38200B0489E /* ChangeAttributeHeaderFooterView.xib */; };
 		533D93390EEB9C459EF9B82F /* Pods_Quessly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0456106252918467CBD7F1 /* Pods_Quessly.framework */; };
 		8EC098AECFA2822FA5CEAEBC /* Pods_Quessly_QuesslyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E43265763194C85CCAE369 /* Pods_Quessly_QuesslyUITests.framework */; };
 		B1B5D79FBFDA5B2EE326FF9A /* Pods_QuesslyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8455A19DC72CFE3029E5E9B /* Pods_QuesslyTests.framework */; };
@@ -165,9 +169,13 @@
 		52588CB42863C339008575B6 /* CreateNewPasswordTableViewController+AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateNewPasswordTableViewController+AlertControllers.swift"; sourceTree = "<group>"; };
 		5276F21824B0E99A003D23B7 /* SignUpTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
 		5276F21A24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpTableViewController+AlertControllers.swift"; sourceTree = "<group>"; };
+		528DA34B2886164400F7CC82 /* UIAlertController+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Convenience.swift"; sourceTree = "<group>"; };
 		52B998252849736A00F0827A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		52BF181F2886307D0014D503 /* PhoneNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberFormatter.swift; sourceTree = "<group>"; };
 		52D14D492874CA2200243300 /* UserProfileTableViewAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableViewAlertController.swift; sourceTree = "<group>"; };
 		52D14D4B2874FB4600243300 /* SignInViewAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewAlertController.swift; sourceTree = "<group>"; };
+		52DF2D642885E36A00B0489E /* ChangeAttributeHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAttributeHeaderFooterView.swift; sourceTree = "<group>"; };
+		52DF2D662885E38200B0489E /* ChangeAttributeHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeAttributeHeaderFooterView.xib; sourceTree = "<group>"; };
 		73D1E1F4411CD9F6E32A6F7E /* Pods-Quessly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quessly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quessly/Pods-Quessly.debug.xcconfig"; sourceTree = "<group>"; };
 		7C0456106252918467CBD7F1 /* Pods_Quessly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quessly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB8070956F0C655CFB1095F /* Pods-QuesslyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuesslyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuesslyTests/Pods-QuesslyTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -347,8 +355,18 @@
 				5276F21824B0E99A003D23B7 /* SignUpTableViewController.swift */,
 				5276F21A24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift */,
 				5247BB50287E713700B679D1 /* SignUpNavigationController.swift */,
+				52DF2D642885E36A00B0489E /* ChangeAttributeHeaderFooterView.swift */,
+				52DF2D662885E38200B0489E /* ChangeAttributeHeaderFooterView.xib */,
 			);
 			path = "Sign up";
+			sourceTree = "<group>";
+		};
+		52BF181E2886305C0014D503 /* Telephony */ = {
+			isa = PBXGroup;
+			children = (
+				52BF181F2886307D0014D503 /* PhoneNumberFormatter.swift */,
+			);
+			path = Telephony;
 			sourceTree = "<group>";
 		};
 		AB6173B1B1C42C4BA1FE062E /* Pods */ = {
@@ -481,6 +499,7 @@
 				D57CEC9724877B7200BA3246 /* UICollectionView+reloadData(animated).swift */,
 				1293C3D6285808F5009D6AC6 /* UIApplication+keyWindow.swift */,
 				52588CB22863AC22008575B6 /* UIAlertController+ComponentBuilders.swift */,
+				528DA34B2886164400F7CC82 /* UIAlertController+Convenience.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -638,6 +657,7 @@
 		D5A7425C24569069001D83A5 /* Quessly */ = {
 			isa = PBXGroup;
 			children = (
+				52BF181E2886305C0014D503 /* Telephony */,
 				D5FAB1BA24A79D0700FDC88E /* Foundation */,
 				D543EECE2462F2B400034240 /* UIKit */,
 				D5A742992456AD4F001D83A5 /* Models */,
@@ -1089,6 +1109,7 @@
 				D5A7426A2456906B001D83A5 /* LaunchScreen.storyboard in Resources */,
 				D5AFB3CC25CE59EC00315150 /* README.md in Resources */,
 				D50A938124FD216D00F2716A /* Lato-ThinItalic.ttf in Resources */,
+				52DF2D672885E38200B0489E /* ChangeAttributeHeaderFooterView.xib in Resources */,
 				D50A937B24FD216D00F2716A /* Lato-Black.ttf in Resources */,
 				D5A742672456906B001D83A5 /* Assets.xcassets in Resources */,
 				D50A937824FD216D00F2716A /* Lato-LightItalic.ttf in Resources */,
@@ -1232,7 +1253,9 @@
 				D5FCEBF02462BCE9006E1124 /* SessionInformationTableViewController.swift in Sources */,
 				D54AD0DA245EBE4F005BB278 /* FormattedContentRenderer.swift in Sources */,
 				52D14D4A2874CA2300243300 /* UserProfileTableViewAlertController.swift in Sources */,
+				528DA34C2886164400F7CC82 /* UIAlertController+Convenience.swift in Sources */,
 				D5FCEBEA2462AAD6006E1124 /* SessionQuestionsOverviewNavigationBarTitleView.swift in Sources */,
+				52DF2D652885E36A00B0489E /* ChangeAttributeHeaderFooterView.swift in Sources */,
 				D5EDAED1246AE46500A971FC /* QuestionEditorViewController.swift in Sources */,
 				5247BB51287E713700B679D1 /* SignUpNavigationController.swift in Sources */,
 				D59B02202461824000DC2659 /* CategoryExplorerTableViewController.swift in Sources */,
@@ -1273,6 +1296,7 @@
 				D52FE11124EDCF5D0095DDF2 /* UserProfileTableViewControllerImageTableViewCell.swift in Sources */,
 				D5A7429B2456AD67001D83A5 /* UpcomingSession.swift in Sources */,
 				D5FAB1BC24A79D2800FDC88E /* LocalizedString.swift in Sources */,
+				52BF18202886307D0014D503 /* PhoneNumberFormatter.swift in Sources */,
 				D5ABD954248E53B100BCD0E1 /* ActivityAlertControllerPresentationController.swift in Sources */,
 				D59B02192461787B00DC2659 /* QuestionDetailTableViewController.swift in Sources */,
 				5276F21B24B0F56B003D23B7 /* SignUpTableViewController+AlertControllers.swift in Sources */,

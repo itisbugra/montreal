@@ -205,7 +205,6 @@ extension UserProfileTableViewController: UITableViewDelegate {
     
     else if indexPath.section == 4 && indexPath.row == 0 {
       self.presentSignOutAlert() { isSignOutConfirmed in
-        self.dismiss(animated: true) {
           self.presentLoadingAlert {
             self.dismiss(animated: true) {
               if isSignOutConfirmed {
@@ -217,27 +216,11 @@ extension UserProfileTableViewController: UITableViewDelegate {
                   case .failure(let error):
                     fatalError()
                   }
-                }
               }
             }
           }
         }
       }
-//      self.presentSignOutAlert() { isSignOutConfirmed in
-//        self.dismiss(animated: true) {
-//          if isSignOutConfirmed {
-//            self.signOut { result in
-//              switch result {
-//              case .success:
-//                self.presentSignInMenu(sender: nil)
-//
-//              case .failure(let error):
-//                fatalError(error.localizedDescription)
-//              }
-//            }
-//          }
-//        }
-//      }
     }
   }
   

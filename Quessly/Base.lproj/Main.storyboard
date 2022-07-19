@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="277-7U-MlX">
-                            <rect key="frame" x="0.0" y="519.5" width="414" height="200"/>
+                            <rect key="frame" x="0.0" y="395.5" width="414" height="200"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnc-gk-3R6">
@@ -148,47 +148,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="qQC-LT-JpU">
-                                        <rect key="frame" x="0.0" y="93.5" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qQC-LT-JpU" id="Ylc-Fe-2WH">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUZ-IV-a0H">
-                                                    <rect key="frame" x="20" y="11.5" width="99" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="kAa-YO-7qI"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textField opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="example" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kp1-xi-pr9" userLabel="Phone Number Text Field">
-                                                    <rect key="frame" x="127" y="2.5" width="267" height="34"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="WLV-jT-z1c"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="9E8-RJ-XdC" id="53M-2t-ETl"/>
-                                                    </connections>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="kp1-xi-pr9" firstAttribute="leading" secondItem="kUZ-IV-a0H" secondAttribute="trailing" constant="8" id="8Wp-Rq-ieU"/>
-                                                <constraint firstAttribute="trailing" secondItem="kp1-xi-pr9" secondAttribute="trailing" constant="20" id="9aH-Ne-ZPq"/>
-                                                <constraint firstItem="kp1-xi-pr9" firstAttribute="leading" secondItem="kUZ-IV-a0H" secondAttribute="trailing" constant="8" id="Hll-r1-gaV"/>
-                                                <constraint firstItem="kp1-xi-pr9" firstAttribute="firstBaseline" secondItem="kUZ-IV-a0H" secondAttribute="firstBaseline" id="K8d-ox-zoV"/>
-                                                <constraint firstItem="kUZ-IV-a0H" firstAttribute="leading" secondItem="Ylc-Fe-2WH" secondAttribute="leadingMargin" id="Xqi-zb-i3N"/>
-                                                <constraint firstItem="kUZ-IV-a0H" firstAttribute="centerY" secondItem="Ylc-Fe-2WH" secondAttribute="centerY" id="huK-Mu-19b"/>
-                                                <constraint firstItem="kp1-xi-pr9" firstAttribute="leading" secondItem="Ylc-Fe-2WH" secondAttribute="centerX" constant="-80" id="i4T-4H-4KE"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="QwE-eJ-kva">
-                                        <rect key="frame" x="0.0" y="137.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="93.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QwE-eJ-kva" id="beo-Dk-Tqr">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -230,7 +191,7 @@
                             <tableViewSection id="vFH-4d-ALm">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="jWg-oS-a5F" style="IBUITableViewCellStyleDefault" id="Nkq-f2-hFj">
-                                        <rect key="frame" x="0.0" y="217.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="173.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nkq-f2-hFj" id="f5K-Yc-XYP">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -251,7 +212,7 @@
                             <tableViewSection id="up4-3J-XdX">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="dSC-hp-A1q" style="IBUITableViewCellStyleDefault" id="nig-wG-Sed">
-                                        <rect key="frame" x="0.0" y="297.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="253.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nig-wG-Sed" id="HHq-iX-nkB">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -275,34 +236,13 @@
                             <tableViewSection id="OQv-7X-rRO">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="IWT-xe-4np" style="IBUITableViewCellStyleDefault" id="Oxl-bP-PcE">
-                                        <rect key="frame" x="0.0" y="377.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="333.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oxl-bP-PcE" id="r91-KZ-0SE">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Sign In With Google" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="IWT-xe-4np">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                                    <color key="textColor" systemColor="linkColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection id="Ssd-n1-MPw">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Woi-vU-QIV" style="IBUITableViewCellStyleDefault" id="JAx-UN-6MA">
-                                        <rect key="frame" x="0.0" y="457.5" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JAx-UN-6MA" id="EGW-xo-v0P">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Clear Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="Woi-vU-QIV">
                                                     <rect key="frame" x="20" y="0.0" width="374" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
@@ -332,7 +272,6 @@
                         <outlet property="eulaLabel" destination="hg5-ti-3wu" id="0bg-mg-SYI"/>
                         <outlet property="eulaLinkLabel" destination="qQN-EU-39J" id="fu7-hH-YBE"/>
                         <outlet property="passwordTextField" destination="26U-vw-NYz" id="itG-3i-ivr"/>
-                        <outlet property="phoneNumberTextField" destination="kp1-xi-pr9" id="fe7-xx-JWD"/>
                         <outlet property="resetPasswordLabel" destination="bnc-gk-3R6" id="Olh-D1-iDf"/>
                         <outlet property="resetPasswordTapGestureRecognizer" destination="z4k-KS-w0R" id="Kzc-yZ-qxR"/>
                         <outlet property="usernameTextField" destination="r7C-xu-pn9" id="4NL-am-rMk"/>
@@ -1741,7 +1680,7 @@ Using that code in the following step, you will be able to reset the password of
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="ozj-fd-c4l">
-                            <rect key="frame" x="0.0" y="243.5" width="414" height="200"/>
+                            <rect key="frame" x="0.0" y="212" width="414" height="200"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up to the platform, you accept end user license agreement and terms and conditions." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woy-8e-owi">
@@ -1789,10 +1728,10 @@ Using that code in the following step, you will be able to reset the password of
                             </constraints>
                         </view>
                         <sections>
-                            <tableViewSection headerTitle="Sign up" id="usD-GZ-k45">
+                            <tableViewSection id="usD-GZ-k45">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="310-xa-BNJ">
-                                        <rect key="frame" x="0.0" y="49.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="18" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="310-xa-BNJ" id="L5U-Rt-DoX">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -1826,7 +1765,7 @@ Using that code in the following step, you will be able to reset the password of
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="leF-nd-sPF">
-                                        <rect key="frame" x="0.0" y="93.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="62" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="leF-nd-sPF" id="GNG-ZP-HC7">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -1860,7 +1799,7 @@ Using that code in the following step, you will be able to reset the password of
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="dbM-tB-yLO">
-                                        <rect key="frame" x="0.0" y="137.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="106" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dbM-tB-yLO" id="K6G-Ob-rbV">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -1894,7 +1833,7 @@ Using that code in the following step, you will be able to reset the password of
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="euc-z0-Il4">
-                                        <rect key="frame" x="0.0" y="181.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="150" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="euc-z0-Il4" id="ew9-2O-kUb">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -1975,7 +1914,7 @@ Using that code in the following step, you will be able to reset the password of
                     </items>
                 </toolbar>
             </objects>
-            <point key="canvasLocation" x="-1" y="-554"/>
+            <point key="canvasLocation" x="-1.4492753623188408" y="-554.46428571428567"/>
         </scene>
         <!--Session Questions Overview Collection View Controller-->
         <scene sceneID="KSC-FV-Ypt">
@@ -2299,13 +2238,13 @@ Using that code in the following step, you will be able to reset the password of
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="rWc-wR-s64">
                                                     <rect key="frame" x="80" y="23.5" width="306" height="33.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="John Appleseed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYJ-sL-CkP">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Appleseed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYJ-sL-CkP">
                                                             <rect key="frame" x="0.0" y="0.0" width="97.5" height="16"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Desperate times call for desperate measures." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8S-ld-RFe">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desperate times call for desperate measures." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8S-ld-RFe">
                                                             <rect key="frame" x="0.0" y="20" width="238.5" height="13.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                             <color key="textColor" systemColor="secondaryLabelColor"/>

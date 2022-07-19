@@ -12,12 +12,10 @@ extension UserProfileTableViewController {
       UIAlertAction(title: NSLocalizedString("Sign Out", comment: ""), style: .destructive) { _ in
         completion?(true)
       },
-      UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { _ in
-        completion?(false)
-      }
+      UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel)
     ].forEach { alertController.addAction($0) }
     
-    self.present(alertController, animated: true, completion: nil)
+    self.present(alertController, animated: true)
   }
   
   func presentRememberDeviceAlert(completion: ((Bool) -> Void)? = nil) {
