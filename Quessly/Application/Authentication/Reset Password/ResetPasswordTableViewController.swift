@@ -4,16 +4,40 @@ import AmplifyPlugins
 import NSLogger
 
 class ResetPasswordTableViewController: UITableViewController {
-  @IBOutlet weak var usernameTextField: UITextField!
+//  @IBOutlet weak var usernameTextField: UITextField!
+  @IBOutlet weak var extraAttributeTextField: UITextField!
   
   private var code: String!
+  
+  enum ValidationError: Error {
+    case invalidEmail(email: String)
+  }
+  
+  lazy var emailPredicate: NSPredicate = {
+    let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    
+    return NSPredicate(format: "SELF MATCHES %@", regex)
+  }()
+  
+  
+  func validateField() throws {
+    
+    func validaEmail(email: String) -> Bool {
+      return emailPredicate.evaluate(with: email)
+    }
+    let extraAttribute = extraAttributeTextField.text!
+    
+    guard validaEmail(email: extraAttribute) else {
+      throw ValidationError.invalidEmail(email: extraAttribute)
+    }
+  }
   
   //  MARK: - View controller lifecycle
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
-    self.usernameTextField.becomeFirstResponder()
+    self.extraAttributeTextField.becomeFirstResponder()
   }
   
   //  MARK: - Table view delegate methods
@@ -27,7 +51,7 @@ class ResetPasswordTableViewController: UITableViewController {
       
       switch indexPath.row {
       case 0:
-        self.usernameTextField.becomeFirstResponder()
+        self.extraAttributeTextField.becomeFirstResponder()
         
       default:
         break
@@ -52,24 +76,37 @@ class ResetPasswordTableViewController: UITableViewController {
   //  MARK: - Actions
   
   private func performResetPassword() {
-    DispatchQueue.main.async {
-      let username = self.usernameTextField.text!
+//    DispatchQueue.main.async {
+//      let extraAttribute = self.extraAttributeTextField.text!
+//
+//      if extraAttribute.isEmpty {
+//        self.checkExtraAttribute {
+//          return
+//        }
+//      }
+//
+//      self.performResetPassword(username: extraAttribute)
+//    }
+    let extraAttribute = self.extraAttributeTextField.text!
+
+    do {
+      try self.validateField()
       
-      if username.isEmpty {
-        self.checkUsername {
-          return
-        }
-      }
-      
-      self.performResetPassword(username: username)
+    } catch ValidationError.invalidEmail(_) {
+      self.checkExtraAttribute(completion: nil)
+    } catch {
+      Logger.shared.log(.controller, .error, "Unexpected state for resetting password.")
     }
+    self.performResetPassword(extraAttribute: extraAttribute)
   }
   
-  private func performResetPassword(username: String) {
+  private func performResetPassword(extraAttribute: String) {
     self.presentSendingIndicatorAlert {
       Amplify.Auth
-        .resetPassword(for: username) { result in
+        .resetPassword(for: extraAttribute) { result in
           do {
+            try self.validateField()
+            
             let resetResult = try result.get()
             
             switch resetResult.nextStep {
@@ -111,7 +148,7 @@ class ResetPasswordTableViewController: UITableViewController {
     case "showCreatePassword":
       let destination = segue.destination as! CreateNewPasswordViewController
       
-      destination.username = self.usernameTextField.text!
+      destination.extraAttribute = self.extraAttributeTextField.text!
       destination.code = self.code
       
     default:

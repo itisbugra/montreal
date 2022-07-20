@@ -32,10 +32,22 @@ extension ResetPasswordTableViewController {
     }
   }
   
-  func checkUsername(completion: (() -> Void)?) {
+//  func checkUsername(completion: (() -> Void)?) {
+//    DispatchQueue.main.async {
+//      let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
+//                                              message: NSLocalizedString("Wrong username, please enter correct username.", comment: ""),
+//                                              preferredStyle: .alert)
+//
+//      [UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel)].forEach { alertController.addAction($0) }
+//
+//      self.present(alertController, animated: true, completion: completion)
+//    }
+//  }
+  
+  func checkExtraAttribute(completion: (() -> Void)?) {
     DispatchQueue.main.async {
       let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
-                                              message: NSLocalizedString("Wrong username, please enter correct username.", comment: ""),
+                                              message: NSLocalizedString("Wrong mail address, please enter correct mail address.", comment: ""),
                                               preferredStyle: .alert)
       
       [UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel)].forEach { alertController.addAction($0) }

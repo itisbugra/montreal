@@ -116,7 +116,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfm-ly-SFk">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-Mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfm-ly-SFk" userLabel="E-Mail">
                                                     <rect key="frame" x="20" y="11.5" width="99" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="moz-rE-RWT"/>
@@ -125,13 +125,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="example" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r7C-xu-pn9" userLabel="Username Text Field">
+                                                <textField opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="example@mail.com" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r7C-xu-pn9" userLabel="Username Text Field">
                                                     <rect key="frame" x="127" y="2.5" width="267" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="ve9-DJ-Aqt"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="username"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="9E8-RJ-XdC" id="t7M-wz-DEG"/>
                                                     </connections>
@@ -271,10 +271,10 @@
                         <outlet property="didPressSignInWithGoogle" destination="IWT-xe-4np" id="Ls2-Z8-036"/>
                         <outlet property="eulaLabel" destination="hg5-ti-3wu" id="0bg-mg-SYI"/>
                         <outlet property="eulaLinkLabel" destination="qQN-EU-39J" id="fu7-hH-YBE"/>
+                        <outlet property="extraAttributeTextField" destination="r7C-xu-pn9" id="jog-QV-XLg"/>
                         <outlet property="passwordTextField" destination="26U-vw-NYz" id="itG-3i-ivr"/>
                         <outlet property="resetPasswordLabel" destination="bnc-gk-3R6" id="Olh-D1-iDf"/>
                         <outlet property="resetPasswordTapGestureRecognizer" destination="z4k-KS-w0R" id="Kzc-yZ-qxR"/>
-                        <outlet property="usernameTextField" destination="r7C-xu-pn9" id="4NL-am-rMk"/>
                         <segue destination="rcR-a0-dMH" kind="show" identifier="showMainMenu" id="3EA-Ov-GEM"/>
                         <segue destination="z1O-4z-hMg" kind="show" identifier="showResetPassword" id="tb8-0X-DPM"/>
                     </connections>
@@ -326,7 +326,7 @@
             <objects>
                 <tableViewController title="Main menu" id="rcR-a0-dMH" customClass="MainMenuTableViewController" customModule="Quessly" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ErG-dJ-gOY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor"/>
@@ -719,7 +719,7 @@
             <objects>
                 <tableViewController id="TlZ-sh-U38" customClass="ContentStudioTableViewController" customModule="Quessly" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="i0A-mm-bwX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -764,7 +764,7 @@
             <objects>
                 <tableViewController id="yqh-3F-r26" customClass="QuestionMasterTableViewController" customModule="Quessly" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="0b7-YM-qJr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -932,7 +932,7 @@
             <objects>
                 <tableViewController id="qXW-AV-YBu" customClass="PseudoPushNotificationsTestTableViewController" customModule="Quessly" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="6Ku-Yd-Hrx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -1068,11 +1068,11 @@
             <objects>
                 <viewController id="sNF-I3-Jou" customClass="MathJaxSmokeTestViewController" customModule="Quessly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fWj-GB-9cJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9i-ae-0IE">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -1498,7 +1498,7 @@ Using that code in the following step, you will be able to reset the password of
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maF-Oy-8nk">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-Mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maF-Oy-8nk">
                                                     <rect key="frame" x="20" y="11.5" width="99" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="81H-Pb-6jK"/>
@@ -1507,7 +1507,7 @@ Using that code in the following step, you will be able to reset the password of
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="example" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tRZ-s2-WrN">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="example@mail.com" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tRZ-s2-WrN">
                                                     <rect key="frame" x="127" y="2.5" width="267" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="VpO-gN-W6o"/>
@@ -1562,7 +1562,7 @@ Using that code in the following step, you will be able to reset the password of
                         <barButtonItem key="rightBarButtonItem" title="Item" image="questionmark.circle" catalog="system" id="aYr-g5-0h3"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="usernameTextField" destination="tRZ-s2-WrN" id="5ep-e7-hGo"/>
+                        <outlet property="extraAttributeTextField" destination="tRZ-s2-WrN" id="Z2m-D7-EPX"/>
                         <segue destination="2h1-7H-bf3" kind="show" identifier="showCreatePassword" id="zXb-ol-zer"/>
                     </connections>
                 </tableViewController>
@@ -1680,7 +1680,7 @@ Using that code in the following step, you will be able to reset the password of
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="ozj-fd-c4l">
-                            <rect key="frame" x="0.0" y="212" width="414" height="200"/>
+                            <rect key="frame" x="0.0" y="168" width="414" height="200"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up to the platform, you accept end user license agreement and terms and conditions." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woy-8e-owi">
@@ -1730,42 +1730,8 @@ Using that code in the following step, you will be able to reset the password of
                         <sections>
                             <tableViewSection id="usD-GZ-k45">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="310-xa-BNJ">
-                                        <rect key="frame" x="0.0" y="18" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="310-xa-BNJ" id="L5U-Rt-DoX">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q3z-nm-fOx">
-                                                    <rect key="frame" x="178" y="13" width="216" height="17.5"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="CRX-VA-bWl" id="xsn-S8-JtM"/>
-                                                    </connections>
-                                                </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xKt-QZ-ZE6">
-                                                    <rect key="frame" x="20" y="14" width="150" height="16"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="150" id="Q3C-Dy-0jc"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Q3z-nm-fOx" firstAttribute="leading" secondItem="xKt-QZ-ZE6" secondAttribute="trailing" constant="8" id="7m4-1q-FxI"/>
-                                                <constraint firstItem="Q3z-nm-fOx" firstAttribute="firstBaseline" secondItem="xKt-QZ-ZE6" secondAttribute="firstBaseline" id="FAe-fp-Qxk"/>
-                                                <constraint firstItem="xKt-QZ-ZE6" firstAttribute="leading" secondItem="L5U-Rt-DoX" secondAttribute="leadingMargin" id="Pdp-xE-pn6"/>
-                                                <constraint firstItem="Q3z-nm-fOx" firstAttribute="trailing" secondItem="L5U-Rt-DoX" secondAttribute="trailingMargin" id="Y00-HZ-ciE"/>
-                                                <constraint firstItem="xKt-QZ-ZE6" firstAttribute="centerY" secondItem="L5U-Rt-DoX" secondAttribute="centerY" id="ybM-CP-GsA"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="leF-nd-sPF">
-                                        <rect key="frame" x="0.0" y="62" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="18" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="leF-nd-sPF" id="GNG-ZP-HC7">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -1799,7 +1765,7 @@ Using that code in the following step, you will be able to reset the password of
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="dbM-tB-yLO">
-                                        <rect key="frame" x="0.0" y="106" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="62" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dbM-tB-yLO" id="K6G-Ob-rbV">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -1833,7 +1799,7 @@ Using that code in the following step, you will be able to reset the password of
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="euc-z0-Il4">
-                                        <rect key="frame" x="0.0" y="150" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="106" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="euc-z0-Il4" id="ew9-2O-kUb">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -1893,7 +1859,6 @@ Using that code in the following step, you will be able to reset the password of
                         <outlet property="extraAttributeTextField" destination="yOh-WC-Cn0" id="6MK-sV-VbT"/>
                         <outlet property="keyboardAccessoryToolbar" destination="Tb8-cu-Pkc" id="HpM-4s-QO3"/>
                         <outlet property="passwordTextField" destination="Qsp-jF-cHT" id="hKR-F7-QCH"/>
-                        <outlet property="usernameTextField" destination="Q3z-nm-fOx" id="LtU-zu-Hyj"/>
                         <segue destination="rcR-a0-dMH" kind="show" identifier="showMainMenu" id="Ryw-Hs-rPz"/>
                         <segue destination="A9m-Tz-wRX" kind="unwind" identifier="exitToSignInWithSuccess" unwindAction="unwindToSignUpNavigationControllerWithSuccess:" id="MwM-O6-neK"/>
                         <segue destination="A9m-Tz-wRX" kind="unwind" identifier="exitToSignInWithoutAction" unwindAction="unwindToSignUpNavigationControllerWithoutAction:" id="oKY-53-3yz"/>
@@ -1921,7 +1886,7 @@ Using that code in the following step, you will be able to reset the password of
             <objects>
                 <collectionViewController id="f3P-sv-jwL" customClass="SessionQuestionsOverviewCollectionViewController" customModule="Quessly" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="p3i-2V-cks">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0fe-oU-FTA">
@@ -2125,7 +2090,7 @@ Using that code in the following step, you will be able to reset the password of
             <objects>
                 <tableViewController id="qh9-2U-RMP" customClass="CategoryExplorerTableViewController" customModule="Quessly" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="65T-V8-kos">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -2583,7 +2548,7 @@ Using that code in the following step, you will be able to reset the password of
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="MO8-00-M7U"/>
-        <segue reference="3EA-Ov-GEM"/>
+        <segue reference="Ryw-Hs-rPz"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bell.fill" catalog="system" width="128" height="124"/>

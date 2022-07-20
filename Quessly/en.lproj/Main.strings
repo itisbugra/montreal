@@ -145,8 +145,8 @@
 /* Class = "UILabel"; text = "Desperate times call for desperate measures."; ObjectID = "k8S-ld-RFe"; */
 "k8S-ld-RFe.text" = "Desperate times call for desperate measures.";
 
-/* Class = "UILabel"; text = "Username"; ObjectID = "kfm-ly-SFk"; */
-"kfm-ly-SFk.text" = "Username";
+/* Class = "UILabel"; text = "E-Mail"; ObjectID = "kfm-ly-SFk"; */
+"kfm-ly-SFk.text" = "E-Mail";
 
 /* Class = "UILabel"; text = "Session Start"; ObjectID = "KRO-a1-djX"; */
 "KRO-a1-djX.text" = "Session Start";
@@ -199,8 +199,8 @@
 /* Class = "UITextField"; placeholder = "••••••"; ObjectID = "Qsp-jF-cHT"; */
 "Qsp-jF-cHT.placeholder" = "••••••";
 
-/* Class = "UITextField"; placeholder = "example"; ObjectID = "r7C-xu-pn9"; */
-"r7C-xu-pn9.placeholder" = "example";
+/* Class = "UITextField"; placeholder = "example@mail.com"; ObjectID = "r7C-xu-pn9"; */
+"r7C-xu-pn9.placeholder" = "example@mail.com";
 
 /* Class = "UITableViewController"; title = "Main menu"; ObjectID = "rcR-a0-dMH"; */
 "rcR-a0-dMH.title" = "Main menu";
@@ -311,10 +311,10 @@
 "BXZ-5L-vWg.text" = "";
 
 /* Class = "UILabel"; text = "Send Password Reset Code"; ObjectID = "g1V-ZZ-fpc"; */
-"g1V-ZZ-fpc.text" = "";
+"g1V-ZZ-fpc.text" = "Send Password Reset Code";
 
 /* Class = "UILabel"; text = "E-mail"; ObjectID = "maF-Oy-8nk"; */
-"maF-Oy-8nk.text" = "";
+"maF-Oy-8nk.text" = "E-mail";
 
 /* Class = "UITextField"; placeholder = "••••••"; ObjectID = "R6m-kn-oUs"; */
 "R6m-kn-oUs.placeholder" = "";
@@ -323,7 +323,7 @@
 "Rbn-tq-ieo.text" = "";
 
 /* Class = "UITextField"; placeholder = "example@mail.com"; ObjectID = "tRZ-s2-WrN"; */
-"tRZ-s2-WrN.placeholder" = "";
+"tRZ-s2-WrN.placeholder" = "example@mail.com";
 
 /* Class = "UITextField"; placeholder = "example@mail.com"; ObjectID = "yOh-WC-Cn0"; */
 "yOh-WC-Cn0.placeholder" = "example@mail.com";

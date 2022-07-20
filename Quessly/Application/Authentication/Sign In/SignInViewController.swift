@@ -10,7 +10,8 @@ import libPhoneNumber_iOS
 import NSLogger
 
 class SignInViewController: UITableViewController {
-  @IBOutlet weak var usernameTextField: UITextField!
+  
+  @IBOutlet weak var extraAttributeTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var didPressSignInWithGoogle: UILabel!
   @IBOutlet var resetPasswordTapGestureRecognizer: UITapGestureRecognizer!
@@ -51,7 +52,7 @@ class SignInViewController: UITableViewController {
   
   
   private var textFields: [UITextField] {
-    return [usernameTextField, passwordTextField]
+    return [extraAttributeTextField, passwordTextField]
   }
   
   
@@ -90,7 +91,7 @@ class SignInViewController: UITableViewController {
     super.prepare(for: segue, sender: sender)
     
     if segue.identifier == "signInToMainMenu" && segue.identifier == "signInWithGoogle" {
-      usernameTextField.text = usernameTextField.text!
+      extraAttributeTextField.text = extraAttributeTextField.text!
       passwordTextField.text = passwordTextField.text!
     }
     
@@ -102,17 +103,17 @@ class SignInViewController: UITableViewController {
   }
   
   func signIn(completion: ((SignInResult) -> Void)? = nil) {
-    signIn(username: self.usernameTextField.text!,
+    signIn(extraAttribute: self.extraAttributeTextField.text!,
            password: self.passwordTextField.text!,
            completion: completion)
   }
   
-  func signIn(username: String, password: String, completion: ((SignInResult) -> Void)? = nil) {
-    let username = usernameTextField.text
+  func signIn(extraAttribute: String, password: String, completion: ((SignInResult) -> Void)? = nil) {
+    let extraAttribute = extraAttributeTextField.text
     let password = passwordTextField.text
     
     Amplify.Auth
-      .signIn(username: username,
+      .signIn(username: extraAttribute,
               password: password,
               options: nil) { result in
         DispatchQueue.main.async {
@@ -224,8 +225,8 @@ class SignInViewController: UITableViewController {
   //  MARK: - Debug capabilities
   
   func fillInputsWithDebugContent() {
-    self.usernameTextField.text = "ersin"
-    self.passwordTextField.text = "123!A987b."
+    self.extraAttributeTextField.text = "ersin@any.academy"
+    self.passwordTextField.text = "Ersin1997."
   }
 }
 

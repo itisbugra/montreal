@@ -26,7 +26,7 @@ class SignUpTableViewController: UITableViewController {
   enum SignUpError: Error {
     case delivery
     case network
-    case usernameExists
+//    case usernameExists
     case lambda
     case unknownChallenge
   }
@@ -44,7 +44,7 @@ class SignUpTableViewController: UITableViewController {
   @IBOutlet weak var extraAttributeTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var confirmPasswordTextField: UITextField!
-  @IBOutlet weak var usernameTextField: UITextField!
+//  @IBOutlet weak var usernameTextField: UITextField!
   @IBOutlet weak var extraAttributeLabel: UILabel!
   @IBOutlet weak var SignUpToQuessly: UINavigationItem!
   @IBOutlet weak var signUpWithPhoneNumberLabel: UILabel!
@@ -94,7 +94,7 @@ class SignUpTableViewController: UITableViewController {
   }()
   
   private var textFields: [UITextField] {
-    return [usernameTextField, extraAttributeTextField, passwordTextField, confirmPasswordTextField]
+    return [extraAttributeTextField, passwordTextField, confirmPasswordTextField]
   }
   
   private var hasMatchingPasswords: Bool {
@@ -115,7 +115,7 @@ class SignUpTableViewController: UITableViewController {
   }
   
   override func viewDidAppear(_ animated: Bool) {
-    self.usernameTextField.becomeFirstResponder()
+    self.extraAttributeTextField.becomeFirstResponder()
   }
   
   override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
@@ -170,8 +170,8 @@ class SignUpTableViewController: UITableViewController {
     tableView.deselectRow(at: indexPath, animated: true)
     
     switch (indexPath.section, indexPath.row) {
-    case (0, 0):
-      usernameTextField.becomeFirstResponder()
+//    case (0, 0):
+//      usernameTextField.becomeFirstResponder()
       
     case (0, 1):
       extraAttributeTextField.becomeFirstResponder()
@@ -231,14 +231,14 @@ class SignUpTableViewController: UITableViewController {
       return password == confirmingPassword
     }
     
-    let username = usernameTextField.text!
+//    let username = usernameTextField.text!
     let extraAttribute = extraAttributeTextField.text!
     let password = passwordTextField.text!
     let confirmingPassword = confirmPasswordTextField.text!
     
-    guard validateUsername(username: username) else {
-      throw ValidationError.invalidUsername(username: username)
-    }
+//    guard validateUsername(username: username) else {
+//      throw ValidationError.invalidUsername(username: username)
+//    }
     
     switch currentMedium {
     case .email:
@@ -284,15 +284,13 @@ class SignUpTableViewController: UITableViewController {
               }
               
             case .failure(error: .delivery):
-              //  TODO: Code delivery
-              break
+              self.presentNotDeliveryAlert()
               
-            case .failure(error: .usernameExists):
-              self.presentUsernameExistsAlert()
+//            case .failure(error: .usernameExists):
+//              self.presentUsernameExistsAlert()
               
             case .failure(error: .network):
-              //  TODO: Network error
-              break
+              self.presentNetworkConnectionAlert()
               
             case .failure(error: .unknownChallenge):
               //  TODO: Handle error
@@ -303,9 +301,11 @@ class SignUpTableViewController: UITableViewController {
           }
         }
       }
-    } catch ValidationError.invalidUsername(_) {
-      presentUsernameAlert(completion: nil)
-    } catch ValidationError.invalidEmail(_) {
+    }
+//    catch ValidationError.invalidUsername(_) {
+//      presentUsernameAlert(completion: nil)
+//    }
+    catch ValidationError.invalidEmail(_) {
       presentInvalidEmailAlert(completion: nil)
     } catch ValidationError.invalidPassword(_) {
       presentInvalidPasswordAlert(completion: nil)
@@ -349,15 +349,15 @@ class SignUpTableViewController: UITableViewController {
         }
         
       case .resend:
-        self.presentLoadingAlert {
-          self.resendCode() { _ in
-            self.dismiss(animated: true) {
-              self.performCompletion(for: challenge,
-                                     withTries: 3,
-                                     completion: completion)
+        self.presentSendingResendCodeAlert {
+            self.resendCode() { _ in
+              self.dismiss(animated: true) {
+                self.performCompletion(for: challenge,
+                                       withTries: 3,
+                                       completion: completion)
+              }
             }
           }
-        }
         
       case .cancel:
         self.dismiss(animated: true) {
@@ -372,7 +372,7 @@ class SignUpTableViewController: UITableViewController {
   /// Performs sign up with the data found in the user interface elements. As the callback, invokes given completion function.
   private func signUp(completion: ((SignUpResult) -> Void)? = nil) {
     guard
-      let username = self.usernameTextField.text,
+      let extraAttribute = self.extraAttributeTextField.text,
       let password = self.passwordTextField.text,
       var extraAttribute = self.extraAttributeTextField.text else
     {
@@ -383,7 +383,7 @@ class SignUpTableViewController: UITableViewController {
       extraAttribute = try! PhoneNumberFormatter().convert(string: extraAttribute, to: .e164)
     }
     
-    signUp(username: username,
+    signUp(username: extraAttribute,
            extraAttribute: extraAttribute,
            password: password,
            completion: completion)
@@ -441,8 +441,8 @@ class SignUpTableViewController: UITableViewController {
             case .network:
               completion?(.failure(error: .network))
               
-            case .usernameExists:
-              completion?(.failure(error: .usernameExists))
+//            case .usernameExists:
+//              completion?(.failure(error: .usernameExists))
               
             case .lambda:
               completion?(.failure(error: .lambda))
@@ -452,14 +452,13 @@ class SignUpTableViewController: UITableViewController {
             }
             
           default:
-            fatalError()
-          }
+            fatalError()}
         }
       }
   }
   /// Completes challenge with the given code with the username found in the user interface elements. As the callback, invokes given completion function.
   private func completeChallenge(code: String, completion: ((ChallengeResult) -> Void)? = nil) {
-    completeChallenge(username: self.usernameTextField.text!,
+    completeChallenge(username: self.extraAttributeTextField.text!,
                       code: code,
                       completion: completion)
   }
@@ -500,7 +499,7 @@ class SignUpTableViewController: UITableViewController {
   /// When the users enter the authentication code incorrectly, they can request the code again
   
   private func resendCode(completion: ((ChallengeResult) -> Void)? = nil) {
-    resendCode(username: self.usernameTextField.text!,
+    resendCode(username: self.extraAttributeTextField.text!,
                completion: completion)
   }
   
@@ -528,7 +527,7 @@ class SignUpTableViewController: UITableViewController {
   
   private func exitToSignInMenu(sender: Any?, withDirtyValuesCheck dirtyValuesChecked: Bool = true) {
     guard
-      let username = usernameTextField.text,
+//      let username = usernameTextField.text,
       let attribute = extraAttributeTextField.text,
       let password = passwordTextField.text,
       let passwordConfirmation = confirmPasswordTextField.text else {
@@ -536,7 +535,7 @@ class SignUpTableViewController: UITableViewController {
     }
     
     guard
-      (username == "" && attribute == "" && password == "" && passwordConfirmation == "") || !dirtyValuesChecked else {
+      (attribute == "" && password == "" && passwordConfirmation == "") || !dirtyValuesChecked else {
       self.presentDiscardInformationSignUpAlert() {
         self.exitToSignInMenu(sender: sender, withDirtyValuesCheck: false)
       }
@@ -555,11 +554,6 @@ class SignUpTableViewController: UITableViewController {
   
   
   @IBAction func cancel(_ sender: Any) {
-//    self.presentDiscardInformationSignUpAlert {
-//      self.dismiss(animated: true) {
-//        self.exitToSignInMenu(sender: nil)
-//      }
-//    }
     self.exitToSignInMenu(sender: sender)
   }
   
@@ -581,9 +575,9 @@ class SignUpTableViewController: UITableViewController {
   //  MARK: - Debug capabilities
   
   func fillInputsWithDebugContent() {
-    self.usernameTextField.text = generateUsername()
-    self.passwordTextField.text = "ersinANKARA123."
-    self.confirmPasswordTextField.text = "ersinANKARA123."
+//    self.usernameTextField.text = generateUsername()
+    self.passwordTextField.text = "Ersin1997."
+    self.confirmPasswordTextField.text = "Ersin1997."
     
     switch currentMedium {
     case .email:
@@ -616,8 +610,8 @@ class SignUpTableViewController: UITableViewController {
 extension SignUpTableViewController: UITextFieldDelegate {
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     switch textField {
-    case usernameTextField:
-      extraAttributeTextField.becomeFirstResponder()
+//    case usernameTextField:
+//      extraAttributeTextField.becomeFirstResponder()
       
     case extraAttributeTextField:
       passwordTextField.becomeFirstResponder()

@@ -84,6 +84,19 @@ extension SignUpTableViewController {
     )
   }
   
+  func presentSendingResendCodeAlert(completion: (() -> Void)?) {
+    self.present(
+      UIAlertController.loading(
+        title: NSLocalizedString("Sending code...",
+                                 comment: "Alert title shown when network event is occuring during sign up."),
+        
+        message: nil
+      ),
+      animated: true,
+      completion: completion
+    )
+  }
+  
   /// Warning displayed to prevent users from accidentally exiting the sign up screen
   func presentDiscardInformationSignUpAlert(completion: (() -> Void)? = nil) {
     let alertController = UIAlertController(title: nil,
@@ -104,13 +117,39 @@ extension SignUpTableViewController {
   func presentUsernameExistsAlert(completion: (() -> Void)? = nil) {
     let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
                                             message: NSLocalizedString("Username exists.",
-                                                                       comment: "Alert message shown when confirmation code is invalid during sign up."),
+                                                                       comment: "Alert message shown when username is invalid during sign up."),
                                             preferredStyle: .alert)
     
     [UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { _ in
       self.dismiss(animated: true, completion: completion)
     }].forEach { alertController.addAction($0) }
     
+    present(alertController, animated: true, completion: nil)
+  }
+  
+  /// Network connection was lost alert
+  func presentNetworkConnectionAlert(completion: (() -> Void)? = nil) {
+    let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
+                                            message: NSLocalizedString("Network connection was lost",
+                                                                       comment: "Alert message shown when lost your internet connection during sign up."),
+                                            preferredStyle: .alert)
+    [UIAlertAction(title: NSLocalizedString("OK", comment: ""),
+                   style: .default) { _ in
+      self.dismiss(animated: true, completion: completion)
+    }].forEach { alertController.addAction($0) }
+    present(alertController, animated: true, completion: nil)
+  }
+  
+  /// The confirmation code can not send to user
+  func presentNotDeliveryAlert(completion: (() -> Void)? = nil) {
+    let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
+                                            message: NSLocalizedString("Information can not send",
+                                                                       comment: "Alert message shown when information can not send during sign up."),
+                                            preferredStyle: .alert)
+    [UIAlertAction(title: NSLocalizedString("OK", comment: ""),
+                   style: .default) { _ in
+      self.dismiss(animated: true, completion: completion)
+    }].forEach { alertController.addAction($0) }
     present(alertController, animated: true, completion: nil)
   }
   

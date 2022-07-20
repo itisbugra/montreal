@@ -6,7 +6,7 @@ class CreateNewPasswordViewController : UITableViewController {
   @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var confirmPasswordTextField: UITextField!
   
-  var username: String!
+  var extraAttribute: String!
   var code: String!
   
   lazy var passwordPredicate: NSPredicate = {
@@ -54,7 +54,7 @@ class CreateNewPasswordViewController : UITableViewController {
         self.loading = true
         
         Amplify.Auth
-          .confirmResetPassword(for: self.username,
+          .confirmResetPassword(for: self.extraAttribute,
                                 with: self.passwordTextField.text!,
                                 confirmationCode: self.code) { result in
             switch result {
